@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "x/+g/ny5qQuq3octqJA+9ayXGtA6NKINeuW2bAO8dViJi72O+kEFTpcph14CwVsf/+1hCUnGaQSmPHuIwbaCQg==",
+  "success": true,
+  "projectFilePath": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anhkh\\.nuget\\packages\\dragablz\\0.0.3.234\\dragablz.0.0.3.234.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\ffmpeg.autogen\\4.4.1.1\\ffmpeg.autogen.4.4.1.1.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\flyleaflib\\3.5.10\\flyleaflib.3.5.10.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\flyleaflib.controls.wpf\\1.1.28\\flyleaflib.controls.wpf.1.1.28.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\sharpgen.runtime\\2.0.0-beta.11\\sharpgen.runtime.2.0.0-beta.11.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\sharpgen.runtime.com\\2.0.0-beta.11\\sharpgen.runtime.com.2.0.0-beta.11.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.d3dcompiler\\2.1.32\\vortice.d3dcompiler.2.1.32.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.direct3d11\\2.1.32\\vortice.direct3d11.2.1.32.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.directx\\2.1.32\\vortice.directx.2.1.32.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.dxgi\\2.1.32\\vortice.dxgi.2.1.32.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.mathematics\\1.4.18\\vortice.mathematics.1.4.18.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.mediafoundation\\2.1.32\\vortice.mediafoundation.2.1.32.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\vortice.xaudio2\\2.1.32\\vortice.xaudio2.2.1.32.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\wpfcolorfontdialog\\1.0.8\\wpfcolorfontdialog.1.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,995 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {
+      "Dragablz/0.0.3.234": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Dragablz.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Dragablz.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "FFmpeg.AutoGen/4.4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FlyleafLib/3.5.10": {
+        "type": "package",
+        "dependencies": {
+          "FFmpeg.AutoGen": "4.4.1.1",
+          "Vortice.D3DCompiler": "2.1.32",
+          "Vortice.Direct3D11": "2.1.32",
+          "Vortice.Mathematics": "1.4.18",
+          "Vortice.MediaFoundation": "2.1.32",
+          "Vortice.XAudio2": "2.1.32"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/FlyleafLib.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FlyleafLib.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "FlyleafLib.Controls.WPF/1.1.28": {
+        "type": "package",
+        "dependencies": {
+          "Dragablz": "0.0.3.234",
+          "FlyleafLib": "3.5.10",
+          "MaterialDesignThemes": "4.6.1",
+          "WpfColorFontDialog": "1.0.8"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/FlyleafLib.Controls.WPF.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FlyleafLib.Controls.WPF.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "MaterialDesignColors/2.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "MaterialDesignThemes/4.6.1": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "[2.0.9, 3.0.0)"
+        },
+        "compile": {
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "SharpGen.Runtime/2.0.0-beta.11": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/SharpGen.Runtime.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/SharpGen.Runtime.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "SharpGen.Runtime.COM/2.0.0-beta.11": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11"
+        },
+        "compile": {
+          "lib/net5.0/SharpGen.Runtime.COM.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/SharpGen.Runtime.COM.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "Vortice.D3DCompiler/2.1.32": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "compile": {
+          "lib/net6.0/Vortice.D3DCompiler.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.D3DCompiler.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "Vortice.Direct3D11/2.1.32": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DXGI": "2.1.32"
+        },
+        "compile": {
+          "lib/net6.0/Vortice.Direct3D11.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.Direct3D11.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "Vortice.DirectX/2.1.32": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "SharpGen.Runtime.COM": "2.0.0-beta.11",
+          "Vortice.Mathematics": "1.4.18"
+        },
+        "compile": {
+          "lib/net6.0/Vortice.DirectX.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.DirectX.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "Vortice.DXGI/2.1.32": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "compile": {
+          "lib/net6.0/Vortice.DXGI.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.DXGI.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "Vortice.Mathematics/1.4.18": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Vortice.Mathematics.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.Mathematics.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Vortice.MediaFoundation/2.1.32": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "compile": {
+          "lib/net6.0/Vortice.MediaFoundation.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.MediaFoundation.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "Vortice.XAudio2/2.1.32": {
+        "type": "package",
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "compile": {
+          "lib/net6.0/Vortice.XAudio2.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.XAudio2.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
+        }
+      },
+      "WpfColorFontDialog/1.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/WpfColorFontDialog.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/WpfColorFontDialog.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "Dragablz/0.0.3.234": {
+      "sha512": "soq8laPTrPWSA3vC3fnfU/gye2VejTbRXTuXzmVoHIySHWe5MhSIqR9KvFRmwk8xglsjVnnaa+su/10cFieuTw==",
+      "type": "package",
+      "path": "dragablz/0.0.3.234",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dragablz.0.0.3.234.nupkg.sha512",
+        "dragablz.nuspec",
+        "lib/net40/Dragablz.dll",
+        "lib/net40/Dragablz.pdb",
+        "lib/net40/Dragablz.xml",
+        "lib/net45/Dragablz.dll",
+        "lib/net45/Dragablz.pdb",
+        "lib/net45/Dragablz.xml",
+        "lib/netcoreapp3.0/Dragablz.dll",
+        "lib/netcoreapp3.0/Dragablz.pdb",
+        "lib/netcoreapp3.0/Dragablz.xml",
+        "src/net40/CanvasOrganiser.cs",
+        "src/net40/ContainerCustomisations.cs",
+        "src/net40/Converters/BooleanAndToVisibilityConverter.cs",
+        "src/net40/Converters/EqualityToBooleanConverter.cs",
+        "src/net40/Converters/EqualityToVisibilityConverter.cs",
+        "src/net40/Converters/ShowDefaultCloseButtonConverter.cs",
+        "src/net40/Core/CollectionTeaser.cs",
+        "src/net40/Core/Extensions.cs",
+        "src/net40/Core/FuncComparer.cs",
+        "src/net40/Core/HitTest.cs",
+        "src/net40/Core/InterTabTransfer.cs",
+        "src/net40/Core/MultiComparer.cs",
+        "src/net40/Core/Native.cs",
+        "src/net40/Core/SystemCommand.cs",
+        "src/net40/Core/TabHeaderDragStartInformation.cs",
+        "src/net40/Core/WindowMessage.cs",
+        "src/net40/DefaultInterLayoutClient.cs",
+        "src/net40/DefaultInterTabClient.cs",
+        "src/net40/Dockablz/Branch.cs",
+        "src/net40/Dockablz/BranchAccessor.cs",
+        "src/net40/Dockablz/BranchItem.cs",
+        "src/net40/Dockablz/BranchResult.cs",
+        "src/net40/Dockablz/CouldBeHeaderedStyleSelector.cs",
+        "src/net40/Dockablz/DropZone.cs",
+        "src/net40/Dockablz/DropZoneLocation.cs",
+        "src/net40/Dockablz/Extensions.cs",
+        "src/net40/Dockablz/Finder.cs",
+        "src/net40/Dockablz/FloatRequestedEvent.cs",
+        "src/net40/Dockablz/FloatTransfer.cs",
+        "src/net40/Dockablz/FloatingItemSnapShot.cs",
+        "src/net40/Dockablz/Layout.cs",
+        "src/net40/Dockablz/LayoutAccessor.cs",
+        "src/net40/Dockablz/LocationReport.cs",
+        "src/net40/Dockablz/LocationReportBuilder.cs",
+        "src/net40/Dockablz/LocationReportException.cs",
+        "src/net40/Dockablz/LocationSnapShot.cs",
+        "src/net40/Dockablz/Tiler.cs",
+        "src/net40/Dockablz/TilerCalculator.cs",
+        "src/net40/DragablzColors.cs",
+        "src/net40/DragablzDragCompletedEventArgs.cs",
+        "src/net40/DragablzDragDeltaEventArgs.cs",
+        "src/net40/DragablzDragStartedEventArgs.cs",
+        "src/net40/DragablzIcon.cs",
+        "src/net40/DragablzItem.cs",
+        "src/net40/DragablzItemEventArgs.cs",
+        "src/net40/DragablzItemsControl.cs",
+        "src/net40/DragablzWindow.cs",
+        "src/net40/EmptyHeaderSizingHint.cs",
+        "src/net40/HeaderedDragablzItem.cs",
+        "src/net40/HeaderedItemViewModel.cs",
+        "src/net40/HorizontalOrganiser.cs",
+        "src/net40/HorizontalPositionMonitor.cs",
+        "src/net40/IInterLayoutClient.cs",
+        "src/net40/IInterTabClient.cs",
+        "src/net40/IItemsOrganiser.cs",
+        "src/net40/IManualInterTabClient.cs",
+        "src/net40/INewTabHost.cs",
+        "src/net40/InterTabController.cs",
+        "src/net40/ItemActionCallbackArgs.cs",
+        "src/net40/LocationChangedEventArgs.cs",
+        "src/net40/LocationHint.cs",
+        "src/net40/MoveItemRequest.cs",
+        "src/net40/NewTabHost.cs",
+        "src/net40/OrderChangedEventArgs.cs",
+        "src/net40/PositionMonitor.cs",
+        "src/net40/Properties/AssemblyInfo.cs",
+        "src/net40/Properties/Resources.Designer.cs",
+        "src/net40/Properties/Settings.Designer.cs",
+        "src/net40/Referenceless/AnonymousDisposable.cs",
+        "src/net40/Referenceless/DefaultDisposable.cs",
+        "src/net40/Referenceless/Disposable.cs",
+        "src/net40/Referenceless/ICancelable.cs",
+        "src/net40/Referenceless/SerialDisposable.cs",
+        "src/net40/StackOrganiser.cs",
+        "src/net40/StackPositionMonitor.cs",
+        "src/net40/StoryboardCompletionListener.cs",
+        "src/net40/TabEmptiedResponse.cs",
+        "src/net40/TabablzControl.cs",
+        "src/net40/TabablzHeaderSizeConverter.cs",
+        "src/net40/TabablzItemStyleSelector.cs",
+        "src/net40/Themes/BrushToRadialGradientBrushConverter.cs",
+        "src/net40/Themes/MaterialDesignAssist.cs",
+        "src/net40/Themes/Ripple.cs",
+        "src/net40/Themes/RippleAssist.cs",
+        "src/net40/Themes/SystemCommandIcon.cs",
+        "src/net40/Trapezoid.cs",
+        "src/net40/VerticalOrganiser.cs",
+        "src/net40/VerticalPositionMonitor.cs",
+        "src/net40/obj/Release/net40/.NETFramework,Version=v4.0.AssemblyAttributes.cs",
+        "src/net40/obj/Release/net40/GeneratedInternalTypeHelper.g.cs",
+        "src/net40/obj/Release/net45/.NETFramework,Version=v4.5.AssemblyAttributes.cs",
+        "src/net40/obj/Release/net45/GeneratedInternalTypeHelper.g.cs",
+        "src/net40/obj/Release/net5.0-windows/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs",
+        "src/net40/obj/Release/net5.0-windows/GeneratedInternalTypeHelper.g.cs",
+        "src/net40/obj/Release/netcoreapp3.0/.NETCoreApp,Version=v3.0.AssemblyAttributes.cs",
+        "src/net40/obj/Release/netcoreapp3.0/GeneratedInternalTypeHelper.g.cs",
+        "src/net45/CanvasOrganiser.cs",
+        "src/net45/ContainerCustomisations.cs",
+        "src/net45/Converters/BooleanAndToVisibilityConverter.cs",
+        "src/net45/Converters/EqualityToBooleanConverter.cs",
+        "src/net45/Converters/EqualityToVisibilityConverter.cs",
+        "src/net45/Converters/ShowDefaultCloseButtonConverter.cs",
+        "src/net45/Core/CollectionTeaser.cs",
+        "src/net45/Core/Extensions.cs",
+        "src/net45/Core/FuncComparer.cs",
+        "src/net45/Core/HitTest.cs",
+        "src/net45/Core/InterTabTransfer.cs",
+        "src/net45/Core/MultiComparer.cs",
+        "src/net45/Core/Native.cs",
+        "src/net45/Core/SystemCommand.cs",
+        "src/net45/Core/TabHeaderDragStartInformation.cs",
+        "src/net45/Core/WindowMessage.cs",
+        "src/net45/DefaultInterLayoutClient.cs",
+        "src/net45/DefaultInterTabClient.cs",
+        "src/net45/Dockablz/Branch.cs",
+        "src/net45/Dockablz/BranchAccessor.cs",
+        "src/net45/Dockablz/BranchItem.cs",
+        "src/net45/Dockablz/BranchResult.cs",
+        "src/net45/Dockablz/CouldBeHeaderedStyleSelector.cs",
+        "src/net45/Dockablz/DropZone.cs",
+        "src/net45/Dockablz/DropZoneLocation.cs",
+        "src/net45/Dockablz/Extensions.cs",
+        "src/net45/Dockablz/Finder.cs",
+        "src/net45/Dockablz/FloatRequestedEvent.cs",
+        "src/net45/Dockablz/FloatTransfer.cs",
+        "src/net45/Dockablz/FloatingItemSnapShot.cs",
+        "src/net45/Dockablz/Layout.cs",
+        "src/net45/Dockablz/LayoutAccessor.cs",
+        "src/net45/Dockablz/LocationReport.cs",
+        "src/net45/Dockablz/LocationReportBuilder.cs",
+        "src/net45/Dockablz/LocationReportException.cs",
+        "src/net45/Dockablz/LocationSnapShot.cs",
+        "src/net45/Dockablz/Tiler.cs",
+        "src/net45/Dockablz/TilerCalculator.cs",
+        "src/net45/DragablzColors.cs",
+        "src/net45/DragablzDragCompletedEventArgs.cs",
+        "src/net45/DragablzDragDeltaEventArgs.cs",
+        "src/net45/DragablzDragStartedEventArgs.cs",
+        "src/net45/DragablzIcon.cs",
+        "src/net45/DragablzItem.cs",
+        "src/net45/DragablzItemEventArgs.cs",
+        "src/net45/DragablzItemsControl.cs",
+        "src/net45/DragablzWindow.cs",
+        "src/net45/EmptyHeaderSizingHint.cs",
+        "src/net45/HeaderedDragablzItem.cs",
+        "src/net45/HeaderedItemViewModel.cs",
+        "src/net45/HorizontalOrganiser.cs",
+        "src/net45/HorizontalPositionMonitor.cs",
+        "src/net45/IInterLayoutClient.cs",
+        "src/net45/IInterTabClient.cs",
+        "src/net45/IItemsOrganiser.cs",
+        "src/net45/IManualInterTabClient.cs",
+        "src/net45/INewTabHost.cs",
+        "src/net45/InterTabController.cs",
+        "src/net45/ItemActionCallbackArgs.cs",
+        "src/net45/LocationChangedEventArgs.cs",
+        "src/net45/LocationHint.cs",
+        "src/net45/MoveItemRequest.cs",
+        "src/net45/NewTabHost.cs",
+        "src/net45/OrderChangedEventArgs.cs",
+        "src/net45/PositionMonitor.cs",
+        "src/net45/Properties/AssemblyInfo.cs",
+        "src/net45/Properties/Resources.Designer.cs",
+        "src/net45/Properties/Settings.Designer.cs",
+        "src/net45/Referenceless/AnonymousDisposable.cs",
+        "src/net45/Referenceless/DefaultDisposable.cs",
+        "src/net45/Referenceless/Disposable.cs",
+        "src/net45/Referenceless/ICancelable.cs",
+        "src/net45/Referenceless/SerialDisposable.cs",
+        "src/net45/StackOrganiser.cs",
+        "src/net45/StackPositionMonitor.cs",
+        "src/net45/StoryboardCompletionListener.cs",
+        "src/net45/TabEmptiedResponse.cs",
+        "src/net45/TabablzControl.cs",
+        "src/net45/TabablzHeaderSizeConverter.cs",
+        "src/net45/TabablzItemStyleSelector.cs",
+        "src/net45/Themes/BrushToRadialGradientBrushConverter.cs",
+        "src/net45/Themes/MaterialDesignAssist.cs",
+        "src/net45/Themes/Ripple.cs",
+        "src/net45/Themes/RippleAssist.cs",
+        "src/net45/Themes/SystemCommandIcon.cs",
+        "src/net45/Trapezoid.cs",
+        "src/net45/VerticalOrganiser.cs",
+        "src/net45/VerticalPositionMonitor.cs",
+        "src/net45/obj/Release/net40/.NETFramework,Version=v4.0.AssemblyAttributes.cs",
+        "src/net45/obj/Release/net40/GeneratedInternalTypeHelper.g.cs",
+        "src/net45/obj/Release/net45/.NETFramework,Version=v4.5.AssemblyAttributes.cs",
+        "src/net45/obj/Release/net45/GeneratedInternalTypeHelper.g.cs",
+        "src/net45/obj/Release/net5.0-windows/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs",
+        "src/net45/obj/Release/net5.0-windows/GeneratedInternalTypeHelper.g.cs",
+        "src/net45/obj/Release/netcoreapp3.0/.NETCoreApp,Version=v3.0.AssemblyAttributes.cs",
+        "src/net45/obj/Release/netcoreapp3.0/GeneratedInternalTypeHelper.g.cs",
+        "src/netcoreapp3.0/CanvasOrganiser.cs",
+        "src/netcoreapp3.0/ContainerCustomisations.cs",
+        "src/netcoreapp3.0/Converters/BooleanAndToVisibilityConverter.cs",
+        "src/netcoreapp3.0/Converters/EqualityToBooleanConverter.cs",
+        "src/netcoreapp3.0/Converters/EqualityToVisibilityConverter.cs",
+        "src/netcoreapp3.0/Converters/ShowDefaultCloseButtonConverter.cs",
+        "src/netcoreapp3.0/Core/CollectionTeaser.cs",
+        "src/netcoreapp3.0/Core/Extensions.cs",
+        "src/netcoreapp3.0/Core/FuncComparer.cs",
+        "src/netcoreapp3.0/Core/HitTest.cs",
+        "src/netcoreapp3.0/Core/InterTabTransfer.cs",
+        "src/netcoreapp3.0/Core/MultiComparer.cs",
+        "src/netcoreapp3.0/Core/Native.cs",
+        "src/netcoreapp3.0/Core/SystemCommand.cs",
+        "src/netcoreapp3.0/Core/TabHeaderDragStartInformation.cs",
+        "src/netcoreapp3.0/Core/WindowMessage.cs",
+        "src/netcoreapp3.0/DefaultInterLayoutClient.cs",
+        "src/netcoreapp3.0/DefaultInterTabClient.cs",
+        "src/netcoreapp3.0/Dockablz/Branch.cs",
+        "src/netcoreapp3.0/Dockablz/BranchAccessor.cs",
+        "src/netcoreapp3.0/Dockablz/BranchItem.cs",
+        "src/netcoreapp3.0/Dockablz/BranchResult.cs",
+        "src/netcoreapp3.0/Dockablz/CouldBeHeaderedStyleSelector.cs",
+        "src/netcoreapp3.0/Dockablz/DropZone.cs",
+        "src/netcoreapp3.0/Dockablz/DropZoneLocation.cs",
+        "src/netcoreapp3.0/Dockablz/Extensions.cs",
+        "src/netcoreapp3.0/Dockablz/Finder.cs",
+        "src/netcoreapp3.0/Dockablz/FloatRequestedEvent.cs",
+        "src/netcoreapp3.0/Dockablz/FloatTransfer.cs",
+        "src/netcoreapp3.0/Dockablz/FloatingItemSnapShot.cs",
+        "src/netcoreapp3.0/Dockablz/Layout.cs",
+        "src/netcoreapp3.0/Dockablz/LayoutAccessor.cs",
+        "src/netcoreapp3.0/Dockablz/LocationReport.cs",
+        "src/netcoreapp3.0/Dockablz/LocationReportBuilder.cs",
+        "src/netcoreapp3.0/Dockablz/LocationReportException.cs",
+        "src/netcoreapp3.0/Dockablz/LocationSnapShot.cs",
+        "src/netcoreapp3.0/Dockablz/Tiler.cs",
+        "src/netcoreapp3.0/Dockablz/TilerCalculator.cs",
+        "src/netcoreapp3.0/DragablzColors.cs",
+        "src/netcoreapp3.0/DragablzDragCompletedEventArgs.cs",
+        "src/netcoreapp3.0/DragablzDragDeltaEventArgs.cs",
+        "src/netcoreapp3.0/DragablzDragStartedEventArgs.cs",
+        "src/netcoreapp3.0/DragablzIcon.cs",
+        "src/netcoreapp3.0/DragablzItem.cs",
+        "src/netcoreapp3.0/DragablzItemEventArgs.cs",
+        "src/netcoreapp3.0/DragablzItemsControl.cs",
+        "src/netcoreapp3.0/DragablzWindow.cs",
+        "src/netcoreapp3.0/EmptyHeaderSizingHint.cs",
+        "src/netcoreapp3.0/HeaderedDragablzItem.cs",
+        "src/netcoreapp3.0/HeaderedItemViewModel.cs",
+        "src/netcoreapp3.0/HorizontalOrganiser.cs",
+        "src/netcoreapp3.0/HorizontalPositionMonitor.cs",
+        "src/netcoreapp3.0/IInterLayoutClient.cs",
+        "src/netcoreapp3.0/IInterTabClient.cs",
+        "src/netcoreapp3.0/IItemsOrganiser.cs",
+        "src/netcoreapp3.0/IManualInterTabClient.cs",
+        "src/netcoreapp3.0/INewTabHost.cs",
+        "src/netcoreapp3.0/InterTabController.cs",
+        "src/netcoreapp3.0/ItemActionCallbackArgs.cs",
+        "src/netcoreapp3.0/LocationChangedEventArgs.cs",
+        "src/netcoreapp3.0/LocationHint.cs",
+        "src/netcoreapp3.0/MoveItemRequest.cs",
+        "src/netcoreapp3.0/NewTabHost.cs",
+        "src/netcoreapp3.0/OrderChangedEventArgs.cs",
+        "src/netcoreapp3.0/PositionMonitor.cs",
+        "src/netcoreapp3.0/Properties/AssemblyInfo.cs",
+        "src/netcoreapp3.0/Properties/Resources.Designer.cs",
+        "src/netcoreapp3.0/Properties/Settings.Designer.cs",
+        "src/netcoreapp3.0/Referenceless/AnonymousDisposable.cs",
+        "src/netcoreapp3.0/Referenceless/DefaultDisposable.cs",
+        "src/netcoreapp3.0/Referenceless/Disposable.cs",
+        "src/netcoreapp3.0/Referenceless/ICancelable.cs",
+        "src/netcoreapp3.0/Referenceless/SerialDisposable.cs",
+        "src/netcoreapp3.0/StackOrganiser.cs",
+        "src/netcoreapp3.0/StackPositionMonitor.cs",
+        "src/netcoreapp3.0/StoryboardCompletionListener.cs",
+        "src/netcoreapp3.0/TabEmptiedResponse.cs",
+        "src/netcoreapp3.0/TabablzControl.cs",
+        "src/netcoreapp3.0/TabablzHeaderSizeConverter.cs",
+        "src/netcoreapp3.0/TabablzItemStyleSelector.cs",
+        "src/netcoreapp3.0/Themes/BrushToRadialGradientBrushConverter.cs",
+        "src/netcoreapp3.0/Themes/MaterialDesignAssist.cs",
+        "src/netcoreapp3.0/Themes/Ripple.cs",
+        "src/netcoreapp3.0/Themes/RippleAssist.cs",
+        "src/netcoreapp3.0/Themes/SystemCommandIcon.cs",
+        "src/netcoreapp3.0/Trapezoid.cs",
+        "src/netcoreapp3.0/VerticalOrganiser.cs",
+        "src/netcoreapp3.0/VerticalPositionMonitor.cs",
+        "src/netcoreapp3.0/obj/Release/net40/.NETFramework,Version=v4.0.AssemblyAttributes.cs",
+        "src/netcoreapp3.0/obj/Release/net40/GeneratedInternalTypeHelper.g.cs",
+        "src/netcoreapp3.0/obj/Release/net45/.NETFramework,Version=v4.5.AssemblyAttributes.cs",
+        "src/netcoreapp3.0/obj/Release/net45/GeneratedInternalTypeHelper.g.cs",
+        "src/netcoreapp3.0/obj/Release/net5.0-windows/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs",
+        "src/netcoreapp3.0/obj/Release/net5.0-windows/GeneratedInternalTypeHelper.g.cs",
+        "src/netcoreapp3.0/obj/Release/netcoreapp3.0/.NETCoreApp,Version=v3.0.AssemblyAttributes.cs",
+        "src/netcoreapp3.0/obj/Release/netcoreapp3.0/GeneratedInternalTypeHelper.g.cs"
+      ]
+    },
+    "FFmpeg.AutoGen/4.4.1.1": {
+      "sha512": "UclXDnnMij9eNYUTrBO0y591ZTJLqjXNnNkNgahQa2ZUaAhn4gkDSfT9BszicCoyX1CZpDI5o8d8lkgmMlNU+Q==",
+      "type": "package",
+      "path": "ffmpeg.autogen/4.4.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "ffmpeg.autogen.4.4.1.1.nupkg.sha512",
+        "ffmpeg.autogen.nuspec",
+        "lib/net40/FFmpeg.AutoGen.dll",
+        "lib/net40/FFmpeg.AutoGen.xml",
+        "lib/net45/FFmpeg.AutoGen.dll",
+        "lib/net45/FFmpeg.AutoGen.xml",
+        "lib/net472/FFmpeg.AutoGen.dll",
+        "lib/net472/FFmpeg.AutoGen.xml",
+        "lib/netstandard2.0/FFmpeg.AutoGen.dll",
+        "lib/netstandard2.0/FFmpeg.AutoGen.xml",
+        "lib/netstandard2.1/FFmpeg.AutoGen.dll",
+        "lib/netstandard2.1/FFmpeg.AutoGen.xml"
+      ]
+    },
+    "FlyleafLib/3.5.10": {
+      "sha512": "VNXb/fH9SP1IPKxtto0p1xqFfluVlpsZ22EXd49+5fu8LeSJn6Xc65dOPNuYezU6mXjs3ntWSMjgvymtL67IPg==",
+      "type": "package",
+      "path": "flyleaflib/3.5.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Flyleaf.png",
+        "flyleaflib.3.5.10.nupkg.sha512",
+        "flyleaflib.nuspec",
+        "lib/net472/FlyleafLib.dll",
+        "lib/net472/FlyleafLib.xml",
+        "lib/net5.0-windows7.0/FlyleafLib.dll",
+        "lib/net5.0-windows7.0/FlyleafLib.xml",
+        "lib/net6.0-windows7.0/FlyleafLib.dll",
+        "lib/net6.0-windows7.0/FlyleafLib.xml"
+      ]
+    },
+    "FlyleafLib.Controls.WPF/1.1.28": {
+      "sha512": "g46Ci61HXtqlBxJrdg5uphS+vxuS1cMV5LJLeSuA5470wNRbguxCzijZUakQWdekbRKm3V30d3t2fblvI8/1hQ==",
+      "type": "package",
+      "path": "flyleaflib.controls.wpf/1.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Flyleaf.png",
+        "flyleaflib.controls.wpf.1.1.28.nupkg.sha512",
+        "flyleaflib.controls.wpf.nuspec",
+        "lib/net472/FlyleafLib.Controls.WPF.dll",
+        "lib/net5.0-windows7.0/FlyleafLib.Controls.WPF.dll",
+        "lib/net6.0-windows7.0/FlyleafLib.Controls.WPF.dll"
+      ]
+    },
+    "MaterialDesignColors/2.0.9": {
+      "sha512": "b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
+      "type": "package",
+      "path": "materialdesigncolors/2.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/MaterialDesignColors.Icon.png",
+        "lib/net462/MaterialDesignColors.dll",
+        "lib/net462/MaterialDesignColors.pdb",
+        "lib/net6.0/MaterialDesignColors.dll",
+        "lib/net6.0/MaterialDesignColors.pdb",
+        "lib/netcoreapp3.1/MaterialDesignColors.dll",
+        "lib/netcoreapp3.1/MaterialDesignColors.pdb",
+        "materialdesigncolors.2.0.9.nupkg.sha512",
+        "materialdesigncolors.nuspec"
+      ]
+    },
+    "MaterialDesignThemes/4.6.1": {
+      "sha512": "Yx3RxIqkwoe1rYxoUZ2iH1YdCly+dA8YAQJ5uknsUVhyVd1rgiXEn6fmtsovGaqKRZwUXGHnh4w7kRagxa8TCg==",
+      "type": "package",
+      "path": "materialdesignthemes/4.6.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MaterialDesignThemes.targets",
+        "build/Resources/Roboto/Roboto-Black.ttf",
+        "build/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "build/Resources/Roboto/Roboto-Bold.ttf",
+        "build/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "build/Resources/Roboto/Roboto-Italic.ttf",
+        "build/Resources/Roboto/Roboto-Light.ttf",
+        "build/Resources/Roboto/Roboto-LightItalic.ttf",
+        "build/Resources/Roboto/Roboto-Medium.ttf",
+        "build/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "build/Resources/Roboto/Roboto-Regular.ttf",
+        "build/Resources/Roboto/Roboto-Thin.ttf",
+        "build/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "build/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "images/MaterialDesignThemes.Icon.png",
+        "lib/net462/MaterialDesignThemes.Wpf.dll",
+        "lib/net462/MaterialDesignThemes.Wpf.pdb",
+        "lib/net462/MaterialDesignThemes.Wpf.xml",
+        "lib/net6.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net6.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net6.0/MaterialDesignThemes.Wpf.xml",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.pdb",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.4.6.1.nupkg.sha512",
+        "materialdesignthemes.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "SharpGen.Runtime/2.0.0-beta.11": {
+      "sha512": "spTKX7k60Z/eIcRmFU2AvAOk5i17z7H1N7LkYBYKfY7BfkjzegAoG/mpGWKfjiokWuojmIWronGUMwnBcnF2pw==",
+      "type": "package",
+      "path": "sharpgen.runtime/2.0.0-beta.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Mapping.xml",
+        "build/SharpGen.Runtime.props",
+        "buildMultiTargeting/SharpGen.Runtime.props",
+        "lib/net45/SharpGen.Runtime.dll",
+        "lib/net46/SharpGen.Runtime.dll",
+        "lib/net471/SharpGen.Runtime.dll",
+        "lib/net5.0/SharpGen.Runtime.dll",
+        "lib/netcoreapp2.1/SharpGen.Runtime.dll",
+        "lib/netcoreapp3.0/SharpGen.Runtime.dll",
+        "lib/netstandard1.3/SharpGen.Runtime.dll",
+        "lib/netstandard2.0/SharpGen.Runtime.dll",
+        "lib/netstandard2.1/SharpGen.Runtime.dll",
+        "sharpgen.runtime.2.0.0-beta.11.nupkg.sha512",
+        "sharpgen.runtime.nuspec"
+      ]
+    },
+    "SharpGen.Runtime.COM/2.0.0-beta.11": {
+      "sha512": "/GgjdiSDdmEhgfjXAFnIrah9xk9FJjOGlFHjBUz7Nt0F3Fi9HFuAhGexm0ScU/goKiMfKrvOOryXIhDCn7veMg==",
+      "type": "package",
+      "path": "sharpgen.runtime.com/2.0.0-beta.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/SharpGen.Runtime.COM.BindMapping.xml",
+        "build/SharpGen.Runtime.COM.props",
+        "buildMultiTargeting/SharpGen.Runtime.COM.props",
+        "lib/net45/SharpGen.Runtime.COM.dll",
+        "lib/net5.0/SharpGen.Runtime.COM.dll",
+        "lib/netstandard1.3/SharpGen.Runtime.COM.dll",
+        "lib/netstandard2.0/SharpGen.Runtime.COM.dll",
+        "sharpgen.runtime.com.2.0.0-beta.11.nupkg.sha512",
+        "sharpgen.runtime.com.nuspec"
+      ]
+    },
+    "Vortice.D3DCompiler/2.1.32": {
+      "sha512": "cuhnThpwAWjLxO51xO2Q7nZhSZK+rLT/MXfZaUTgMZ/d/T4M8Wu5Ij6RSecbPQdxuEk0P0A3IRajAqqAVYIWCQ==",
+      "type": "package",
+      "path": "vortice.d3dcompiler/2.1.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vortice.D3DCompiler.BindMapping.xml",
+        "build/Vortice.D3DCompiler.props",
+        "buildMultiTargeting/Vortice.D3DCompiler.props",
+        "lib/net6.0/Vortice.D3DCompiler.dll",
+        "lib/net6.0/Vortice.D3DCompiler.pdb",
+        "lib/net6.0/Vortice.D3DCompiler.xml",
+        "lib/netstandard2.0/Vortice.D3DCompiler.dll",
+        "lib/netstandard2.0/Vortice.D3DCompiler.pdb",
+        "lib/netstandard2.0/Vortice.D3DCompiler.xml",
+        "vortice.d3dcompiler.2.1.32.nupkg.sha512",
+        "vortice.d3dcompiler.nuspec"
+      ]
+    },
+    "Vortice.Direct3D11/2.1.32": {
+      "sha512": "tsV7WvjGxEs1uyxYKPDZICYHlwu6OQfnWEYJ+RG8Trdw88ImBk8dpALiXa6nrq9sQwnipPd20UQ9z9/HgG3TWQ==",
+      "type": "package",
+      "path": "vortice.direct3d11/2.1.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vortice.Direct3D11.BindMapping.xml",
+        "build/Vortice.Direct3D11.props",
+        "buildMultiTargeting/Vortice.Direct3D11.props",
+        "lib/net6.0/Vortice.Direct3D11.dll",
+        "lib/net6.0/Vortice.Direct3D11.pdb",
+        "lib/net6.0/Vortice.Direct3D11.xml",
+        "lib/netstandard2.0/Vortice.Direct3D11.dll",
+        "lib/netstandard2.0/Vortice.Direct3D11.pdb",
+        "lib/netstandard2.0/Vortice.Direct3D11.xml",
+        "vortice.direct3d11.2.1.32.nupkg.sha512",
+        "vortice.direct3d11.nuspec"
+      ]
+    },
+    "Vortice.DirectX/2.1.32": {
+      "sha512": "FhPAAhkUKwsj1oFIiGEyIGErQ1r9LXNeUpN9MZ2YkAjLtPyosPI8ID1k7pWH3yw/7r3E6JctI0D+/dVCM0OudA==",
+      "type": "package",
+      "path": "vortice.directx/2.1.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vortice.DirectX.BindMapping.xml",
+        "build/Vortice.DirectX.props",
+        "buildMultiTargeting/Vortice.DirectX.props",
+        "lib/net6.0/Vortice.DirectX.dll",
+        "lib/net6.0/Vortice.DirectX.pdb",
+        "lib/net6.0/Vortice.DirectX.xml",
+        "lib/netstandard2.0/Vortice.DirectX.dll",
+        "lib/netstandard2.0/Vortice.DirectX.pdb",
+        "lib/netstandard2.0/Vortice.DirectX.xml",
+        "vortice.directx.2.1.32.nupkg.sha512",
+        "vortice.directx.nuspec"
+      ]
+    },
+    "Vortice.DXGI/2.1.32": {
+      "sha512": "o9vYoeYMNquJTUGJ4ukcyHvogC2fm35yj3dGba+6ZEVkQ/kYPoery5IkrZDkYEY3SabDC+FaWOD8OtKhTULZ6g==",
+      "type": "package",
+      "path": "vortice.dxgi/2.1.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vortice.DXGI.BindMapping.xml",
+        "build/Vortice.DXGI.props",
+        "buildMultiTargeting/Vortice.DXGI.props",
+        "lib/net6.0/Vortice.DXGI.dll",
+        "lib/net6.0/Vortice.DXGI.pdb",
+        "lib/net6.0/Vortice.DXGI.xml",
+        "lib/netstandard2.0/Vortice.DXGI.dll",
+        "lib/netstandard2.0/Vortice.DXGI.pdb",
+        "lib/netstandard2.0/Vortice.DXGI.xml",
+        "vortice.dxgi.2.1.32.nupkg.sha512",
+        "vortice.dxgi.nuspec"
+      ]
+    },
+    "Vortice.Mathematics/1.4.18": {
+      "sha512": "8DIAc5JtHiqmx/nFAMr9kdCHZy7yv4afcaTrGk5u8CVYGtKnxjoW8H5IPs2uomg3K4ndVhaJsDdJ0Gzlxh4byA==",
+      "type": "package",
+      "path": "vortice.mathematics/1.4.18",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Vortice.Mathematics.dll",
+        "lib/net6.0/Vortice.Mathematics.xml",
+        "lib/netstandard2.0/Vortice.Mathematics.dll",
+        "lib/netstandard2.0/Vortice.Mathematics.xml",
+        "vortice.mathematics.1.4.18.nupkg.sha512",
+        "vortice.mathematics.nuspec"
+      ]
+    },
+    "Vortice.MediaFoundation/2.1.32": {
+      "sha512": "82xRzS0ib3PYS2H6XlTd2D87ASJ4Bt1jxbgnHOTB2xFJIl+omVsJxYemWqYBFApGqgZ4RFytCAh8j2KhzvbOpQ==",
+      "type": "package",
+      "path": "vortice.mediafoundation/2.1.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vortice.MediaFoundation.BindMapping.xml",
+        "build/Vortice.MediaFoundation.props",
+        "buildMultiTargeting/Vortice.MediaFoundation.props",
+        "lib/net6.0/Vortice.MediaFoundation.dll",
+        "lib/net6.0/Vortice.MediaFoundation.pdb",
+        "lib/net6.0/Vortice.MediaFoundation.xml",
+        "lib/netstandard2.0/Vortice.MediaFoundation.dll",
+        "lib/netstandard2.0/Vortice.MediaFoundation.pdb",
+        "lib/netstandard2.0/Vortice.MediaFoundation.xml",
+        "vortice.mediafoundation.2.1.32.nupkg.sha512",
+        "vortice.mediafoundation.nuspec"
+      ]
+    },
+    "Vortice.XAudio2/2.1.32": {
+      "sha512": "Mz7KfWb/I2GZLFODrb4wqFJXw/lfuyrOafTe0W0evVvUnOdl/Uv7msnFkyLpnjiPKhd9AwOHGGNTnjpyRipQ/w==",
+      "type": "package",
+      "path": "vortice.xaudio2/2.1.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vortice.XAudio2.BindMapping.xml",
+        "build/Vortice.XAudio2.props",
+        "buildMultiTargeting/Vortice.XAudio2.props",
+        "lib/net6.0/Vortice.XAudio2.dll",
+        "lib/net6.0/Vortice.XAudio2.pdb",
+        "lib/net6.0/Vortice.XAudio2.xml",
+        "lib/netstandard2.0/Vortice.XAudio2.dll",
+        "lib/netstandard2.0/Vortice.XAudio2.pdb",
+        "lib/netstandard2.0/Vortice.XAudio2.xml",
+        "vortice.xaudio2.2.1.32.nupkg.sha512",
+        "vortice.xaudio2.nuspec"
+      ]
+    },
+    "WpfColorFontDialog/1.0.8": {
+      "sha512": "XkClT52TgzGO4kvYULaHCxfw95qoSJLQVsKT9NGx7ZnFoKIkwAsuDpS8b9e9HVi6rQC2cblznEE+ZqjVecLVYg==",
+      "type": "package",
+      "path": "wpfcolorfontdialog/1.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/WpfColorFontDialog.dll",
+        "lib/netcoreapp3.1/WpfColorFontDialog.dll",
+        "wpfcolorfontdialog.1.0.8.nupkg.sha512",
+        "wpfcolorfontdialog.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": [
+      "FlyleafLib >= 3.5.10",
+      "FlyleafLib.Controls.WPF >= 1.1.28"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\anhkh\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
+      "projectName": "KMusic",
+      "projectPath": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
+      "packagesPath": "C:\\Users\\anhkh\\.nuget\\packages\\",
+      "outputPath": "D:\\KMusic\\KMusic\\KMusic\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\anhkh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "FlyleafLib": {
+            "target": "Package",
+            "version": "[3.5.10, )"
+          },
+          "FlyleafLib.Controls.WPF": {
+            "target": "Package",
+            "version": "[1.1.28, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

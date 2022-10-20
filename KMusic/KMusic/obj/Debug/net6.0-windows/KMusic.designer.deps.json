@@ -1,0 +1,298 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Dragablz/0.0.3.234": {
+        "runtime": {
+          "lib/netcoreapp3.0/Dragablz.dll": {
+            "assemblyVersion": "0.0.3.234",
+            "fileVersion": "0.0.3.234"
+          }
+        }
+      },
+      "FFmpeg.AutoGen/4.4.1.1": {
+        "runtime": {
+          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
+            "assemblyVersion": "4.4.1.1",
+            "fileVersion": "4.4.1.1"
+          }
+        }
+      },
+      "FlyleafLib/3.5.10": {
+        "dependencies": {
+          "FFmpeg.AutoGen": "4.4.1.1",
+          "Vortice.D3DCompiler": "2.1.32",
+          "Vortice.Direct3D11": "2.1.32",
+          "Vortice.Mathematics": "1.4.18",
+          "Vortice.MediaFoundation": "2.1.32",
+          "Vortice.XAudio2": "2.1.32"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FlyleafLib.dll": {
+            "assemblyVersion": "3.5.10.0",
+            "fileVersion": "3.5.10.0"
+          }
+        }
+      },
+      "FlyleafLib.Controls.WPF/1.1.28": {
+        "dependencies": {
+          "Dragablz": "0.0.3.234",
+          "FlyleafLib": "3.5.10",
+          "MaterialDesignThemes": "4.6.1",
+          "WpfColorFontDialog": "1.0.8"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FlyleafLib.Controls.WPF.dll": {
+            "assemblyVersion": "1.1.28.0",
+            "fileVersion": "1.1.28.0"
+          }
+        }
+      },
+      "MaterialDesignColors/2.0.9": {
+        "runtime": {
+          "lib/net6.0/MaterialDesignColors.dll": {
+            "assemblyVersion": "2.0.9.0",
+            "fileVersion": "2.0.9.0"
+          }
+        }
+      },
+      "MaterialDesignThemes/4.6.1": {
+        "dependencies": {
+          "MaterialDesignColors": "2.0.9"
+        },
+        "runtime": {
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
+            "assemblyVersion": "4.6.1.0",
+            "fileVersion": "4.6.1.0"
+          }
+        }
+      },
+      "SharpGen.Runtime/2.0.0-beta.11": {
+        "runtime": {
+          "lib/net5.0/SharpGen.Runtime.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "SharpGen.Runtime.COM/2.0.0-beta.11": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11"
+        },
+        "runtime": {
+          "lib/net5.0/SharpGen.Runtime.COM.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Vortice.D3DCompiler/2.1.32": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.D3DCompiler.dll": {
+            "assemblyVersion": "2.1.32.0",
+            "fileVersion": "2.1.32.0"
+          }
+        }
+      },
+      "Vortice.Direct3D11/2.1.32": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DXGI": "2.1.32"
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.Direct3D11.dll": {
+            "assemblyVersion": "2.1.32.0",
+            "fileVersion": "2.1.32.0"
+          }
+        }
+      },
+      "Vortice.DirectX/2.1.32": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "SharpGen.Runtime.COM": "2.0.0-beta.11",
+          "Vortice.Mathematics": "1.4.18"
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.DirectX.dll": {
+            "assemblyVersion": "2.1.32.0",
+            "fileVersion": "2.1.32.0"
+          }
+        }
+      },
+      "Vortice.DXGI/2.1.32": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.DXGI.dll": {
+            "assemblyVersion": "2.1.32.0",
+            "fileVersion": "2.1.32.0"
+          }
+        }
+      },
+      "Vortice.Mathematics/1.4.18": {
+        "runtime": {
+          "lib/net6.0/Vortice.Mathematics.dll": {
+            "assemblyVersion": "1.4.0.0",
+            "fileVersion": "1.4.18.29214"
+          }
+        }
+      },
+      "Vortice.MediaFoundation/2.1.32": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.MediaFoundation.dll": {
+            "assemblyVersion": "2.1.32.0",
+            "fileVersion": "2.1.32.0"
+          }
+        }
+      },
+      "Vortice.XAudio2/2.1.32": {
+        "dependencies": {
+          "SharpGen.Runtime": "2.0.0-beta.11",
+          "Vortice.DirectX": "2.1.32"
+        },
+        "runtime": {
+          "lib/net6.0/Vortice.XAudio2.dll": {
+            "assemblyVersion": "2.1.32.0",
+            "fileVersion": "2.1.32.0"
+          }
+        }
+      },
+      "WpfColorFontDialog/1.0.8": {
+        "runtime": {
+          "lib/netcoreapp3.1/WpfColorFontDialog.dll": {
+            "assemblyVersion": "1.0.8.0",
+            "fileVersion": "1.0.8.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Dragablz/0.0.3.234": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-soq8laPTrPWSA3vC3fnfU/gye2VejTbRXTuXzmVoHIySHWe5MhSIqR9KvFRmwk8xglsjVnnaa+su/10cFieuTw==",
+      "path": "dragablz/0.0.3.234",
+      "hashPath": "dragablz.0.0.3.234.nupkg.sha512"
+    },
+    "FFmpeg.AutoGen/4.4.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UclXDnnMij9eNYUTrBO0y591ZTJLqjXNnNkNgahQa2ZUaAhn4gkDSfT9BszicCoyX1CZpDI5o8d8lkgmMlNU+Q==",
+      "path": "ffmpeg.autogen/4.4.1.1",
+      "hashPath": "ffmpeg.autogen.4.4.1.1.nupkg.sha512"
+    },
+    "FlyleafLib/3.5.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VNXb/fH9SP1IPKxtto0p1xqFfluVlpsZ22EXd49+5fu8LeSJn6Xc65dOPNuYezU6mXjs3ntWSMjgvymtL67IPg==",
+      "path": "flyleaflib/3.5.10",
+      "hashPath": "flyleaflib.3.5.10.nupkg.sha512"
+    },
+    "FlyleafLib.Controls.WPF/1.1.28": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g46Ci61HXtqlBxJrdg5uphS+vxuS1cMV5LJLeSuA5470wNRbguxCzijZUakQWdekbRKm3V30d3t2fblvI8/1hQ==",
+      "path": "flyleaflib.controls.wpf/1.1.28",
+      "hashPath": "flyleaflib.controls.wpf.1.1.28.nupkg.sha512"
+    },
+    "MaterialDesignColors/2.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
+      "path": "materialdesigncolors/2.0.9",
+      "hashPath": "materialdesigncolors.2.0.9.nupkg.sha512"
+    },
+    "MaterialDesignThemes/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Yx3RxIqkwoe1rYxoUZ2iH1YdCly+dA8YAQJ5uknsUVhyVd1rgiXEn6fmtsovGaqKRZwUXGHnh4w7kRagxa8TCg==",
+      "path": "materialdesignthemes/4.6.1",
+      "hashPath": "materialdesignthemes.4.6.1.nupkg.sha512"
+    },
+    "SharpGen.Runtime/2.0.0-beta.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-spTKX7k60Z/eIcRmFU2AvAOk5i17z7H1N7LkYBYKfY7BfkjzegAoG/mpGWKfjiokWuojmIWronGUMwnBcnF2pw==",
+      "path": "sharpgen.runtime/2.0.0-beta.11",
+      "hashPath": "sharpgen.runtime.2.0.0-beta.11.nupkg.sha512"
+    },
+    "SharpGen.Runtime.COM/2.0.0-beta.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/GgjdiSDdmEhgfjXAFnIrah9xk9FJjOGlFHjBUz7Nt0F3Fi9HFuAhGexm0ScU/goKiMfKrvOOryXIhDCn7veMg==",
+      "path": "sharpgen.runtime.com/2.0.0-beta.11",
+      "hashPath": "sharpgen.runtime.com.2.0.0-beta.11.nupkg.sha512"
+    },
+    "Vortice.D3DCompiler/2.1.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cuhnThpwAWjLxO51xO2Q7nZhSZK+rLT/MXfZaUTgMZ/d/T4M8Wu5Ij6RSecbPQdxuEk0P0A3IRajAqqAVYIWCQ==",
+      "path": "vortice.d3dcompiler/2.1.32",
+      "hashPath": "vortice.d3dcompiler.2.1.32.nupkg.sha512"
+    },
+    "Vortice.Direct3D11/2.1.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tsV7WvjGxEs1uyxYKPDZICYHlwu6OQfnWEYJ+RG8Trdw88ImBk8dpALiXa6nrq9sQwnipPd20UQ9z9/HgG3TWQ==",
+      "path": "vortice.direct3d11/2.1.32",
+      "hashPath": "vortice.direct3d11.2.1.32.nupkg.sha512"
+    },
+    "Vortice.DirectX/2.1.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FhPAAhkUKwsj1oFIiGEyIGErQ1r9LXNeUpN9MZ2YkAjLtPyosPI8ID1k7pWH3yw/7r3E6JctI0D+/dVCM0OudA==",
+      "path": "vortice.directx/2.1.32",
+      "hashPath": "vortice.directx.2.1.32.nupkg.sha512"
+    },
+    "Vortice.DXGI/2.1.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o9vYoeYMNquJTUGJ4ukcyHvogC2fm35yj3dGba+6ZEVkQ/kYPoery5IkrZDkYEY3SabDC+FaWOD8OtKhTULZ6g==",
+      "path": "vortice.dxgi/2.1.32",
+      "hashPath": "vortice.dxgi.2.1.32.nupkg.sha512"
+    },
+    "Vortice.Mathematics/1.4.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8DIAc5JtHiqmx/nFAMr9kdCHZy7yv4afcaTrGk5u8CVYGtKnxjoW8H5IPs2uomg3K4ndVhaJsDdJ0Gzlxh4byA==",
+      "path": "vortice.mathematics/1.4.18",
+      "hashPath": "vortice.mathematics.1.4.18.nupkg.sha512"
+    },
+    "Vortice.MediaFoundation/2.1.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-82xRzS0ib3PYS2H6XlTd2D87ASJ4Bt1jxbgnHOTB2xFJIl+omVsJxYemWqYBFApGqgZ4RFytCAh8j2KhzvbOpQ==",
+      "path": "vortice.mediafoundation/2.1.32",
+      "hashPath": "vortice.mediafoundation.2.1.32.nupkg.sha512"
+    },
+    "Vortice.XAudio2/2.1.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mz7KfWb/I2GZLFODrb4wqFJXw/lfuyrOafTe0W0evVvUnOdl/Uv7msnFkyLpnjiPKhd9AwOHGGNTnjpyRipQ/w==",
+      "path": "vortice.xaudio2/2.1.32",
+      "hashPath": "vortice.xaudio2.2.1.32.nupkg.sha512"
+    },
+    "WpfColorFontDialog/1.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XkClT52TgzGO4kvYULaHCxfw95qoSJLQVsKT9NGx7ZnFoKIkwAsuDpS8b9e9HVi6rQC2cblznEE+ZqjVecLVYg==",
+      "path": "wpfcolorfontdialog/1.0.8",
+      "hashPath": "wpfcolorfontdialog.1.0.8.nupkg.sha512"
+    }
+  }
+}

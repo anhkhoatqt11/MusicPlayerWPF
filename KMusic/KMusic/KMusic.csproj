@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\fonts\icomoon.ttf" />
+    <None Remove="resources\images\ava.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\fonts\icomoon.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlyleafLib" Version="3.5.10" />
+    <PackageReference Include="FlyleafLib.Controls.WPF" Version="1.1.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\images\ava.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\icon\" />
+  </ItemGroup>
+
+</Project>
