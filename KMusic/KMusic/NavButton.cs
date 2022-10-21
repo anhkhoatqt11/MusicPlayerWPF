@@ -34,7 +34,6 @@ namespace KMusic
 
 
 
-
         public Geometry Icon
         {
             get { return (Geometry)GetValue(IconProperty); }
@@ -43,6 +42,18 @@ namespace KMusic
 
         public static readonly DependencyProperty IconProperty =
             DependencyProperty.Register("Icon", typeof(Geometry), typeof(NavButton), new PropertyMetadata(null));
+
+
+
+        public String ItemName
+        {
+            get { return (String)GetValue(ItemNameProperty); }
+            set { SetValue(ItemNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ItemName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemNameProperty =
+            DependencyProperty.Register("ItemName", typeof(String), typeof(NavButton), new PropertyMetadata(null));
 
 
 

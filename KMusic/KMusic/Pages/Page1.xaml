@@ -10,7 +10,7 @@
       Background="Transparent"
       >
     <Border Background="White" CornerRadius="10">
-        <TextBlock HorizontalAlignment="Center" Margin="0,212,0,0" TextWrapping="Wrap" Text="Page 1" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,30,0,0" TextWrapping="Wrap" Text="Trang chính" VerticalAlignment="Top" FontSize="32" FontFamily="Inter" FontWeight="Bold"/>
     </Border>
 
 </Page>
