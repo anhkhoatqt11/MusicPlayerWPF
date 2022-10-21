@@ -24,5 +24,10 @@ namespace KMusic.Pages
         {
             InitializeComponent();
         }
+
+        private void WebBrowser_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }
