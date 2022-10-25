@@ -46,3 +46,6 @@ D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\Page1.baml
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\Page2.baml
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\Page3.baml
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\Page4.baml
+D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\FluentWPF.dll
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\App.baml
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\KMusic_Content.g.cs

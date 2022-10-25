@@ -18,21 +18,22 @@ namespace KMusic
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
-            InitializeComponent(); 
-    
+            InitializeComponent();
+            sidebar.SelectedIndex = 0;
+
         }
 
         private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             var selected = sidebar.SelectedItem as NavButton;
-
             navframe.Navigate(selected.Navlink);
-
         }
+
+
     }
 }

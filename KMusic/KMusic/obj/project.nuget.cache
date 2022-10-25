@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "x/+g/ny5qQuq3octqJA+9ayXGtA6NKINeuW2bAO8dViJi72O+kEFTpcph14CwVsf/+1hCUnGaQSmPHuIwbaCQg==",
+  "dgSpecHash": "ADuV8+FDdkDx/teF0/caLoK/vsSpIC6MkgA8nfrECFgyzdNyU2d5cJusIWODThYB9+T3seH+VahwjcYJTCUfzA==",
   "success": true,
   "projectFilePath": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhkh\\.nuget\\packages\\dragablz\\0.0.3.234\\dragablz.0.0.3.234.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\ffmpeg.autogen\\4.4.1.1\\ffmpeg.autogen.4.4.1.1.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\fluentwpf\\0.10.2\\fluentwpf.0.10.2.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\flyleaflib\\3.5.10\\flyleaflib.3.5.10.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\flyleaflib.controls.wpf\\1.1.28\\flyleaflib.controls.wpf.1.1.28.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
