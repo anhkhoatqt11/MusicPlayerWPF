@@ -28,6 +28,18 @@
           }
         }
       },
+      "FluentWPF/0.10.2": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/FluentWPF.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/FluentWPF.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "FlyleafLib/3.5.10": {
         "type": "package",
         "dependencies": {
@@ -99,7 +111,7 @@
           }
         },
         "build": {
-          "build/_._": {}
+          "build/MaterialDesignThemes.targets": {}
         }
       },
       "SharpGen.Runtime/2.0.0-beta.11": {
@@ -632,6 +644,20 @@
         "lib/netstandard2.1/FFmpeg.AutoGen.xml"
       ]
     },
+    "FluentWPF/0.10.2": {
+      "sha512": "6bDzdj08dRW4Ynm4GycC2E2MlKFlnH9FPJKRlrIC+a3h+V6a6W7bRiMraviqIZd21JiN6+YggRb76qu/0Zdd0w==",
+      "type": "package",
+      "path": "fluentwpf/0.10.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "fluentwpf.0.10.2.nupkg.sha512",
+        "fluentwpf.nuspec",
+        "lib/net45/FluentWPF.dll",
+        "lib/netcoreapp3.0/FluentWPF.dll"
+      ]
+    },
     "FlyleafLib/3.5.10": {
       "sha512": "VNXb/fH9SP1IPKxtto0p1xqFfluVlpsZ22EXd49+5fu8LeSJn6Xc65dOPNuYezU6mXjs3ntWSMjgvymtL67IPg==",
       "type": "package",
@@ -917,8 +943,10 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "FluentWPF >= 0.10.2",
       "FlyleafLib >= 3.5.10",
-      "FlyleafLib.Controls.WPF >= 1.1.28"
+      "FlyleafLib.Controls.WPF >= 1.1.28",
+      "MaterialDesignThemes >= 4.6.1"
     ]
   },
   "packageFolders": {
@@ -960,6 +988,10 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+          "FluentWPF": {
+            "target": "Package",
+            "version": "[0.10.2, )"
+          },
           "FlyleafLib": {
             "target": "Package",
             "version": "[3.5.10, )"
@@ -967,6 +999,10 @@
           "FlyleafLib.Controls.WPF": {
             "target": "Package",
             "version": "[1.1.28, )"
+          },
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[4.6.1, )"
           }
         },
         "imports": [

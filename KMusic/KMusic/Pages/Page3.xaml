@@ -8,8 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page3">
 
-    <Border Background="White" CornerRadius="10">
-        <TextBlock HorizontalAlignment="Left" Margin="46,30,0,0" TextWrapping="Wrap" Text="Video" VerticalAlignment="Top" FontSize="32" FontFamily="Inter" FontWeight="Bold"/>
-
+    <Border Background="Transparent" CornerRadius="10">
+        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="46,30,0,0" TextWrapping="Wrap" Text="Video" VerticalAlignment="Top" FontSize="24" FontFamily="Inter" FontWeight="Bold"/>
     </Border>
 </Page>

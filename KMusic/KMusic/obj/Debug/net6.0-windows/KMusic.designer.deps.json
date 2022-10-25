@@ -22,6 +22,14 @@
           }
         }
       },
+      "FluentWPF/0.10.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/FluentWPF.dll": {
+            "assemblyVersion": "0.10.2.0",
+            "fileVersion": "0.10.2.0"
+          }
+        }
+      },
       "FlyleafLib/3.5.10": {
         "dependencies": {
           "FFmpeg.AutoGen": "4.4.1.1",
@@ -195,6 +203,13 @@
       "sha512": "sha512-UclXDnnMij9eNYUTrBO0y591ZTJLqjXNnNkNgahQa2ZUaAhn4gkDSfT9BszicCoyX1CZpDI5o8d8lkgmMlNU+Q==",
       "path": "ffmpeg.autogen/4.4.1.1",
       "hashPath": "ffmpeg.autogen.4.4.1.1.nupkg.sha512"
+    },
+    "FluentWPF/0.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6bDzdj08dRW4Ynm4GycC2E2MlKFlnH9FPJKRlrIC+a3h+V6a6W7bRiMraviqIZd21JiN6+YggRb76qu/0Zdd0w==",
+      "path": "fluentwpf/0.10.2",
+      "hashPath": "fluentwpf.0.10.2.nupkg.sha512"
     },
     "FlyleafLib/3.5.10": {
       "type": "package",

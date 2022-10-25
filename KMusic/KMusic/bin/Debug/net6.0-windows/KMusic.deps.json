@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "KMusic/1.0.0": {
         "dependencies": {
+          "FluentWPF": "0.10.2",
           "FlyleafLib": "3.5.10",
-          "FlyleafLib.Controls.WPF": "1.1.28"
+          "FlyleafLib.Controls.WPF": "1.1.28",
+          "MaterialDesignThemes": "4.6.1"
         },
         "runtime": {
           "KMusic.dll": {}
@@ -28,6 +30,14 @@
           "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
             "assemblyVersion": "4.4.1.1",
             "fileVersion": "4.4.1.1"
+          }
+        }
+      },
+      "FluentWPF/0.10.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/FluentWPF.dll": {
+            "assemblyVersion": "0.10.2.0",
+            "fileVersion": "0.10.2.0"
           }
         }
       },
@@ -209,6 +219,13 @@
       "sha512": "sha512-UclXDnnMij9eNYUTrBO0y591ZTJLqjXNnNkNgahQa2ZUaAhn4gkDSfT9BszicCoyX1CZpDI5o8d8lkgmMlNU+Q==",
       "path": "ffmpeg.autogen/4.4.1.1",
       "hashPath": "ffmpeg.autogen.4.4.1.1.nupkg.sha512"
+    },
+    "FluentWPF/0.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6bDzdj08dRW4Ynm4GycC2E2MlKFlnH9FPJKRlrIC+a3h+V6a6W7bRiMraviqIZd21JiN6+YggRb76qu/0Zdd0w==",
+      "path": "fluentwpf/0.10.2",
+      "hashPath": "fluentwpf.0.10.2.nupkg.sha512"
     },
     "FlyleafLib/3.5.10": {
       "type": "package",

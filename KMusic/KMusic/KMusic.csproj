@@ -5,26 +5,39 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="play.svg" />
     <None Remove="resources\fonts\icomoon.ttf" />
     <None Remove="resources\images\ava.png" />
+    <None Remove="resources\svg\play.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="play.svg" />
     <Resource Include="resources\fonts\icomoon.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentWPF" Version="0.10.2" />
     <PackageReference Include="FlyleafLib" Version="3.5.10" />
     <PackageReference Include="FlyleafLib.Controls.WPF" Version="1.1.28" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="resources\images\ava.png" />
+    <Resource Include="resources\svg\play.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

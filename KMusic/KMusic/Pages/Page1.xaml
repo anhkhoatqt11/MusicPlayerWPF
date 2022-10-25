@@ -9,8 +9,11 @@
       Title="Page1"
       Background="Transparent"
       >
-    <Border Background="White" CornerRadius="10">
-        <TextBlock HorizontalAlignment="Left" Margin="46,30,0,0" TextWrapping="Wrap" Text="Trang chính" VerticalAlignment="Top" FontSize="32" FontFamily="Inter" FontWeight="Bold"/>
+    <Border Background="Transparent" CornerRadius="10">
+        <Grid>
+        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="46,30,0,0" TextWrapping="Wrap" Text="Trang chính" VerticalAlignment="Top" FontSize="24" FontFamily="Inter" FontWeight="Bold"/>
+         <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="46,73,0,0" TextWrapping="Wrap" Text="Đã xem gần đây" VerticalAlignment="Top" FontSize="12" FontFamily="Inter" FontWeight="Bold"/>
+        </Grid>
     </Border>
 
 </Page>
