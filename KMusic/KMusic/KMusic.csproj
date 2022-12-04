@@ -6,34 +6,50 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="play.svg" />
+    <None Remove="Media\Audio\vu-feat-trang-official-audio.mp3" />
+    <None Remove="Media\Video\MOVIE.mp4" />
     <None Remove="resources\fonts\icomoon.ttf" />
+    <None Remove="resources\icon\icon.png" />
     <None Remove="resources\images\ava.png" />
     <None Remove="resources\svg\play.svg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\vu-feat-trang-official-audio.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\MOVIE.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="play.svg" />
     <Resource Include="resources\fonts\icomoon.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
     <PackageReference Include="FluentWPF" Version="0.10.2" />
     <PackageReference Include="FlyleafLib" Version="3.5.10" />
     <PackageReference Include="FlyleafLib.Controls.WPF" Version="1.1.28" />
     <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="MVVMEssentials.WPF" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="resources\icon\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="resources\images\ava.png" />
     <Resource Include="resources\svg\play.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -41,7 +57,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="resources\icon\" />
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

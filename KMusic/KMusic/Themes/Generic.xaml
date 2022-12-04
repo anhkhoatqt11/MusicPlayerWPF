@@ -18,22 +18,22 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid >
-                        <TextBlock x:Name="TextIcon" Text="{TemplateBinding Content}" Foreground="White" FontFamily="resources/fonts/#icomoon" FontSize="18" VerticalAlignment="Center" Margin="0,0,0,0"/>
-                        <TextBlock x:Name="ItemName" Text="{TemplateBinding ItemName}" Foreground="White" FontSize="16" FontWeight="Bold"  Margin="35,0,0,0"></TextBlock>
+                        <TextBlock x:Name="TextIcon" Text="{TemplateBinding Content}" Foreground="Black" FontFamily="resources/fonts/#icomoon" FontSize="18" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                        <TextBlock x:Name="ItemName" Text="{TemplateBinding ItemName}" Foreground="Black" FontSize="16" FontWeight="Bold"  Margin="35,0,0,0"></TextBlock>
                         </Grid>
                     </Border>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="back" Value="#58595B"/>
-                            <!--<Setter Property="Foreground" TargetName="TextIcon" Value="#2a84f1"/>
-                            <Setter Property="Foreground" TargetName="ItemName" Value="#2a84f1"/>-->
+                            <Setter Property="Background" TargetName="back" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextIcon" Value="#1F7FF8"/>
+                            <Setter Property="Foreground" TargetName="ItemName" Value="#1F7FF8"/>
                         </Trigger>
 
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" TargetName="back" Value="#58595B"/>
-                            <!--<Setter Property="Foreground" TargetName="TextIcon" Value="White"/>
-                            <Setter Property="Foreground" TargetName="ItemName" Value="#2a84f1"/>-->
+                            <Setter Property="Background" TargetName="back" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextIcon" Value="#1F7FF8"/>
+                            <Setter Property="Foreground" TargetName="ItemName" Value="#1F7FF8"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                     
