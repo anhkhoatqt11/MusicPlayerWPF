@@ -24,10 +24,10 @@ namespace KMusic.Pages
         {
             InitializeComponent();
         }
+        //public MediaElement video
+        //{
+        //    get { return video;  }
+        //}
 
-        private void WebBrowser_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
     }
 }

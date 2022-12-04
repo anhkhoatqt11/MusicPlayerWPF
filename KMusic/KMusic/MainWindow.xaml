@@ -6,58 +6,80 @@
         xmlns:local="clr-namespace:KMusic"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="KMusic.MainWindow"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
-        mc:Ignorable="d"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF" xmlns:views="clr-namespace:KMusic.Views" xmlns:vms="clr-namespace:KMusic.ViewModels"
+    mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         WindowStyle="None"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="True"
-        >
-    <Border CornerRadius="10"
-                Background="#101114"
-                BorderThickness="5"
-            fw:AcrylicWindow.Enabled="True">
+        AllowsTransparency="True">
 
-        <Grid Height="710" VerticalAlignment="Top">
+    <!--Create shadow for Window-->
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
+    </Window.Effect>
+
+
+
+    <Border CornerRadius="10" Background="#EFF4F9" BorderThickness="5"  >
+        <Grid>
+            <ContentControl Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vms:RegisterViewModel}">
+                        <views:RegisterView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+                <!--<Grid Height="710" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="453*"/>
+                <RowDefinition Height="257*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="341*" />
                 <ColumnDefinition Width="729*"/>
             </Grid.ColumnDefinitions>
 
-            <Ellipse Height="100" Width="100" RenderOptions.BitmapScalingMode="HighQuality" Margin="38,588,62,22">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/resources/images/ava.png" >
-                    </ImageBrush>
-                </Ellipse.Fill>
-            </Ellipse>
-
-
-            <ListBox Background="Transparent" Grid.Column="0" SelectionMode="Single" SelectionChanged="sidebar_SelectionChanged"  x:Name="sidebar" Margin="0,120,0,85"  BorderThickness="0">
-
-                <local:NavButton Navlink="/Pages/Page1.xaml" Margin="5" Padding="10" Content="&#xEABF;" ItemName="Trang chủ"/>
-                <local:NavButton Navlink="/Pages/Page2.xaml" Margin="5" Padding="10" Content="&#xEB51;" ItemName="Âm nhạc  "/>
-                <local:NavButton Navlink="/Pages/Page3.xaml" Margin="5" Padding="10" Content="&#xEC68;" ItemName="Video       "/>
-
-
+            <Image Margin="26,33,125,353">
+                <Image.Source>
+                    <BitmapImage UriSource="./resources/icon/icon.png"></BitmapImage>
+                </Image.Source>
+            </Image>
+            <TextBlock Text="KMusic" Margin="86,54,66,332"/>
+            <ListBox x:Name="sidebar" Background="White" Grid.Column="0" SelectionMode="Single" SelectionChanged="sidebar_SelectionChanged"  BorderThickness="0" Height="401" VerticalAlignment="Top" Margin="10,117,331,0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <ListBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </ListBox.Resources>
+                <local:NavButton Navlink="/Pages/Page1.xaml" Margin="5" Padding="10" Content="&#xEAB8;" ItemName="Trang chính"/>
+                <local:NavButton Navlink="/Pages/Page2.xaml" Margin="5" Padding="10" Content="&#xEB51;" ItemName="Âm nhạc     "/>
+                <local:NavButton Navlink="/Pages/Page3.xaml" Margin="5" Padding="10" Content="&#xEC68;" ItemName="Video         "/>
+                <local:NavButton Navlink="/Pages/Page4.xaml" Margin="5" Padding="10" Content="&#xEC1D;" ItemName="Đang phát "/>
             </ListBox>
-
-
-
-            <Frame Grid.Column="1" x:Name="navframe" NavigationUIVisibility="Hidden" Background="Transparent" Margin="0,0,0,158" Grid.ColumnSpan="2"/>
-            <Ellipse RenderOptions.BitmapScalingMode="HighQuality" Margin="20,38,145,637" RenderTransformOrigin="1.363,0.731">
+            <Frame Grid.Column="1" x:Name="navframe" NavigationUIVisibility="Hidden" Background="Transparent" Margin="58,0,230,148" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+            <WrapPanel Grid.RowSpan="2" >
+                <Button x:Name="Minimize"  Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left"   Content="&#xeb29;" VerticalAlignment="Top" Foreground="Black" FontSize="29" Click="Minimize_Click"/>
+                <Button x:Name="Maximize"  Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left"   Content="&#xeb00;" VerticalAlignment="Top" Foreground="Black" FontSize="20" Click="Maximize_Click"/>
+                <Button x:Name="Close"  Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left"   Content="&#xe9c7;" VerticalAlignment="Top" Foreground="Black" FontSize="20" Click="Close_Click"/>
+            </WrapPanel>-->
+            <!--<Slider x:Name="SongTimer" x:FieldModifier="public" Grid.ColumnSpan="3" Margin="117,552,0,124" HorizontalAlignment="Left" Width="1036"></Slider>-->
+            <!--<Ellipse RenderOptions.BitmapScalingMode="HighQuality" Margin="23,45,126,614" RenderTransformOrigin="1.363,0.731">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/resources/images/ava.png" >
                     </ImageBrush>
                 </Ellipse.Fill>
-            </Ellipse>
-            <TextBlock HorizontalAlignment="Left" Margin="157,609,0,0" TextWrapping="Wrap" Text="Tên bài hát" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <TextBlock HorizontalAlignment="Left" Margin="157,635,0,0" TextWrapping="Wrap" Text="Ca sĩ" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-            <Button x:Name="Play"  Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left" Margin="157,611,0,0"  Content="&#xeb81;" VerticalAlignment="Top" Foreground="White" FontSize="52"/>
-            <Button x:Name="Previous" Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left" Margin="94,621,0,0"  Content="&#xeb86;" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
-            <Button x:Name="Next"  Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left" Margin="237,621,0,0" Content="&#xeb53;" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+            </Ellipse>-->         
+            <!--<TextBlock x:Name="SongName" x:FieldModifier="public" HorizontalAlignment="Left" Margin="176,155,0,0" TextWrapping="Wrap" Text="Tên bài hát" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Row="1"/>
+            <TextBlock x:Name="Artist" HorizontalAlignment="Left" Margin="177,182,0,0" TextWrapping="Wrap" Text="Ca sĩ" VerticalAlignment="Top" Foreground="Black" FontSize="16" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="Play"  x:FieldModifier="public" Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left" Margin="67,155,0,0"  Content="&#xeb81;" VerticalAlignment="Top" Foreground="Black" FontSize="52" Click="Play_Click" Grid.Row="1"/>
+            <Button x:Name="Previous" x:FieldModifier="public" Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left" Margin="0,165,0,0"  Content="&#xeb86;" VerticalAlignment="Top" Foreground="Black" FontSize="32" Grid.Row="1"/>
+            <Button x:Name="Next"  x:FieldModifier="public" Grid.Column="2" BorderThickness="0" Background="Transparent" FontFamily="resources/fonts/#icomoon" HorizontalAlignment="Left" Margin="152,165,0,0" Content="&#xeb53;" VerticalAlignment="Top" Foreground="Black" FontSize="32" Grid.Row="1"/>-->
+
+
 
         </Grid>
 
