@@ -6,308 +6,280 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Dragablz/0.0.3.234": {
+      "LiteDB/5.0.15": {
         "runtime": {
-          "lib/netcoreapp3.0/Dragablz.dll": {
-            "assemblyVersion": "0.0.3.234",
-            "fileVersion": "0.0.3.234"
+          "lib/netstandard2.0/LiteDB.dll": {
+            "assemblyVersion": "5.0.15.0",
+            "fileVersion": "5.0.15.0"
           }
         }
       },
-      "FFmpeg.AutoGen/5.1.1": {
-        "runtime": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "assemblyVersion": "5.1.1.0",
-            "fileVersion": "5.1.1.0"
-          }
-        }
-      },
-      "FluentWPF/0.10.2": {
-        "runtime": {
-          "lib/netcoreapp3.0/FluentWPF.dll": {
-            "assemblyVersion": "0.10.2.0",
-            "fileVersion": "0.10.2.0"
-          }
-        }
-      },
-      "FlyleafLib/3.5.10": {
+      "Microsoft.NETCore.Platforms/3.1.0": {},
+      "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
-          "FFmpeg.AutoGen": "5.1.1",
-          "Vortice.D3DCompiler": "2.1.32",
-          "Vortice.Direct3D11": "2.1.32",
-          "Vortice.Mathematics": "1.4.18",
-          "Vortice.MediaFoundation": "2.1.32",
-          "Vortice.XAudio2": "2.1.32"
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
         },
         "runtime": {
-          "lib/net6.0-windows7.0/FlyleafLib.dll": {
-            "assemblyVersion": "3.5.10.0",
-            "fileVersion": "3.5.10.0"
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
           }
         }
       },
-      "FlyleafLib.Controls.WPF/1.1.28": {
+      "NAudio/2.1.0": {
         "dependencies": {
-          "Dragablz": "0.0.3.234",
-          "FlyleafLib": "3.5.10",
-          "MaterialDesignThemes": "4.6.1",
-          "WpfColorFontDialog": "1.0.8"
+          "NAudio.Asio": "2.1.0",
+          "NAudio.Core": "2.1.0",
+          "NAudio.Midi": "2.1.0",
+          "NAudio.Wasapi": "2.1.0",
+          "NAudio.WinForms": "2.1.0",
+          "NAudio.WinMM": "2.1.0"
         },
         "runtime": {
-          "lib/net6.0-windows7.0/FlyleafLib.Controls.WPF.dll": {
-            "assemblyVersion": "1.1.28.0",
-            "fileVersion": "1.1.28.0"
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "MaterialDesignColors/2.0.9": {
-        "runtime": {
-          "lib/net6.0/MaterialDesignColors.dll": {
-            "assemblyVersion": "2.0.9.0",
-            "fileVersion": "2.0.9.0"
-          }
-        }
-      },
-      "MaterialDesignThemes/4.6.1": {
+      "NAudio.Asio/2.1.0": {
         "dependencies": {
-          "MaterialDesignColors": "2.0.9"
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.1.0"
         },
         "runtime": {
-          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "assemblyVersion": "4.6.1.0",
-            "fileVersion": "4.6.1.0"
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "SharpGen.Runtime/2.0.0-beta.11": {
+      "NAudio.Core/2.1.0": {
         "runtime": {
-          "lib/net5.0/SharpGen.Runtime.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "SharpGen.Runtime.COM/2.0.0-beta.11": {
+      "NAudio.Midi/2.1.0": {
         "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11"
+          "NAudio.Core": "2.1.0"
         },
         "runtime": {
-          "lib/net5.0/SharpGen.Runtime.COM.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "Vortice.D3DCompiler/2.1.32": {
+      "NAudio.Wasapi/2.1.0": {
         "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11",
-          "Vortice.DirectX": "2.1.32"
+          "NAudio.Core": "2.1.0"
         },
         "runtime": {
-          "lib/net6.0/Vortice.D3DCompiler.dll": {
-            "assemblyVersion": "2.1.32.0",
-            "fileVersion": "2.1.32.0"
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "Vortice.Direct3D11/2.1.32": {
+      "NAudio.WinForms/2.1.0": {
         "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11",
-          "Vortice.DXGI": "2.1.32"
+          "NAudio.WinMM": "2.1.0"
         },
         "runtime": {
-          "lib/net6.0/Vortice.Direct3D11.dll": {
-            "assemblyVersion": "2.1.32.0",
-            "fileVersion": "2.1.32.0"
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "Vortice.DirectX/2.1.32": {
+      "NAudio.WinMM/2.1.0": {
         "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11",
-          "SharpGen.Runtime.COM": "2.0.0-beta.11",
-          "Vortice.Mathematics": "1.4.18"
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.1.0"
         },
         "runtime": {
-          "lib/net6.0/Vortice.DirectX.dll": {
-            "assemblyVersion": "2.1.32.0",
-            "fileVersion": "2.1.32.0"
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "Vortice.DXGI/2.1.32": {
+      "Ookii.Dialogs.Wpf/5.0.1": {
+        "runtime": {
+          "lib/net6.0-windows7.0/Ookii.Dialogs.Wpf.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.1.0"
+          }
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
         "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11",
-          "Vortice.DirectX": "2.1.32"
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
         },
         "runtime": {
-          "lib/net6.0/Vortice.DXGI.dll": {
-            "assemblyVersion": "2.1.32.0",
-            "fileVersion": "2.1.32.0"
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
           }
-        }
-      },
-      "Vortice.Mathematics/1.4.18": {
-        "runtime": {
-          "lib/net6.0/Vortice.Mathematics.dll": {
-            "assemblyVersion": "1.4.0.0",
-            "fileVersion": "1.4.18.29214"
-          }
-        }
-      },
-      "Vortice.MediaFoundation/2.1.32": {
-        "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11",
-          "Vortice.DirectX": "2.1.32"
         },
-        "runtime": {
-          "lib/net6.0/Vortice.MediaFoundation.dll": {
-            "assemblyVersion": "2.1.32.0",
-            "fileVersion": "2.1.32.0"
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
           }
         }
       },
-      "Vortice.XAudio2/2.1.32": {
-        "dependencies": {
-          "SharpGen.Runtime": "2.0.0-beta.11",
-          "Vortice.DirectX": "2.1.32"
+      "System.Security.Principal.Windows/4.7.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          }
         },
-        "runtime": {
-          "lib/net6.0/Vortice.XAudio2.dll": {
-            "assemblyVersion": "2.1.32.0",
-            "fileVersion": "2.1.32.0"
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          },
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
           }
         }
       },
-      "WpfColorFontDialog/1.0.8": {
+      "TagLibSharp/2.3.0": {
         "runtime": {
-          "lib/netcoreapp3.1/WpfColorFontDialog.dll": {
-            "assemblyVersion": "1.0.8.0",
-            "fileVersion": "1.0.8.0"
+          "lib/netstandard2.0/TagLibSharp.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "Dragablz/0.0.3.234": {
+    "LiteDB/5.0.15": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-soq8laPTrPWSA3vC3fnfU/gye2VejTbRXTuXzmVoHIySHWe5MhSIqR9KvFRmwk8xglsjVnnaa+su/10cFieuTw==",
-      "path": "dragablz/0.0.3.234",
-      "hashPath": "dragablz.0.0.3.234.nupkg.sha512"
+      "sha512": "sha512-nucyfCOGSATH553BxplxExP3BOqEwmHt0B57426EIaQjD3CC1Odb52VVCGgTxyYaD2oe3B/cJk8jDo6XiBJqPg==",
+      "path": "litedb/5.0.15",
+      "hashPath": "litedb.5.0.15.nupkg.sha512"
     },
-    "FFmpeg.AutoGen/5.1.1": {
+    "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fxz7H6+Vz957tS1UG7KPdzHCBeDjbi/XwtO4m6pLvQ96tQiB5CPn3bufAdjkHwMY3372nQ3V7+D/yksVvjSG7g==",
-      "path": "ffmpeg.autogen/5.1.1",
-      "hashPath": "ffmpeg.autogen.5.1.1.nupkg.sha512"
+      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
     },
-    "FluentWPF/0.10.2": {
+    "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6bDzdj08dRW4Ynm4GycC2E2MlKFlnH9FPJKRlrIC+a3h+V6a6W7bRiMraviqIZd21JiN6+YggRb76qu/0Zdd0w==",
-      "path": "fluentwpf/0.10.2",
-      "hashPath": "fluentwpf.0.10.2.nupkg.sha512"
+      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "path": "microsoft.win32.registry/4.7.0",
+      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
-    "FlyleafLib/3.5.10": {
+    "NAudio/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VNXb/fH9SP1IPKxtto0p1xqFfluVlpsZ22EXd49+5fu8LeSJn6Xc65dOPNuYezU6mXjs3ntWSMjgvymtL67IPg==",
-      "path": "flyleaflib/3.5.10",
-      "hashPath": "flyleaflib.3.5.10.nupkg.sha512"
+      "sha512": "sha512-iamDtIq4Tcq6BDEMatX7Wj6KI7rscECS72ZejjnL9RK8BgfrVRH2RlhlQVNxXNp9Up1eFESEiCILNBo7//Rr0g==",
+      "path": "naudio/2.1.0",
+      "hashPath": "naudio.2.1.0.nupkg.sha512"
     },
-    "FlyleafLib.Controls.WPF/1.1.28": {
+    "NAudio.Asio/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-g46Ci61HXtqlBxJrdg5uphS+vxuS1cMV5LJLeSuA5470wNRbguxCzijZUakQWdekbRKm3V30d3t2fblvI8/1hQ==",
-      "path": "flyleaflib.controls.wpf/1.1.28",
-      "hashPath": "flyleaflib.controls.wpf.1.1.28.nupkg.sha512"
+      "sha512": "sha512-YMXffgqPTsQIjmXYyzLrXSpQZzC7ZH49mmdXaPW3o/5S+AhFKZeOrwUA2fkvphQdGhryObbZnPAq+u8uABkH5A==",
+      "path": "naudio.asio/2.1.0",
+      "hashPath": "naudio.asio.2.1.0.nupkg.sha512"
     },
-    "MaterialDesignColors/2.0.9": {
+    "NAudio.Core/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
-      "path": "materialdesigncolors/2.0.9",
-      "hashPath": "materialdesigncolors.2.0.9.nupkg.sha512"
+      "sha512": "sha512-0iowfmolibU4KxjaC/s7lox/BeDg76UVvXtCuCzRiNpylVndqsxXxp+bVWFrpv0KzQDIKLxZrnDmYENlAI0u9g==",
+      "path": "naudio.core/2.1.0",
+      "hashPath": "naudio.core.2.1.0.nupkg.sha512"
     },
-    "MaterialDesignThemes/4.6.1": {
+    "NAudio.Midi/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Yx3RxIqkwoe1rYxoUZ2iH1YdCly+dA8YAQJ5uknsUVhyVd1rgiXEn6fmtsovGaqKRZwUXGHnh4w7kRagxa8TCg==",
-      "path": "materialdesignthemes/4.6.1",
-      "hashPath": "materialdesignthemes.4.6.1.nupkg.sha512"
+      "sha512": "sha512-m2ZunnyZ1p7OoAMh1scHRVle+GiFuIRrzkcxZJREUFHje8O2hcMGya3ZAjD+dV2FTcrbqNQUc4kJy9LOTuydUw==",
+      "path": "naudio.midi/2.1.0",
+      "hashPath": "naudio.midi.2.1.0.nupkg.sha512"
     },
-    "SharpGen.Runtime/2.0.0-beta.11": {
+    "NAudio.Wasapi/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-spTKX7k60Z/eIcRmFU2AvAOk5i17z7H1N7LkYBYKfY7BfkjzegAoG/mpGWKfjiokWuojmIWronGUMwnBcnF2pw==",
-      "path": "sharpgen.runtime/2.0.0-beta.11",
-      "hashPath": "sharpgen.runtime.2.0.0-beta.11.nupkg.sha512"
+      "sha512": "sha512-Zp/8l79aYQEu7/HfzXWVpqyIwRUPgsvCj/Qx+pR6ykJxvwjqOoUfMiEG9US1wW4d7PEzT5ZBIL+cp90t6HNNiw==",
+      "path": "naudio.wasapi/2.1.0",
+      "hashPath": "naudio.wasapi.2.1.0.nupkg.sha512"
     },
-    "SharpGen.Runtime.COM/2.0.0-beta.11": {
+    "NAudio.WinForms/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/GgjdiSDdmEhgfjXAFnIrah9xk9FJjOGlFHjBUz7Nt0F3Fi9HFuAhGexm0ScU/goKiMfKrvOOryXIhDCn7veMg==",
-      "path": "sharpgen.runtime.com/2.0.0-beta.11",
-      "hashPath": "sharpgen.runtime.com.2.0.0-beta.11.nupkg.sha512"
+      "sha512": "sha512-yoGCLidMVQmg66dNuEYusY1bttZJ5gxvufxRYFgxIw444dw4C70YsDgLeDugPd0rdwkSCQq5CtrVw6DSmxTxPA==",
+      "path": "naudio.winforms/2.1.0",
+      "hashPath": "naudio.winforms.2.1.0.nupkg.sha512"
     },
-    "Vortice.D3DCompiler/2.1.32": {
+    "NAudio.WinMM/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cuhnThpwAWjLxO51xO2Q7nZhSZK+rLT/MXfZaUTgMZ/d/T4M8Wu5Ij6RSecbPQdxuEk0P0A3IRajAqqAVYIWCQ==",
-      "path": "vortice.d3dcompiler/2.1.32",
-      "hashPath": "vortice.d3dcompiler.2.1.32.nupkg.sha512"
+      "sha512": "sha512-lUU5C+XNzKhFUIEafA/nJpbtjksFtbUd033fs27KeHlOM0r6rQFF3l75dqxg+rWkGu81MfkBbYrNpH9p8qmtBA==",
+      "path": "naudio.winmm/2.1.0",
+      "hashPath": "naudio.winmm.2.1.0.nupkg.sha512"
     },
-    "Vortice.Direct3D11/2.1.32": {
+    "Ookii.Dialogs.Wpf/5.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tsV7WvjGxEs1uyxYKPDZICYHlwu6OQfnWEYJ+RG8Trdw88ImBk8dpALiXa6nrq9sQwnipPd20UQ9z9/HgG3TWQ==",
-      "path": "vortice.direct3d11/2.1.32",
-      "hashPath": "vortice.direct3d11.2.1.32.nupkg.sha512"
+      "sha512": "sha512-iZNnZwqTpK0cfR0vkotncP1c025/PHlIdzc7iEKBYwhVv1V0zXp9/RT/O0kMhsmlwXqRxxbE4pdhfinbJXtjPg==",
+      "path": "ookii.dialogs.wpf/5.0.1",
+      "hashPath": "ookii.dialogs.wpf.5.0.1.nupkg.sha512"
     },
-    "Vortice.DirectX/2.1.32": {
+    "System.Security.AccessControl/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FhPAAhkUKwsj1oFIiGEyIGErQ1r9LXNeUpN9MZ2YkAjLtPyosPI8ID1k7pWH3yw/7r3E6JctI0D+/dVCM0OudA==",
-      "path": "vortice.directx/2.1.32",
-      "hashPath": "vortice.directx.2.1.32.nupkg.sha512"
+      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "path": "system.security.accesscontrol/4.7.0",
+      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
     },
-    "Vortice.DXGI/2.1.32": {
+    "System.Security.Principal.Windows/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-o9vYoeYMNquJTUGJ4ukcyHvogC2fm35yj3dGba+6ZEVkQ/kYPoery5IkrZDkYEY3SabDC+FaWOD8OtKhTULZ6g==",
-      "path": "vortice.dxgi/2.1.32",
-      "hashPath": "vortice.dxgi.2.1.32.nupkg.sha512"
+      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "path": "system.security.principal.windows/4.7.0",
+      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
-    "Vortice.Mathematics/1.4.18": {
+    "TagLibSharp/2.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8DIAc5JtHiqmx/nFAMr9kdCHZy7yv4afcaTrGk5u8CVYGtKnxjoW8H5IPs2uomg3K4ndVhaJsDdJ0Gzlxh4byA==",
-      "path": "vortice.mathematics/1.4.18",
-      "hashPath": "vortice.mathematics.1.4.18.nupkg.sha512"
-    },
-    "Vortice.MediaFoundation/2.1.32": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-82xRzS0ib3PYS2H6XlTd2D87ASJ4Bt1jxbgnHOTB2xFJIl+omVsJxYemWqYBFApGqgZ4RFytCAh8j2KhzvbOpQ==",
-      "path": "vortice.mediafoundation/2.1.32",
-      "hashPath": "vortice.mediafoundation.2.1.32.nupkg.sha512"
-    },
-    "Vortice.XAudio2/2.1.32": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Mz7KfWb/I2GZLFODrb4wqFJXw/lfuyrOafTe0W0evVvUnOdl/Uv7msnFkyLpnjiPKhd9AwOHGGNTnjpyRipQ/w==",
-      "path": "vortice.xaudio2/2.1.32",
-      "hashPath": "vortice.xaudio2.2.1.32.nupkg.sha512"
-    },
-    "WpfColorFontDialog/1.0.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-XkClT52TgzGO4kvYULaHCxfw95qoSJLQVsKT9NGx7ZnFoKIkwAsuDpS8b9e9HVi6rQC2cblznEE+ZqjVecLVYg==",
-      "path": "wpfcolorfontdialog/1.0.8",
-      "hashPath": "wpfcolorfontdialog.1.0.8.nupkg.sha512"
+      "sha512": "sha512-Qo4z6ZjnIfbR3Us1Za5M2vQ97OWZPmODvVmepxZ8XW0UIVLGdO2T63/N3b23kCcyiwuIe0TQvMEQG8wUCCD1mA==",
+      "path": "taglibsharp/2.3.0",
+      "hashPath": "taglibsharp.2.3.0.nupkg.sha512"
     }
   }
 }

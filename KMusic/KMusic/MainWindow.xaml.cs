@@ -1,5 +1,4 @@
-﻿using KMusic.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,46 +13,80 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MessageBox = System.Windows.Forms.MessageBox;
+using NAudio.Wave;
+using System.ComponentModel;
+using System.Timers;
 
 namespace KMusic
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+   
     public partial class MainWindow : Window
     {
+        private WaveOutEvent waveOut;
+        private AudioFileReader audioFile;
+        private System.Timers.Timer timer;
+
+        public string Title { get; set; }
+        public string Artist { get; set; }
+        public ImageSource AlbumArt { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            //sidebar.SelectedIndex = 0;
-
+            Sidebar.SelectedIndex = 0;
+            // initialize timer
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
         }
 
-        private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {                           
+                Dispatcher.Invoke(() =>
+            {
+                MusicSlider.Value = audioFile.CurrentTime.TotalSeconds;
+                double elapsed = audioFile.CurrentTime.TotalSeconds;
+                double total = audioFile.TotalTime.TotalSeconds;
+                CurrentTimeTextBlock.Text = TimeSpan.FromSeconds(elapsed).ToString(@"hh\:mm\:ss");
+                TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
+            
+            });
+        }
+
+        public void UpdateAudioFile(AudioFileReader audioFile)
         {
-
-            //var selected = sidebar.SelectedItem as NavButton;
-            //navframe.Navigate(selected.Navlink);
+            this.audioFile = audioFile;
+            MusicSlider.Maximum = audioFile.TotalTime.TotalSeconds;
+            timer.Start();
         }
 
-        private void Minimize_Click(object sender, RoutedEventArgs e)
+        private void MusicSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            WindowState = WindowState.Minimized;
+            audioFile.CurrentTime = TimeSpan.FromSeconds(e.NewValue);
         }
 
-        private void Maximize_Click(object sender, RoutedEventArgs e)
+
+
+        public void UpdateTitleAndArtist(string title, string artist)
         {
-            //this.Width = SystemParameters.WorkArea.Width;
-            //this.Height = SystemParameters.WorkArea.Height;
+            TitleTextBlock.Text = title;
+            ArtistTextBlock.Text = artist;
+            if (artist == null)
+            {
+                ArtistTextBlock.Text = "Unknow";
+            }
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private void Sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Close();
-        }
+            var selected = Sidebar.SelectedItem as NavButton;
 
-        private void Play_Click(object sender, RoutedEventArgs e)
+            navframe.Navigate(selected.Navlink);
+        }
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

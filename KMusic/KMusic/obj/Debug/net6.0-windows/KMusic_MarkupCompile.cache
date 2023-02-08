@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\
+C:\Users\anhkh\source\repos\KMusic\KMusic\obj\Debug\net6.0-windows\
 KMusic
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\KMusic\KMusic\KMusic\App.xaml
-6-1841822620
-1-913308027
-8605353176
-220-1208158583
-MainWindow.xaml;Pages\Page1.xaml;Pages\Page2.xaml;Pages\Page3.xaml;Pages\Page4.xaml;Themes\Generic.xaml;
+C:\Users\anhkh\source\repos\KMusic\KMusic\App.xaml
+7-1802951054
+
+8-1458706944
+2131887353017
+MainWindow.xaml;Pages\Home.xaml;Pages\Music.xaml;Pages\Settings.xaml;Pages\Video.xaml;Style\DataGrid.xaml;Themes\Generic.xaml;
 
 False
 

@@ -7,19 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Pages\Page1.xaml.cs">
+    <Compile Update="Pages\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\Page2.xaml.cs">
+    <Compile Update="Pages\Music.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\Page3.xaml.cs">
+    <Compile Update="Pages\Settings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\Page4.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\RegisterView.xaml.cs">
+    <Compile Update="Pages\Video.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -27,22 +24,22 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\Page1.xaml">
+    <Page Update="Pages\Home.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\Page2.xaml">
+    <Page Update="Pages\Music.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\Page3.xaml">
+    <Page Update="Pages\Settings.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\Page4.xaml">
+    <Page Update="Pages\Video.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Style\DataGrid.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\Generic.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\RegisterView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
