@@ -25,6 +25,7 @@ using KMusic.Pages;
 using static KMusic.Pages.Music;
 using Application = System.Windows.Application;
 using TagLib.Riff;
+using Microsoft.VisualBasic.Devices;
 
 namespace KMusic
 {
@@ -38,7 +39,9 @@ namespace KMusic
         private AudioFileReader audioFile;
         private System.Windows.Forms.Timer _timer;
         private bool _isUserChange = false;
-
+        // Load the songs from LiteDB
+        private int _currentSongIndex = 0;
+        private List<MusicFromFolder> _songs;
         public class MusicFromFolder
         {
             public LiteDB.ObjectId _id { get; set; }
@@ -46,12 +49,11 @@ namespace KMusic
             public String Path { get; set; }
         }
 
+
+
         public string Title { get; set; }
         public string Artist { get; set; }
         public ImageSource AlbumArt { get; set; }
-
-
-
 
         public MainWindow()
         {
@@ -62,6 +64,12 @@ namespace KMusic
             _timer.Tick += Timer_Tick;
             _timer.Start();
             DisplayPresetData();
+            _songs = GetAll();
+        }
+
+        public void GetSongAudio()
+        {
+            _songs = GetAll();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -76,28 +84,6 @@ namespace KMusic
                     TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
                     MusicSlider.Value = elapsed;
                 });
-            }
-        }
-
-        private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            while (true)
-            {
-                if (audioFile != null)
-                {
-                    double elapsed = audioFile.CurrentTime.TotalSeconds;
-                    double total = audioFile.TotalTime.TotalSeconds;
-
-                    Dispatcher.Invoke(() =>
-                    {
-                        CurrentTimeTextBlock.Text = TimeSpan.FromSeconds(elapsed).ToString(@"hh\:mm\:ss");
-                        TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
-                        MusicSlider.Value = elapsed;
-
-                    });
-                }
-
-                Thread.Sleep(1000);
             }
         }
 
@@ -128,7 +114,7 @@ namespace KMusic
             ArtistTextBlock.Text = artist;
             if (artist == null)
             {
-                ArtistTextBlock.Text = "Unknow";
+                ArtistTextBlock.Text = "Không rõ";
             }
         }
 
@@ -154,6 +140,7 @@ namespace KMusic
             }
             return list;
         }
+
 
         public void DisplayPresetData()
         {
@@ -191,6 +178,7 @@ namespace KMusic
                 }
             }
             DisplayPresetData();
+            _songs = GetAll();
         }
 
         private void DSPDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -209,25 +197,6 @@ namespace KMusic
 
 
                 var file = TagLib.File.Create(cellValue);
-                var albumArt = file.Tag.Pictures.FirstOrDefault();
-                if (albumArt != null)
-                {
-                    var bitmap = new BitmapImage();
-                    using (var stream = new MemoryStream(albumArt.Data.Data))
-                    {
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.StreamSource = stream;
-                        bitmap.EndInit();
-                    }
-                    var imageControl = new Image();
-                    imageControl.Source = bitmap;
-                    albumArtImage = imageControl;
-                }
-                else
-                {
-                    albumArtImage = null;
-                }
 
                 string title = file.Tag.Title;
                 string artist = file.Tag.FirstPerformer;
@@ -251,48 +220,90 @@ namespace KMusic
             }
         }
 
-
-        //private void PlayPauseButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (Global.waveOut.PlaybackState == PlaybackState.Playing)
-        //    {
-        //        Global.waveOut.Pause();
-        //    }
-        //    else
-        //    {
-        //        Global.waveOut.Play();
-        //    }
-        //}
-
         private void PlayPauseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PlayPausePath == null)
-            {
-                return;
-            }
+            System.Windows.Controls.Button button = sender as System.Windows.Controls.Button;
 
             if (Global.waveOut.PlaybackState == PlaybackState.Playing)
             {
                 // Pause playback
                 Global.waveOut.Pause();
-
-                Dispatcher.Invoke(() =>
+                button.Content = new MaterialDesignThemes.Wpf.PackIcon()
                 {
-                    PlayPausePath.Data = null;
-                    PlayPausePath.Data = Geometry.Parse("M5,20 L15,12.5 L15,27.5 Z");
-                });
+                    Kind = MaterialDesignThemes.Wpf.PackIconKind.Play
+                };
             }
             else
             {
                 // Resume playback
                 Global.waveOut.Play();
-
-                Dispatcher.Invoke(() =>
+                button.Content = new MaterialDesignThemes.Wpf.PackIcon()
                 {
-                    PlayPausePath.Data = null;
-                    PlayPausePath.Data = Geometry.Parse("M5,20 L15,12.5 L15,27.5 M10,12.5 L10,27.5 Z");
-                });
+                    Kind = MaterialDesignThemes.Wpf.PackIconKind.Pause
+                };
             }
         }
+
+
+        private void PlaySong(string path)
+        {
+            // Use Naudio to play the song
+            Global.waveOut.Stop();
+            audioFile = new AudioFileReader(path);
+            Global.waveOut.Init(audioFile);
+            Global.waveOut.Play();
+        }
+
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Switch to the previous song in the playlist
+            _currentSongIndex--;
+            if (_currentSongIndex < 0)
+            {
+                _currentSongIndex = _songs.Count - 1;
+            }
+            PlaySong(_songs[_currentSongIndex].Path);
+
+            var file = TagLib.File.Create(_songs[_currentSongIndex].Path);
+
+            string title = file.Tag.Title;
+            string artist = file.Tag.FirstPerformer;
+
+            if (string.IsNullOrEmpty(title))
+            {
+                title = System.IO.Path.GetFileNameWithoutExtension(_songs[_currentSongIndex].Path);
+            }
+            var audioFile = new AudioFileReader(_songs[_currentSongIndex].Path);
+
+            UpdateTitleAndArtist(title, artist);
+            UpdateAudioFile(audioFile);
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Switch to the next song in the playlist
+            _currentSongIndex++;
+            if (_currentSongIndex >= _songs.Count)
+            {
+                _currentSongIndex = 0;
+            }
+            PlaySong(_songs[_currentSongIndex].Path);
+
+            var file = TagLib.File.Create(_songs[_currentSongIndex].Path);
+
+            string title = file.Tag.Title;
+            string artist = file.Tag.FirstPerformer;
+
+            if (string.IsNullOrEmpty(title))
+            {
+                title = System.IO.Path.GetFileNameWithoutExtension(_songs[_currentSongIndex].Path);
+            }
+            var audioFile = new AudioFileReader(_songs[_currentSongIndex].Path);
+
+            UpdateTitleAndArtist(title, artist);
+            UpdateAudioFile(audioFile);
+        }
+
+
     }
 }

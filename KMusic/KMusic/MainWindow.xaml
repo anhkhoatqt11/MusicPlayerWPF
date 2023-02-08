@@ -15,7 +15,51 @@
     <Window.Effect>
         <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
     </Window.Effect>
+    
+    
+    <Window.Resources>
+        <Style x:Key="MyNavButtonStyle" TargetType="{x:Type local:NavButton}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:NavButton}">
+                        <Border x:Name="Back"
+                            CornerRadius="0"
+                            Padding="{TemplateBinding Padding}"
+                            Background="Transparent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Path x:Name="Icon"
+                              Stretch="Uniform" 
+                              Fill="Black" 
+                              Data="{TemplateBinding Icon}"
+                              Height="22"
+                              Width="22"
+                              Margin="0,0,100,0"
+                              />
+                                <TextBlock x:Name="ItemName" Text="{TemplateBinding ItemName}" FontFamily="Fonts/Inter-Bold.ttf #Inter" FontSize="14" FontWeight="Regular" Margin="60,3,0,0"></TextBlock>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="Back" Value="#FFFFFF"/>
+                                <Setter Property="Fill" TargetName="Icon" Value="#1F7FF8"/>
+                            </Trigger>
 
+
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="Back" Value="#FFFFFF"/>
+                                <Setter Property="Fill" TargetName="Icon" Value="#1F7FF8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    
     <Border  CornerRadius="10" Background="#EFF4F9" BorderThickness="5">
         <Grid>
 
@@ -40,10 +84,10 @@
                         <Image Source="/resources/icon/icon.png" Margin="0,10,100,0"  Height="50" Width="50" VerticalAlignment="Top"></Image>
                         <TextBlock Text="KMusic" FontSize="18" FontFamily="/Fonts/Inter-SemiBold.ttf #Inter" Margin="80,25,0,0" ></TextBlock>
                         <ListBox Grid.Column="0" SelectionMode="Single" SelectionChanged="Sidebar_SelectionChanged" x:Name="Sidebar" Margin="0,70,0,50" BorderThickness="0">
-                            <local:NavButton Navlink="/Pages/Home.xaml" Margin="3" Padding="10" Icon="M12.8,15v3c0,0.4-0.3,0.8-0.8,0.8s-0.8-0.3-0.8-0.8v-3c0-0.4,0.3-0.8,0.8-0.8S12.8,14.6,12.8,15z M22.7,11.4  l-1.3,8c-0.3,1.8-2,3.2-3.8,3.2H6.4c-1.8,0-3.5-1.4-3.8-3.2l-1.3-8c-0.2-1.2,0.4-2.8,1.4-3.6l6.9-5.5c1.3-1.1,3.5-1.1,4.8,0l6.9,5.5  C22.3,8.6,22.9,10.2,22.7,11.4z M21.2,11.2c0.1-0.7-0.3-1.8-0.8-2.2l-6.9-5.5c-0.4-0.3-0.9-0.5-1.5-0.5c-0.5,0-1.1,0.2-1.4,0.5l0,0  L3.6,9c-0.6,0.4-1,1.5-0.8,2.2l1.3,8c0.2,1.1,1.2,1.9,2.3,1.9h11.2c1.1,0,2.1-0.9,2.3-1.9L21.2,11.2z" ItemName="Trang chủ"></local:NavButton>
-                            <local:NavButton Navlink="/Pages/Music.xaml" Margin="3" Padding="10" Icon="M20.8894 5.1786V16.4786C20.8894 18.4586 19.2794 20.0686 17.2994 20.0686C15.3294 20.0686 13.7094 18.4586 13.7094 16.4786C13.7094 14.5086 15.3294 12.8986 17.2994 12.8986C18.1394 12.8986 18.8894 13.1886 19.4994 13.6686V7.7186L10.2894 10.3386V18.4086C10.2894 20.3886 8.66937 21.9986 6.69937 21.9986C4.71937 21.9986 3.10938 20.3886 3.10938 18.4086C3.10938 16.4386 4.71937 14.8286 6.69937 14.8286C7.52938 14.8286 8.27938 15.1186 8.88938 15.5886V6.7486C8.88938 5.2786 9.77938 4.1386 11.1894 3.7586L16.9694 2.1786C18.1394 1.8586 19.1294 1.9686 19.8294 2.5086C20.5394 3.0386 20.8894 3.9386 20.8894 5.1786Z" ItemName="Âm nhạc"></local:NavButton>
-                            <local:NavButton Navlink="/Pages/Video.xaml" Margin="3" Padding="10" Icon="M22.8,9c0-0.7,0-1.4-0.1-2c0,0,0,0,0-0.1c0-0.1,0-0.2-0.1-0.3c-0.6-3.8-3-5.4-7.6-5.4H9C3.6,1.2,1.2,3.6,1.2,9  v6c0,5.4,2.3,7.8,7.8,7.8h6c4.6,0,7-1.7,7.6-5.5c0-0.1,0.1-0.2,0.1-0.3c0,0,0,0,0,0c0.1-0.6,0.1-1.2,0.1-1.9V9z M21.2,9v2.2h-3.6  V7.7h3.6C21.2,8.1,21.2,8.5,21.2,9z M17.6,12.8h3.6V15c0,0.4,0,0.8,0,1.2h-3.6V12.8z M21,6.2h-3.3V3C19.5,3.4,20.5,4.4,21,6.2z   M15,2.8c0.4,0,0.8,0,1.1,0v8.5H7.6V7c0,0,0,0,0,0s0,0,0,0V2.8c0.4,0,0.9-0.1,1.4-0.1H15z M6.1,11.2H6H2.8V9c0-0.5,0-0.9,0.1-1.3  h3.3V11.2z M2.8,15v-2.2H6h0.2v3.5H2.8C2.8,15.8,2.8,15.4,2.8,15z M6.1,3.1v3.2H3C3.5,4.5,4.5,3.5,6.1,3.1z M3,17.7h3.1v3.2  C4.4,20.5,3.5,19.5,3,17.7z M9,21.2c-0.5,0-0.9,0-1.4-0.1V17c0,0,0,0,0,0s0,0,0,0v-4.2h8.5v8.5c-0.4,0-0.7,0-1.1,0H9z M17.6,21v-3.3  H21C20.5,19.5,19.5,20.6,17.6,21z" ItemName="Video"></local:NavButton>
-                            <local:NavButton Navlink="/Pages/Settings.xaml" Margin="3" Padding="10" Icon="M12,8.2c-2.1,0-3.8,1.7-3.8,3.8c0,2.1,1.7,3.8,3.8,3.8c2.1,0,3.8-1.7,3.8-3.8C15.8,9.9,14.1,8.2,12,8.2z   M12,14.2c-1.2,0-2.2-1-2.2-2.2c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2C14.2,13.2,13.2,14.2,12,14.2z M20.1,8.5  c-0.6,0-1-0.2-1.2-0.5c-0.2-0.3-0.1-0.8,0.2-1.3c0.4-0.6,0.4-1.3,0.3-2c-0.2-0.7-0.6-1.3-1.2-1.6l-1.7-1c-1.1-0.7-2.6-0.3-3.3,0.9  L13,3.2C12.7,3.7,12.3,4,12,4c0,0,0,0,0,0c-0.3,0-0.7-0.3-1-0.8L10.9,3C10.6,2.5,10,2.1,9.4,1.9C8.8,1.7,8.1,1.8,7.6,2.1l-1.7,1  C5.3,3.5,4.8,4,4.6,4.7c-0.2,0.7-0.1,1.4,0.3,2c0.3,0.5,0.4,1,0.2,1.3C4.9,8.3,4.5,8.5,3.9,8.5c-1.5,0-2.6,1.2-2.6,2.7v1.8  c0,1.5,1.2,2.7,2.6,2.7c0.6,0,1,0.2,1.2,0.5c0.2,0.3,0.1,0.8-0.2,1.3c-0.4,0.6-0.4,1.3-0.3,2c0.2,0.7,0.6,1.3,1.2,1.6l1.7,1  c1.1,0.7,2.6,0.3,3.3-0.9l0.1-0.2c0.3-0.5,0.7-0.8,1-0.8c0,0,0,0,0,0c0.3,0,0.7,0.3,1,0.8l0.1,0.2c0.5,0.8,1.3,1.2,2.1,1.2  c0.4,0,0.8-0.1,1.2-0.3l1.7-1c0.6-0.4,1.1-0.9,1.2-1.6c0.2-0.7,0.1-1.4-0.3-2c-0.3-0.5-0.4-1-0.2-1.3c0.2-0.3,0.6-0.5,1.2-0.5  c1.5,0,2.6-1.2,2.6-2.7v-1.8C22.8,9.7,21.6,8.5,20.1,8.5z M21.3,12.9c0,0.6-0.5,1.2-1.1,1.2c-1.1,0-2,0.4-2.5,1.2  C17.2,16,17.2,17,17.8,18c0.2,0.3,0.2,0.6,0.1,0.9c-0.1,0.3-0.3,0.5-0.5,0.7l-1.7,1c-0.4,0.3-1,0.1-1.2-0.3L14.3,20  c-0.6-1-1.4-1.6-2.3-1.6c0,0,0,0,0,0c-0.9,0-1.7,0.6-2.3,1.6l-0.1,0.2c-0.3,0.4-0.8,0.6-1.3,0.3l-1.7-1c-0.3-0.2-0.5-0.4-0.5-0.7  C6,18.6,6,18.3,6.2,18c0.6-1,0.6-2,0.2-2.8S5,14,3.9,14c-0.6,0-1.1-0.5-1.1-1.2v-1.8c0-0.6,0.5-1.2,1.1-1.2c1.1,0,2-0.4,2.5-1.2  C6.8,8,6.8,7,6.2,6C6,5.7,6,5.4,6.1,5.1c0.1-0.3,0.3-0.5,0.5-0.7l1.7-1C8.6,3.3,8.8,3.3,9,3.3c0.2,0.1,0.4,0.2,0.6,0.4L9.7,4  c0.6,1,1.4,1.6,2.3,1.6c0,0,0,0,0,0c0.9,0,1.7-0.6,2.3-1.6l0.1-0.2c0.3-0.4,0.8-0.6,1.3-0.3l1.7,1c0.3,0.2,0.5,0.4,0.5,0.7  C18,5.4,18,5.7,17.8,6c-0.6,1-0.6,2-0.2,2.8C18.1,9.5,19,10,20.1,10c0.6,0,1.1,0.5,1.1,1.2V12.9z" ItemName="Cài đặt"></local:NavButton>
+                            <local:NavButton Style="{StaticResource MyNavButtonStyle}" Navlink="/Pages/Home.xaml" Margin="3" Padding="10" Icon="M12.8,15v3c0,0.4-0.3,0.8-0.8,0.8s-0.8-0.3-0.8-0.8v-3c0-0.4,0.3-0.8,0.8-0.8S12.8,14.6,12.8,15z M22.7,11.4  l-1.3,8c-0.3,1.8-2,3.2-3.8,3.2H6.4c-1.8,0-3.5-1.4-3.8-3.2l-1.3-8c-0.2-1.2,0.4-2.8,1.4-3.6l6.9-5.5c1.3-1.1,3.5-1.1,4.8,0l6.9,5.5  C22.3,8.6,22.9,10.2,22.7,11.4z M21.2,11.2c0.1-0.7-0.3-1.8-0.8-2.2l-6.9-5.5c-0.4-0.3-0.9-0.5-1.5-0.5c-0.5,0-1.1,0.2-1.4,0.5l0,0  L3.6,9c-0.6,0.4-1,1.5-0.8,2.2l1.3,8c0.2,1.1,1.2,1.9,2.3,1.9h11.2c1.1,0,2.1-0.9,2.3-1.9L21.2,11.2z" ItemName="Trang chủ"></local:NavButton>
+                            <local:NavButton Style="{StaticResource MyNavButtonStyle}" Navlink="/Pages/Music.xaml" Margin="3" Padding="10" Icon="M20.8894 5.1786V16.4786C20.8894 18.4586 19.2794 20.0686 17.2994 20.0686C15.3294 20.0686 13.7094 18.4586 13.7094 16.4786C13.7094 14.5086 15.3294 12.8986 17.2994 12.8986C18.1394 12.8986 18.8894 13.1886 19.4994 13.6686V7.7186L10.2894 10.3386V18.4086C10.2894 20.3886 8.66937 21.9986 6.69937 21.9986C4.71937 21.9986 3.10938 20.3886 3.10938 18.4086C3.10938 16.4386 4.71937 14.8286 6.69937 14.8286C7.52938 14.8286 8.27938 15.1186 8.88938 15.5886V6.7486C8.88938 5.2786 9.77938 4.1386 11.1894 3.7586L16.9694 2.1786C18.1394 1.8586 19.1294 1.9686 19.8294 2.5086C20.5394 3.0386 20.8894 3.9386 20.8894 5.1786Z" ItemName="Âm nhạc"></local:NavButton>
+                            <local:NavButton Style="{StaticResource MyNavButtonStyle}" Navlink="/Pages/Video.xaml" Margin="3" Padding="10" Icon="M22.8,9c0-0.7,0-1.4-0.1-2c0,0,0,0,0-0.1c0-0.1,0-0.2-0.1-0.3c-0.6-3.8-3-5.4-7.6-5.4H9C3.6,1.2,1.2,3.6,1.2,9  v6c0,5.4,2.3,7.8,7.8,7.8h6c4.6,0,7-1.7,7.6-5.5c0-0.1,0.1-0.2,0.1-0.3c0,0,0,0,0,0c0.1-0.6,0.1-1.2,0.1-1.9V9z M21.2,9v2.2h-3.6  V7.7h3.6C21.2,8.1,21.2,8.5,21.2,9z M17.6,12.8h3.6V15c0,0.4,0,0.8,0,1.2h-3.6V12.8z M21,6.2h-3.3V3C19.5,3.4,20.5,4.4,21,6.2z   M15,2.8c0.4,0,0.8,0,1.1,0v8.5H7.6V7c0,0,0,0,0,0s0,0,0,0V2.8c0.4,0,0.9-0.1,1.4-0.1H15z M6.1,11.2H6H2.8V9c0-0.5,0-0.9,0.1-1.3  h3.3V11.2z M2.8,15v-2.2H6h0.2v3.5H2.8C2.8,15.8,2.8,15.4,2.8,15z M6.1,3.1v3.2H3C3.5,4.5,4.5,3.5,6.1,3.1z M3,17.7h3.1v3.2  C4.4,20.5,3.5,19.5,3,17.7z M9,21.2c-0.5,0-0.9,0-1.4-0.1V17c0,0,0,0,0,0s0,0,0,0v-4.2h8.5v8.5c-0.4,0-0.7,0-1.1,0H9z M17.6,21v-3.3  H21C20.5,19.5,19.5,20.6,17.6,21z" ItemName="Video"></local:NavButton>
+                            <local:NavButton Style="{StaticResource MyNavButtonStyle}" Navlink="/Pages/Settings.xaml" Margin="3" Padding="10" Icon="M12,8.2c-2.1,0-3.8,1.7-3.8,3.8c0,2.1,1.7,3.8,3.8,3.8c2.1,0,3.8-1.7,3.8-3.8C15.8,9.9,14.1,8.2,12,8.2z   M12,14.2c-1.2,0-2.2-1-2.2-2.2c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2C14.2,13.2,13.2,14.2,12,14.2z M20.1,8.5  c-0.6,0-1-0.2-1.2-0.5c-0.2-0.3-0.1-0.8,0.2-1.3c0.4-0.6,0.4-1.3,0.3-2c-0.2-0.7-0.6-1.3-1.2-1.6l-1.7-1c-1.1-0.7-2.6-0.3-3.3,0.9  L13,3.2C12.7,3.7,12.3,4,12,4c0,0,0,0,0,0c-0.3,0-0.7-0.3-1-0.8L10.9,3C10.6,2.5,10,2.1,9.4,1.9C8.8,1.7,8.1,1.8,7.6,2.1l-1.7,1  C5.3,3.5,4.8,4,4.6,4.7c-0.2,0.7-0.1,1.4,0.3,2c0.3,0.5,0.4,1,0.2,1.3C4.9,8.3,4.5,8.5,3.9,8.5c-1.5,0-2.6,1.2-2.6,2.7v1.8  c0,1.5,1.2,2.7,2.6,2.7c0.6,0,1,0.2,1.2,0.5c0.2,0.3,0.1,0.8-0.2,1.3c-0.4,0.6-0.4,1.3-0.3,2c0.2,0.7,0.6,1.3,1.2,1.6l1.7,1  c1.1,0.7,2.6,0.3,3.3-0.9l0.1-0.2c0.3-0.5,0.7-0.8,1-0.8c0,0,0,0,0,0c0.3,0,0.7,0.3,1,0.8l0.1,0.2c0.5,0.8,1.3,1.2,2.1,1.2  c0.4,0,0.8-0.1,1.2-0.3l1.7-1c0.6-0.4,1.1-0.9,1.2-1.6c0.2-0.7,0.1-1.4-0.3-2c-0.3-0.5-0.4-1-0.2-1.3c0.2-0.3,0.6-0.5,1.2-0.5  c1.5,0,2.6-1.2,2.6-2.7v-1.8C22.8,9.7,21.6,8.5,20.1,8.5z M21.3,12.9c0,0.6-0.5,1.2-1.1,1.2c-1.1,0-2,0.4-2.5,1.2  C17.2,16,17.2,17,17.8,18c0.2,0.3,0.2,0.6,0.1,0.9c-0.1,0.3-0.3,0.5-0.5,0.7l-1.7,1c-0.4,0.3-1,0.1-1.2-0.3L14.3,20  c-0.6-1-1.4-1.6-2.3-1.6c0,0,0,0,0,0c-0.9,0-1.7,0.6-2.3,1.6l-0.1,0.2c-0.3,0.4-0.8,0.6-1.3,0.3l-1.7-1c-0.3-0.2-0.5-0.4-0.5-0.7  C6,18.6,6,18.3,6.2,18c0.6-1,0.6-2,0.2-2.8S5,14,3.9,14c-0.6,0-1.1-0.5-1.1-1.2v-1.8c0-0.6,0.5-1.2,1.1-1.2c1.1,0,2-0.4,2.5-1.2  C6.8,8,6.8,7,6.2,6C6,5.7,6,5.4,6.1,5.1c0.1-0.3,0.3-0.5,0.5-0.7l1.7-1C8.6,3.3,8.8,3.3,9,3.3c0.2,0.1,0.4,0.2,0.6,0.4L9.7,4  c0.6,1,1.4,1.6,2.3,1.6c0,0,0,0,0,0c0.9,0,1.7-0.6,2.3-1.6l0.1-0.2c0.3-0.4,0.8-0.6,1.3-0.3l1.7,1c0.3,0.2,0.5,0.4,0.5,0.7  C18,5.4,18,5.7,17.8,6c-0.6,1-0.6,2-0.2,2.8C18.1,9.5,19,10,20.1,10c0.6,0,1.1,0.5,1.1,1.2V12.9z" ItemName="Cài đặt"></local:NavButton>
 
                         </ListBox>
                 </Grid>
@@ -72,7 +116,7 @@
                         </Grid>
                 </Border>
             </Grid>
-        <Border Grid.Row="1" CornerRadius="20" Background="White" Margin="30,10,10,30">
+        <Border Grid.Row="1" CornerRadius="20" Background="White" Margin="20,10,10,30">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -85,10 +129,10 @@
                         <ColumnDefinition Width="1000"></ColumnDefinition>
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>   
-                        <TextBlock x:Name="CurrentTimeTextBlock" Text="00:00:00" Grid.Column="0" Margin="30 0 0 0"></TextBlock>
+                        <TextBlock x:Name="CurrentTimeTextBlock" Text="00:00:00" Grid.Column="0" Margin="30 0 30 0"></TextBlock>
                         <!--<materialDesign:Slider  Grid.Column="1"  x:Name="MusicSlider" Minimum="0" Maximum="100" Value="0"  MaxWidth="500"  ValueChanged="MusicSlider_ValueChanged" />-->
                         <Slider Minimum="0" Maximum="100" Value="0" Grid.Column="1" x:Name="MusicSlider" ValueChanged="MusicSlider_ValueChanged" Thumb.DragStarted="MusicSlider_DragStarted" Thumb.DragCompleted="MusicSlider_DragCompleted"/>
-                        <TextBlock x:Name="TotalLengthTextBlock" Text="00:00:00"  Grid.Column="2" Margin="0 0 0 0"></TextBlock>
+                        <TextBlock x:Name="TotalLengthTextBlock" Text="00:00:00"  Grid.Column="2" Margin="30 0 30 0"></TextBlock>
                 </Grid>
 
 
@@ -106,30 +150,34 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                       <Image x:Name="albumArtImage" Grid.Column="0"  Height="60" Width="60" Stretch="Fill" Margin="20 20 0 0"/>
+                       <!--<Image x:Name="albumArtImage" Grid.Column="0"  Height="60" Width="60" Stretch="Fill" Margin="20 20 0 0"/>-->
                     </Grid>
 
 
 
-                    <Grid Grid.Column="1" Margin="20 20 0 0">
+                    <Grid Grid.Column="1" Margin="30 20 0 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                            <TextBlock x:Name="TitleTextBlock" Grid.Row="0" Text="{Binding Title}" FontSize="16" FontWeight="Bold" Width="500"></TextBlock>
+                            <TextBlock x:Name="TitleTextBlock" Grid.Row="0" Text="{Binding Title}" FontSize="16" FontWeight="Bold" Width="515"></TextBlock>
                             <TextBlock x:Name="ArtistTextBlock"  Grid.Row="1" Text="{Binding Artist}" FontSize="12" ></TextBlock>
                     </Grid>
 
-                    <Grid Grid.Column="2" VerticalAlignment="Center">
+                    <Grid Grid.Column="2" VerticalAlignment="Center" Margin="0 30 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="PlayPauseButton" Click="PlayPauseButton_Click" Opacity="0">
-                                <Grid x:Name="PlayPauseGrid">
-                                    <Path x:Name="PlayPausePath" Data="M5,20 L15,12.5 L15,27.5 Z" Fill="Black" Opacity="1"/>
-                                </Grid>
+                            <Button Grid.Column="0"  Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="PreviousButton_Click">
+                                <materialDesign:PackIcon Kind="SkipPrevious"/>
+                            </Button>
+                            <Button Grid.Column="1" x:Name="PlayButton"  Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="PlayPauseButton_Click">
+                                <materialDesign:PackIcon Kind="Play" />
+                            </Button>
+                            <Button Grid.Column="2"  Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="NextButton_Click">
+                                <materialDesign:PackIcon Kind="SkipNext" />
                             </Button>
                         </Grid>
 

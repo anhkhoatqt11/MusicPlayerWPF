@@ -83,22 +83,6 @@ namespace KMusic.Pages
                     Global.waveOut.Dispose();
                 }
 
-
-                if (albumArt != null)
-                {
-                    var bitmap = new BitmapImage();
-                    using (var stream = new MemoryStream(albumArt.Data.Data))
-                    {
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.StreamSource = stream;
-                        bitmap.EndInit();
-                    }
-                    Image image = new Image();
-                    image.Source = bitmap;
-                    mainWindow.albumArtImage = image;
-                }
-
                 string title = file.Tag.Title;
                 string artist = file.Tag.FirstPerformer;
 
@@ -142,6 +126,7 @@ namespace KMusic.Pages
             }
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow.DisplayPresetData();
+            mainWindow.GetSongAudio();
         }
     }
 }

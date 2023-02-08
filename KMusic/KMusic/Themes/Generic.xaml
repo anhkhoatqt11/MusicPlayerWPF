@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:KMusic">
 
-    <Style TargetType="{x:Type local:NavButton}">
+    <Style x:Key="MyNavButtonStyle" TargetType="{x:Type local:NavButton}">
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
