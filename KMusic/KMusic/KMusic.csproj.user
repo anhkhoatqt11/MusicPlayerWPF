@@ -19,6 +19,9 @@
     <Compile Update="Pages\Video.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="VideoPlayerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VideoPlayerWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

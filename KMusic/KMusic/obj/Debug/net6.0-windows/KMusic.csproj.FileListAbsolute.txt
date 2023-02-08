@@ -90,3 +90,5 @@ D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\MaterialDesignColors.dll
 D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
 D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\KMusic_Content.g.cs
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\VideoPlayerWindow.g.cs
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\VideoPlayerWindow.baml

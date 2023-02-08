@@ -18,7 +18,7 @@
         </Grid>
         <Grid Grid.Row="1">
             <!-- RowStyle="{DynamicResource DataGridRowStyle1}"-->
-            <DataGrid  x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick">
+            <DataGrid  x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick" >
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Thêm vào Danh sách phát" Click="Add_DSP"/>

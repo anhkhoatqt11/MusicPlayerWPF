@@ -17,7 +17,12 @@
             <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Cài đặt"></TextBlock>
         </Grid>
         <Grid Grid.Row="1">
-            <Button Click="StoreMusic"   Content="Chọn đường dẫn nhạc"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Click="StoreMusic" Width="500" Content="Thêm đường dẫn nhạc"/>
+            <Button Grid.Row="1" Click="StoreVideo" Width="500" Content="Thêm đường dẫn Video"/>
         </Grid>
     </Grid>
 </Page>

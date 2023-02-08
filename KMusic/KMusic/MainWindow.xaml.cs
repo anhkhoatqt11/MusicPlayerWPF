@@ -42,11 +42,26 @@ namespace KMusic
         // Load the songs from LiteDB
         private int _currentSongIndex = 0;
         private List<MusicFromFolder> _songs;
+
+        private bool _isShuffleEnabled;
+        public bool IsShuffleEnabled
+        {
+            get { return _isShuffleEnabled; }
+            set { _isShuffleEnabled = value; OnPropertyChanged(); }
+        }
+
+        private void OnPropertyChanged()
+        {
+            throw new NotImplementedException();
+        }
+
         public class MusicFromFolder
         {
             public LiteDB.ObjectId _id { get; set; }
             public String Title { get; set; }
             public String Path { get; set; }
+            public bool IsShuffle { get; set; } = false;
+            public bool IsLoop { get; set; } = false;
         }
 
 
@@ -60,7 +75,7 @@ namespace KMusic
             InitializeComponent();
             Sidebar.SelectedIndex = 0;
             _timer = new System.Windows.Forms.Timer();
-            _timer.Interval = 1000;
+            _timer.Interval = 100;
             _timer.Tick += Timer_Tick;
             _timer.Start();
             DisplayPresetData();
@@ -122,10 +137,6 @@ namespace KMusic
         {
             var selected = Sidebar.SelectedItem as NavButton;
             navframe.Navigate(selected.Navlink);
-        }
-        private void PlayButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
         private List<MusicFromFolder> GetAll()
         {
@@ -251,6 +262,18 @@ namespace KMusic
             Global.waveOut.Stop();
             audioFile = new AudioFileReader(path);
             Global.waveOut.Init(audioFile);
+
+            //if (_isShuffleEnabled)
+            //{
+            //    var rand = new Random();
+            //    // Play the next song randomly
+            //    _currentSongIndex = rand.Next(0, _songs.Count);
+            //}
+            //else
+            //{
+            //    // Play the next song in the list
+            //    _currentSongIndex = (_currentSongIndex + 1) % _songs.Count;
+            //}
             Global.waveOut.Play();
         }
 

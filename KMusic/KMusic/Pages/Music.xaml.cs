@@ -23,6 +23,7 @@ using Ookii.Dialogs;
 using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 using Application = System.Windows.Application;
+using System.Reflection;
 
 namespace KMusic.Pages
 {
@@ -39,6 +40,7 @@ namespace KMusic.Pages
         {
             InitializeComponent();
             DisplayPresetData();
+            HideColumn();
         }
         public class MusicFromFolder
         {
@@ -63,7 +65,12 @@ namespace KMusic.Pages
         {
             MusicDataGrid.ItemsSource = GetAll();
         }
+        private void HideColumn()
+        {
+            //int columnIndex = 0;
+            //MusicDataGrid.Columns[columnIndex].Visibility = Visibility.Collapsed;
 
+        }
         private void MusicDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGrid dataGrid = sender as DataGrid;

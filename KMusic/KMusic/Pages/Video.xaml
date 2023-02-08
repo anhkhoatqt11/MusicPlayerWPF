@@ -9,6 +9,17 @@
       Title="Video">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Video"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <!-- RowStyle="{DynamicResource DataGridRowStyle1}"-->
+            <DataGrid  x:Name="VideoDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="VideoDataGrid_MouseDoubleClick" >
+            </DataGrid>
+        </Grid>
     </Grid>
 </Page>

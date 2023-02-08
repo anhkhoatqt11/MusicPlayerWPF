@@ -63,6 +63,34 @@ namespace KMusic.Pages
             DisplayPresetData();
         }
 
+        private void StoreVideo(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                FolderBrowserDialog dlg = new FolderBrowserDialog();
+                dlg.ShowDialog();
+                string DirectoryPath = System.IO.Path.GetDirectoryName(dlg.SelectedPath);
+                string[] A = Directory.GetFiles(DirectoryPath, "*.mp4", SearchOption.AllDirectories);
+                string[] fName = new string[A.Count()];
+                var col = db.GetCollection<MusicFromFolder>("video");
+
+                for (int i = 0; i < A.Count(); i++)
+                {
+                    fName[i] = System.IO.Path.GetFileName(A[i]);
+
+                    var audio = new MusicFromFolder
+                    {
+                        Title = fName[i],
+                        Path = A[i]
+                    };
+
+                    col.Insert(audio);
+
+                }
+            }
+            DisplayPresetData();
+        }
+
         private List<MusicFromFolder> GetAll()
         {
             var list = new List<MusicFromFolder>();
