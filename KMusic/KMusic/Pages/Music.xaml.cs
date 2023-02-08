@@ -31,7 +31,10 @@ namespace KMusic.Pages
     /// </summary>
     public partial class Music : Page
     {
-        private WaveOutEvent waveOut;
+        public static class Global
+        {
+            public static WaveOutEvent waveOut;
+        }
         public Music()
         {
             InitializeComponent();
@@ -60,23 +63,27 @@ namespace KMusic.Pages
         {
             MusicDataGrid.ItemsSource = GetAll();
         }
+
         private void MusicDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGrid dataGrid = sender as DataGrid;
             MusicFromFolder selectedRow = dataGrid.SelectedItem as MusicFromFolder;
+            string cellValue = selectedRow.Path;
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+
+
+            var file = TagLib.File.Create(cellValue);
+            var albumArt = file.Tag.Pictures.FirstOrDefault();
+
             if (selectedRow != null)
             {
-                if (waveOut != null)
+                if (Global.waveOut != null)
                 {
-                    waveOut.Stop();
+                    Global.waveOut.Stop();
+                    Global.waveOut.Dispose();
                 }
 
-                string cellValue = selectedRow.Path;
-                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
 
-
-                var file = TagLib.File.Create(cellValue);
-                var albumArt = file.Tag.Pictures.FirstOrDefault();
                 if (albumArt != null)
                 {
                     var bitmap = new BitmapImage();
@@ -87,11 +94,9 @@ namespace KMusic.Pages
                         bitmap.StreamSource = stream;
                         bitmap.EndInit();
                     }
-                    mainWindow.AlbumArt = bitmap;
-                }
-                else
-                {
-                    mainWindow.AlbumArt = null;
+                    Image image = new Image();
+                    image.Source = bitmap;
+                    mainWindow.albumArtImage = image;
                 }
 
                 string title = file.Tag.Title;
@@ -102,10 +107,10 @@ namespace KMusic.Pages
                     title = System.IO.Path.GetFileNameWithoutExtension(cellValue);
                 }
 
-                waveOut = new WaveOutEvent();
+                Global.waveOut = new WaveOutEvent();
                 var audioFile = new AudioFileReader(cellValue);
-                waveOut.Init(audioFile);
-                waveOut.Play();
+                Global.waveOut.Init(audioFile);
+                Global.waveOut.Play();
 
                 mainWindow.UpdateTitleAndArtist(title, artist);
                 mainWindow.UpdateAudioFile(audioFile);

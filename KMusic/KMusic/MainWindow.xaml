@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KMusic"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
                 Title="MainWindow" Height="720" Width="1280"
         WindowStyle="None"
@@ -71,7 +72,7 @@
                         </Grid>
                 </Border>
             </Grid>
-        <Border Grid.Row="1" CornerRadius="20" Background="White" Margin="20">
+        <Border Grid.Row="1" CornerRadius="20" Background="White" Margin="30,10,10,30">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -85,7 +86,8 @@
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>   
                         <TextBlock x:Name="CurrentTimeTextBlock" Text="00:00:00" Grid.Column="0" Margin="30 0 0 0"></TextBlock>
-                        <Slider  Grid.Column="1"  x:Name="MusicSlider" Minimum="0" Maximum="100" Value="0"  MaxWidth="500"  ValueChanged="MusicSlider_ValueChanged" />
+                        <!--<materialDesign:Slider  Grid.Column="1"  x:Name="MusicSlider" Minimum="0" Maximum="100" Value="0"  MaxWidth="500"  ValueChanged="MusicSlider_ValueChanged" />-->
+                        <Slider Minimum="0" Maximum="100" Value="0" Grid.Column="1" x:Name="MusicSlider" ValueChanged="MusicSlider_ValueChanged" Thumb.DragStarted="MusicSlider_DragStarted" Thumb.DragCompleted="MusicSlider_DragCompleted"/>
                         <TextBlock x:Name="TotalLengthTextBlock" Text="00:00:00"  Grid.Column="2" Margin="0 0 0 0"></TextBlock>
                 </Grid>
 
@@ -104,7 +106,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                       <Image x:Name="albumArtImage" Grid.Column="0" Source="/resources/images/default.png" Height="60" Width="60" Stretch="Fill" Margin="20 20 0 0"/>
+                       <Image x:Name="albumArtImage" Grid.Column="0"  Height="60" Width="60" Stretch="Fill" Margin="20 20 0 0"/>
                     </Grid>
 
 
@@ -114,19 +116,21 @@
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                            <TextBlock x:Name="TitleTextBlock" Grid.Row="0" Text="{Binding Title}" FontSize="16" FontWeight="Bold"></TextBlock>
+                            <TextBlock x:Name="TitleTextBlock" Grid.Row="0" Text="{Binding Title}" FontSize="16" FontWeight="Bold" Width="500"></TextBlock>
                             <TextBlock x:Name="ArtistTextBlock"  Grid.Row="1" Text="{Binding Artist}" FontSize="12" ></TextBlock>
                     </Grid>
 
                     <Grid Grid.Column="2" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Content="Previous"></Button>
-                            <Button Grid.Column="1" Content="Play" Click="PlayButton_Click"></Button>
-                            <Button Grid.Column="2" Content="Next"></Button>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="PlayPauseButton" Click="PlayPauseButton_Click" Opacity="0">
+                                <Grid x:Name="PlayPauseGrid">
+                                    <Path x:Name="PlayPausePath" Data="M5,20 L15,12.5 L15,27.5 Z" Fill="Black" Opacity="1"/>
+                                </Grid>
+                            </Button>
                         </Grid>
 
 

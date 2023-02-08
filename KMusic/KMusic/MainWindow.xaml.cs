@@ -21,6 +21,10 @@ using System.Threading;
 using LiteDB;
 using MessageBox = System.Windows.MessageBox;
 using System.IO;
+using KMusic.Pages;
+using static KMusic.Pages.Music;
+using Application = System.Windows.Application;
+using TagLib.Riff;
 
 namespace KMusic
 {
@@ -30,9 +34,10 @@ namespace KMusic
    
     public partial class MainWindow : Window
     {
-        private WaveOutEvent waveOut;
+        //private WaveOutEvent waveOut;
         private AudioFileReader audioFile;
-        private CancellationTokenSource cancellationTokenSource;
+        private System.Windows.Forms.Timer _timer;
+        private bool _isUserChange = false;
 
         public class MusicFromFolder
         {
@@ -45,30 +50,67 @@ namespace KMusic
         public string Artist { get; set; }
         public ImageSource AlbumArt { get; set; }
 
+
+
+
         public MainWindow()
         {
             InitializeComponent();
             Sidebar.SelectedIndex = 0;
-            // initialize timer
-            cancellationTokenSource = new CancellationTokenSource();
-            UpdateSliderAsync(cancellationTokenSource.Token);
+            _timer = new System.Windows.Forms.Timer();
+            _timer.Interval = 1000;
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
             DisplayPresetData();
         }
-
-        private async void UpdateSliderAsync(CancellationToken cancellationToken)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            while (!cancellationToken.IsCancellationRequested)
+            if (audioFile != null)
             {
-                await Task.Delay(1000, cancellationToken);
+                double elapsed = audioFile.CurrentTime.TotalSeconds;
+                double total = audioFile.TotalTime.TotalSeconds;
+
+                Dispatcher.Invoke(() =>
+                {
+                    CurrentTimeTextBlock.Text = TimeSpan.FromSeconds(elapsed).ToString(@"hh\:mm\:ss");
+                    TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
+                    MusicSlider.Value = elapsed;
+                });
+            }
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
                 if (audioFile != null)
                 {
                     double elapsed = audioFile.CurrentTime.TotalSeconds;
                     double total = audioFile.TotalTime.TotalSeconds;
-                    CurrentTimeTextBlock.Text = TimeSpan.FromSeconds(elapsed).ToString(@"hh\:mm\:ss");
-                    TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
-                    double sec = audioFile.CurrentTime.TotalSeconds;
-                    MusicSlider.Value = sec;
+
+                    Dispatcher.Invoke(() =>
+                    {
+                        CurrentTimeTextBlock.Text = TimeSpan.FromSeconds(elapsed).ToString(@"hh\:mm\:ss");
+                        TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
+                        MusicSlider.Value = elapsed;
+
+                    });
                 }
+
+                Thread.Sleep(1000);
+            }
+        }
+
+
+        private void Path_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Global.waveOut.PlaybackState == PlaybackState.Playing)
+            {
+                Global.waveOut.Pause();
+            }
+            else
+            {
+                Global.waveOut.Play();
             }
         }
 
@@ -79,10 +121,6 @@ namespace KMusic
             MusicSlider.Maximum = audioFile.TotalTime.TotalSeconds;
         }
 
-        private void MusicSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            audioFile.CurrentTime = TimeSpan.FromSeconds(e.NewValue);
-        }
 
         public void UpdateTitleAndArtist(string title, string artist)
         {
@@ -122,6 +160,24 @@ namespace KMusic
             DSP.ItemsSource = GetAll();
         }
 
+        private void MusicSlider_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+        {
+            _isUserChange = true;
+        }
+
+        private void MusicSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            _isUserChange = false;
+        }
+
+        private void MusicSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (_isUserChange)
+            {
+                audioFile.CurrentTime = TimeSpan.FromSeconds(e.NewValue);
+            }
+        }
+
         private void Del_DSP(object sender, RoutedEventArgs e)
         {
             using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
@@ -137,16 +193,16 @@ namespace KMusic
             DisplayPresetData();
         }
 
-
         private void DSPDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGrid dataGrid = sender as DataGrid;
             MusicFromFolder selectedRow = dataGrid.SelectedItem as MusicFromFolder;
             if (selectedRow != null)
             {
-                if (waveOut != null)
+                if (Global.waveOut != null)
                 {
-                    waveOut.Stop();
+                    Global.waveOut.Stop();
+                    Global.waveOut.Dispose();
                 }
 
                 string cellValue = selectedRow.Path;
@@ -164,11 +220,13 @@ namespace KMusic
                         bitmap.StreamSource = stream;
                         bitmap.EndInit();
                     }
-                    AlbumArt = bitmap;
+                    var imageControl = new Image();
+                    imageControl.Source = bitmap;
+                    albumArtImage = imageControl;
                 }
                 else
                 {
-                    AlbumArt = null;
+                    albumArtImage = null;
                 }
 
                 string title = file.Tag.Title;
@@ -179,10 +237,10 @@ namespace KMusic
                     title = System.IO.Path.GetFileNameWithoutExtension(cellValue);
                 }
 
-                waveOut = new WaveOutEvent();
+                Global.waveOut = new WaveOutEvent();
                 var audioFile = new AudioFileReader(cellValue);
-                waveOut.Init(audioFile);
-                waveOut.Play();
+                Global.waveOut.Init(audioFile);
+                Global.waveOut.Play();
 
                 UpdateTitleAndArtist(title, artist);
                 UpdateAudioFile(audioFile);
@@ -190,6 +248,50 @@ namespace KMusic
             else
             {
                 MessageBox.Show("Please select a row in the DataGrid.");
+            }
+        }
+
+
+        //private void PlayPauseButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (Global.waveOut.PlaybackState == PlaybackState.Playing)
+        //    {
+        //        Global.waveOut.Pause();
+        //    }
+        //    else
+        //    {
+        //        Global.waveOut.Play();
+        //    }
+        //}
+
+        private void PlayPauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PlayPausePath == null)
+            {
+                return;
+            }
+
+            if (Global.waveOut.PlaybackState == PlaybackState.Playing)
+            {
+                // Pause playback
+                Global.waveOut.Pause();
+
+                Dispatcher.Invoke(() =>
+                {
+                    PlayPausePath.Data = null;
+                    PlayPausePath.Data = Geometry.Parse("M5,20 L15,12.5 L15,27.5 Z");
+                });
+            }
+            else
+            {
+                // Resume playback
+                Global.waveOut.Play();
+
+                Dispatcher.Invoke(() =>
+                {
+                    PlayPausePath.Data = null;
+                    PlayPausePath.Data = Geometry.Parse("M5,20 L15,12.5 L15,27.5 M10,12.5 L10,27.5 Z");
+                });
             }
         }
     }

@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "XXXv+gWzNdP8otekCPtYzn1CsNox/41kkde5qz8Dzlw0ou8Rt48qY6F53cwjmd+2eGicUwzqjKFXmfOZ3ZGmLw==",
+  "dgSpecHash": "fFhqTIzlO0KPBr9FXNjSnPhvwUlwVwBXwPNYqxnArXvWwJhMBHsGmRkzenYcYg0HKOCVjC7WSJPPIBl/+wg/CA==",
   "success": true,
   "projectFilePath": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhkh\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\materialdesigncolors\\2.1.1\\materialdesigncolors.2.1.1.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\materialdesignthemes\\4.7.1\\materialdesignthemes.4.7.1.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\anhkh\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\naudio\\2.1.0\\naudio.2.1.0.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\naudio.asio\\2.1.0\\naudio.asio.2.1.0.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\naudio.core\\2.1.0\\naudio.core.2.1.0.nupkg.sha512",
