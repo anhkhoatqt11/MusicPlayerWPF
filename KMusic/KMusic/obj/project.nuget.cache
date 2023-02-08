@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A7sL0CA4MDi3fEfmDglfVbSVGL2hvqgJ8az9bzILd7RhDhzaL3KsPjQ9CQdzsmUTCdIJdcc2zIN3sjQpcUitqQ==",
+  "dgSpecHash": "XXXv+gWzNdP8otekCPtYzn1CsNox/41kkde5qz8Dzlw0ou8Rt48qY6F53cwjmd+2eGicUwzqjKFXmfOZ3ZGmLw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anhkh\\source\\repos\\KMusic\\KMusic\\KMusic.csproj",
+  "projectFilePath": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhkh\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
     "C:\\Users\\anhkh\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

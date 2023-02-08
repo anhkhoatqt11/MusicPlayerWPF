@@ -566,11 +566,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anhkh\\source\\repos\\KMusic\\KMusic\\KMusic.csproj",
+      "projectUniqueName": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
       "projectName": "KMusic",
-      "projectPath": "C:\\Users\\anhkh\\source\\repos\\KMusic\\KMusic\\KMusic.csproj",
+      "projectPath": "D:\\KMusic\\KMusic\\KMusic\\KMusic.csproj",
       "packagesPath": "C:\\Users\\anhkh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anhkh\\source\\repos\\KMusic\\KMusic\\obj\\",
+      "outputPath": "D:\\KMusic\\KMusic\\KMusic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anhkh\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -19,6 +19,10 @@ using static KMusic.Pages.Settings;
 using NAudio.Wave;
 using TagLib;
 using System.IO;
+using Ookii.Dialogs;
+using System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
+using Application = System.Windows.Application;
 
 namespace KMusic.Pages
 {
@@ -27,7 +31,7 @@ namespace KMusic.Pages
     /// </summary>
     public partial class Music : Page
     {
-              private WaveOutEvent waveOut;
+        private WaveOutEvent waveOut;
         public Music()
         {
             InitializeComponent();
@@ -62,6 +66,11 @@ namespace KMusic.Pages
             MusicFromFolder selectedRow = dataGrid.SelectedItem as MusicFromFolder;
             if (selectedRow != null)
             {
+                if (waveOut != null)
+                {
+                    waveOut.Stop();
+                }
+
                 string cellValue = selectedRow.Path;
                 MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
 
@@ -85,13 +94,6 @@ namespace KMusic.Pages
                     mainWindow.AlbumArt = null;
                 }
 
-
-
-                if (waveOut != null)
-                {
-                    waveOut.Stop();
-                }
-
                 string title = file.Tag.Title;
                 string artist = file.Tag.FirstPerformer;
 
@@ -112,6 +114,29 @@ namespace KMusic.Pages
             {
                 MessageBox.Show("Please select a row in the DataGrid.");
             }
+        }
+        private void Add_DSP(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var col = db.GetCollection<MusicFromFolder>("dsp");
+                var selectedRow = (MusicFromFolder)MusicDataGrid.SelectedItem;
+                var audio = new MusicFromFolder
+                {
+                    Title = selectedRow.Title,
+                    Path = selectedRow.Path,
+                };
+                if (!col.Exists(x => x.Title == selectedRow.Title))
+                {
+                    col.Insert(audio);
+                }
+                else
+                {
+                    MessageBox.Show("The song is already in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.DisplayPresetData();
         }
     }
 }

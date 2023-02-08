@@ -79,7 +79,7 @@ namespace KMusic.Pages
 
         public void DisplayPresetData()
         {
-            DataGrid.ItemsSource = GetAll();
+            
         }
     }
 }

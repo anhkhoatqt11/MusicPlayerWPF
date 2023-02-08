@@ -17,7 +17,7 @@
             <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Cài đặt"></TextBlock>
         </Grid>
         <Grid Grid.Row="1">
-            <Button Click="StoreMusic" Margin="619,68,53,308" Content="Chọn đường dẫn nhạc"/>
+            <Button Click="StoreMusic" Margin="45,58,627,318" Content="Chọn đường dẫn nhạc"/>
         </Grid>
     </Grid>
 </Page>
