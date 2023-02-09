@@ -24,6 +24,7 @@ using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 using Application = System.Windows.Application;
 using System.Reflection;
+using System.Collections.ObjectModel;
 
 namespace KMusic.Pages
 {
@@ -32,20 +33,34 @@ namespace KMusic.Pages
     /// </summary>
     public partial class Music : Page
     {
+        public class MusicFromFolder
+        {
+            public String Title { get; set; }
+            public String Path { get; set; }
+        }
         public static class Global
         {
             public static WaveOutEvent waveOut;
         }
+        public ObservableCollection<MusicFromFolder> MusicList { get; set; } = new ObservableCollection<MusicFromFolder>();
         public Music()
         {
             InitializeComponent();
             DisplayPresetData();
             HideColumn();
         }
-        public class MusicFromFolder
+
+        public void GetMusic()
         {
-            public String Title { get; set; }
-            public String Path { get; set; }
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var col = db.GetCollection<MusicFromFolder>("music");
+                var music = col.FindAll();
+                foreach (var m in music)
+                {
+                    MusicList.Add(m);
+                }
+            }
         }
         private List<MusicFromFolder> GetAll()
         {
@@ -149,6 +164,19 @@ namespace KMusic.Pages
 
              ((DataGridTextColumn)e.Column).ElementStyle = FindResource("DataGridRowWrapStyle") as Style;
         }
-
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            MusicList.Clear();
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var col = db.GetCollection<MusicFromFolder>("music");
+                var music = col.Find(x => x.Title.Contains(SearchTextBox.Text));
+                foreach (var m in music)
+                {
+                    MusicList.Add(m);
+                }
+            }
+            MusicDataGrid.ItemsSource = MusicList;
+        }
     }
 }

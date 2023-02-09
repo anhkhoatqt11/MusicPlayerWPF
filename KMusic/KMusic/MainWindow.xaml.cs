@@ -26,6 +26,7 @@ using static KMusic.Pages.Music;
 using Application = System.Windows.Application;
 using TagLib.Riff;
 using Microsoft.VisualBasic.Devices;
+using NAudio.Gui;
 
 namespace KMusic
 {
@@ -129,6 +130,8 @@ namespace KMusic
         private List<MusicFromFolder> GetAll()
         {
             var list = new List<MusicFromFolder>();
+            string dbPath = @"C:\Temp\MyData.db";
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(dbPath));
             using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
             {
                 var col = db.GetCollection<MusicFromFolder>("dsp");
@@ -337,7 +340,13 @@ namespace KMusic
             UpdateTitleAndArtist(title, artist);
             UpdateAudioFile(audioFile);
         }
-
+        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (Global.waveOut != null)
+            {
+                Global.waveOut.Volume = (float)(VolumeSlider.Value / 100.0f);
+            }
+        }
 
     }
 }

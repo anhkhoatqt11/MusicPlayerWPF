@@ -142,7 +142,8 @@
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                         <ColumnDefinition Width="auto"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                     </Grid.ColumnDefinitions>
 
 
 
@@ -170,6 +171,7 @@
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Button Grid.Column="0"  Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="PreviousButton_Click">
                                 <materialDesign:PackIcon Kind="SkipPrevious"/>
@@ -180,9 +182,20 @@
                             <Button Grid.Column="2"  Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="NextButton_Click">
                                 <materialDesign:PackIcon Kind="SkipNext" />
                             </Button>
+
                             <!--<ToggleButton Grid.Column="3" x:Name="ShuffleToggleButton" Content="Shuffle" IsChecked="{Binding IsShuffleEnabled, Mode=TwoWay}" />-->
                         </Grid>
+                        <Grid Grid.Column="3" Margin="340 40 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
+                            <materialDesign:PackIcon  Grid.Column="0"  Width="30"  Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Kind="VolumeMedium"/>
+                            <Slider x:Name="VolumeSlider" Grid.Column="1" Minimum="0" Maximum="100" Value="100" Width="100" ValueChanged="VolumeSlider_ValueChanged">
+
+                            </Slider>
+                        </Grid>
 
 
                 </Grid>

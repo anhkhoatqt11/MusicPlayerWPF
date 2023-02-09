@@ -24,5 +24,14 @@ namespace KMusic.Pages
         {
             InitializeComponent();
         }
+
+        private void MusicCard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Music.xaml", UriKind.Relative));
+        }
+        private void VideoCard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Video.xaml", UriKind.Relative));
+        }
     }
 }

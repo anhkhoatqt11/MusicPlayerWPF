@@ -93,7 +93,67 @@ namespace KMusic.Pages
             {
                 // Do nothing, just skip this directory
             }
+            catch (ArgumentException)
+            {
+                // Do nothing, just skip this directory
+            }
         }
+
+
+
+        private void StoreVideo(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                FolderBrowserDialog dlg = new FolderBrowserDialog();
+                dlg.ShowDialog();
+                string DirectoryPath = dlg.SelectedPath;
+                var colpath = db.GetCollection<PathFile>("path");
+                var PatchF = new PathFile
+                {
+                    Path = dlg.SelectedPath,
+                };
+                colpath.Insert(PatchF);
+                var col = db.GetCollection<MusicFromFolder>("video");
+                GetFilesRecursiveMP4(DirectoryPath, col);
+            }
+            DisplayPathData();
+        }
+
+        private void GetFilesRecursiveMP4(string directory, ILiteCollection<MusicFromFolder> col)
+        {
+            try
+            {
+                string[] files = Directory.GetFiles(directory, "*.mp4");
+                foreach (string file in files)
+                {
+                    string fileName = System.IO.Path.GetFileName(file);
+                    var audio = new MusicFromFolder
+                    {
+                        Title = fileName,
+                        Path = file
+                    };
+                    col.Insert(audio);
+                }
+                string[] directories = Directory.GetDirectories(directory, "*");
+                foreach (string subDirectory in directories)
+                {
+                    if (!IsSystemFolder(subDirectory))
+                    {
+                        GetFilesRecursiveMP4(subDirectory, col);
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                // Do nothing, just skip this directory
+            }
+            catch (ArgumentException)
+            {
+                // Do nothing, just skip this directory
+            }
+        }
+
 
         private bool IsSystemFolder(string directory)
         {
@@ -102,42 +162,42 @@ namespace KMusic.Pages
             return systemFolders.Contains(directoryName);
         }
 
-        private void StoreVideo(object sender, RoutedEventArgs e)
-        {
-            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
-            {
-                FolderBrowserDialog dlg = new FolderBrowserDialog();
-                dlg.ShowDialog();
+        //private void StoreVideo(object sender, RoutedEventArgs e)
+        //{
+        //    using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+        //    {
+        //        FolderBrowserDialog dlg = new FolderBrowserDialog();
+        //        dlg.ShowDialog();
 
-                string DirectoryPath = dlg.SelectedPath;
-                var colpath = db.GetCollection<PathFile>("path");
-                var PatchF = new PathFile
-                {
-                    Path = dlg.SelectedPath,
-                };
-                colpath.Insert(PatchF);
-                if (DirectoryPath != null)
-                {
-                    string[] A = Directory.GetFiles(DirectoryPath, "*.mp4", SearchOption.AllDirectories);
-                    string[] fName = new string[A.Count()];
-                    var col = db.GetCollection<MusicFromFolder>("video");
+        //        string DirectoryPath = dlg.SelectedPath;
+        //        var colpath = db.GetCollection<PathFile>("path");
+        //        var PatchF = new PathFile
+        //        {
+        //            Path = dlg.SelectedPath,
+        //        };
+        //        colpath.Insert(PatchF);
+        //        if (DirectoryPath != null)
+        //        {
+        //            string[] A = Directory.GetFiles(DirectoryPath, "*.mp4", SearchOption.AllDirectories);
+        //            string[] fName = new string[A.Count()];
+        //            var col = db.GetCollection<MusicFromFolder>("video");
 
-                    for (int i = 0; i < A.Count(); i++)
-                    {
-                        fName[i] = System.IO.Path.GetFileName(A[i]);
+        //            for (int i = 0; i < A.Count(); i++)
+        //            {
+        //                fName[i] = System.IO.Path.GetFileName(A[i]);
 
-                        var audio = new MusicFromFolder
-                        {
-                            Title = fName[i],
-                            Path = A[i]
-                        };
+        //                var audio = new MusicFromFolder
+        //                {
+        //                    Title = fName[i],
+        //                    Path = A[i]
+        //                };
 
-                        col.Insert(audio);
+        //                col.Insert(audio);
 
-                    }
-                }
-            }
-        }
+        //            }
+        //        }
+        //    }
+        //}
 
         private List<PathFile> GetAllPathFolder()
         {
@@ -166,13 +226,19 @@ namespace KMusic.Pages
                 string DirectoryPath = selectedRow.Path;
 
                 var colMusic = db.GetCollection<MusicFromFolder>("music");
+                var colVideo = db.GetCollection<MusicFromFolder>("video");
                 var colPath = db.GetCollection<PathFile>("path");
                 var queryMusic = colMusic.Find(x => x.Path.StartsWith(DirectoryPath));
+                var queryVideo = colVideo.Find(x => x.Path.StartsWith(DirectoryPath));
                 var queryPath = colPath.Find(x => x.Path.StartsWith(DirectoryPath));
 
                 foreach (var audio in queryMusic)
                 {
                     colMusic.Delete(audio._id);
+                }
+                foreach (var video in queryVideo)
+                {
+                    colVideo.Delete(video._id);
                 }
 
                 foreach (var path in queryPath)
