@@ -28,10 +28,16 @@ namespace KMusic.Pages
         private void MusicCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Music.xaml", UriKind.Relative));
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            NavButton musicBtn = mainWindow.MusicBtn;
+            musicBtn.IsSelected = true;
         }
         private void VideoCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Video.xaml", UriKind.Relative));
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            NavButton videoBtn = mainWindow.VideoBtn;
+            videoBtn.IsSelected = true;
         }
     }
 }

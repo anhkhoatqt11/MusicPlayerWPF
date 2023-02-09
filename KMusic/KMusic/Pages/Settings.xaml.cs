@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Ookii.Dialogs;
 using LiteDB;
 using System.IO;
 
@@ -44,6 +34,7 @@ namespace KMusic.Pages
         {
             public LiteDB.ObjectId _id { get; set; }
             public string Path { get; set; }
+            public string Type { get; set; }
         }
 
         private void StoreMusic(object sender, RoutedEventArgs e)
@@ -54,13 +45,22 @@ namespace KMusic.Pages
                 dlg.ShowDialog();
                 string DirectoryPath = dlg.SelectedPath;
                 var colpath = db.GetCollection<PathFile>("path");
-                var PatchF = new PathFile
+                var existingPath = colpath.FindOne(x => x.Path == DirectoryPath);
+                if (existingPath == null)
                 {
-                    Path = dlg.SelectedPath,
-                };
-                colpath.Insert(PatchF);
-                var col = db.GetCollection<MusicFromFolder>("music");
-                GetFilesRecursiveMP3(DirectoryPath, col);
+                    var PatchF = new PathFile
+                    {
+                        Path = dlg.SelectedPath,
+                        Type = "Audio",
+                    };
+                    colpath.Insert(PatchF);
+                    var col = db.GetCollection<MusicFromFolder>("music");
+                    GetFilesRecursiveMP3(DirectoryPath, col);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("The selected path already exists in the database.");
+                }
             }
             DisplayPathData();
         }
@@ -69,16 +69,21 @@ namespace KMusic.Pages
         {
             try
             {
-                string[] files = Directory.GetFiles(directory, "*.mp3");
+                string[] supportedMusicExtensions = new[] { ".mp3", ".wma", ".m4a", ".flac", ".wav" };
+                string[] files = Directory.GetFiles(directory);
                 foreach (string file in files)
                 {
-                    string fileName = System.IO.Path.GetFileName(file);
-                    var audio = new MusicFromFolder
+                    string extension = System.IO.Path.GetExtension(file).ToLower();
+                    if (supportedMusicExtensions.Contains(extension))
                     {
-                        Title = fileName,
-                        Path = file
-                    };
-                    col.Insert(audio);
+                        string fileName = System.IO.Path.GetFileName(file);
+                        var audio = new MusicFromFolder
+                        {
+                            Title = fileName,
+                            Path = file
+                        };
+                        col.Insert(audio);
+                    }
                 }
                 string[] directories = Directory.GetDirectories(directory, "*");
                 foreach (string subDirectory in directories)
@@ -112,6 +117,7 @@ namespace KMusic.Pages
                 var PatchF = new PathFile
                 {
                     Path = dlg.SelectedPath,
+                    Type = "Video",
                 };
                 colpath.Insert(PatchF);
                 var col = db.GetCollection<MusicFromFolder>("video");
@@ -131,7 +137,7 @@ namespace KMusic.Pages
                     var audio = new MusicFromFolder
                     {
                         Title = fileName,
-                        Path = file
+                        Path = file,
                     };
                     col.Insert(audio);
                 }
@@ -247,6 +253,110 @@ namespace KMusic.Pages
                 }
             }
             DisplayPathData();
+        }
+
+        private void UpdateMusicListFromSavedPath(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var pathCollection = db.GetCollection<PathFile>("path");
+                var paths = pathCollection.FindAll();
+
+                var musicCollection = db.GetCollection<MusicFromFolder>("music");
+
+                // Remove all existing music records
+                var musicfind = musicCollection.FindAll();
+                foreach (var item in musicfind)
+                {
+                    musicCollection.Delete(item._id);
+                }
+
+
+                // Iterate through all saved paths
+                foreach (var path in paths)
+                {
+                    if (Directory.Exists(path.Path))
+                    {
+                        // Get all mp3 files in the directory
+                        var files = Directory.GetFiles(path.Path, "*.mp3", SearchOption.AllDirectories);
+                        foreach (var file in files)
+                        {
+                            string fileName = System.IO.Path.GetFileName(file);
+                            var music = new MusicFromFolder
+                            {
+                                Title = fileName,
+                                Path = file
+                            };
+                            musicCollection.Insert(music);
+                        }
+                    }
+                    else
+                    {
+                        // Remove the path from the database if it no longer exists
+                        pathCollection.Delete(path._id);
+                    }
+                }
+            }
+        }
+
+
+        public void UpdateMusicList()
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var pathCollection = db.GetCollection<PathFile>("path");
+                var paths = pathCollection.FindAll();
+
+                var musicCollection = db.GetCollection<MusicFromFolder>("music");
+
+                // Remove all existing music records
+                var musicfind = musicCollection.FindAll();
+                foreach (var item in musicfind)
+                {
+                    musicCollection.Delete(item._id);
+                }
+
+
+                // Iterate through all saved paths
+                foreach (var path in paths)
+                {
+                    if (Directory.Exists(path.Path))
+                    {
+                        // Get all mp3 files in the directory
+                        var files = Directory.GetFiles(path.Path, "*.mp3", SearchOption.AllDirectories);
+                        foreach (var file in files)
+                        {
+                            string fileName = System.IO.Path.GetFileName(file);
+                            var music = new MusicFromFolder
+                            {
+                                Title = fileName,
+                                Path = file
+                            };
+                            musicCollection.Insert(music);
+                        }
+                    }
+                    else
+                    {
+                        // Remove the path from the database if it no longer exists
+                        pathCollection.Delete(path._id);
+                    }
+                }
+            }
+        }
+
+        private void PathListDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "_id")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
+            if (e.PropertyName == "Path")
+            {
+                e.Column.Width = new DataGridLength(650);
+            }
+
+
+     ((DataGridTextColumn)e.Column).ElementStyle = FindResource("DataGridRowWrapStyle") as Style;
         }
     }
 }

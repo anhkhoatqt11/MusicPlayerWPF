@@ -41,6 +41,14 @@ namespace KMusic.Pages
         public static class Global
         {
             public static WaveOutEvent waveOut;
+
+            public static NAudio.Wave.AudioFileReader audioFile;
+
+            public static NAudio.Wave.AudioFileReader AudioFile
+            {
+                get { return audioFile; }
+                set { audioFile = value; }
+            }
         }
         public ObservableCollection<MusicFromFolder> MusicList { get; set; } = new ObservableCollection<MusicFromFolder>();
         public Music()
@@ -88,43 +96,56 @@ namespace KMusic.Pages
         }
         private void MusicDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DataGrid dataGrid = sender as DataGrid;
-            MusicFromFolder selectedRow = dataGrid.SelectedItem as MusicFromFolder;
-            string cellValue = selectedRow.Path;
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-
-
-            var file = TagLib.File.Create(cellValue);
-            var albumArt = file.Tag.Pictures.FirstOrDefault();
-
-            if (selectedRow != null)
+            try
             {
-                if (Global.waveOut != null)
+                DataGrid dataGrid = sender as DataGrid;
+                MusicFromFolder selectedRow = dataGrid.SelectedItem as MusicFromFolder;
+                string cellValue = selectedRow.Path;
+                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+
+
+                var file = TagLib.File.Create(cellValue);
+ 
+
+                if (selectedRow != null)
                 {
-                    Global.waveOut.Stop();
-                    Global.waveOut.Dispose();
+                    if (Global.waveOut != null)
+                    {
+                        Global.waveOut.Stop();
+                        Global.waveOut.Dispose();
+                    }
+
+                    string title = file.Tag.Title;
+                    string artist = file.Tag.FirstPerformer;
+
+                    if (string.IsNullOrEmpty(title))
+                    {
+                        title = System.IO.Path.GetFileNameWithoutExtension(cellValue);
+                    }
+
+                    Global.waveOut = new WaveOutEvent();
+                    var audioFile = new AudioFileReader(cellValue);
+                    Global.audioFile = audioFile;
+                    Global.waveOut.Init(audioFile);
+                    Global.waveOut.Play();
+
+                    var albumArt = file.Tag.Pictures.FirstOrDefault();
+                    mainWindow.UpdateAlbumArt(albumArt);
+
+                    mainWindow.UpdateTitleAndArtist(title, artist);
+                    mainWindow.UpdateAudioFile(audioFile);
+                    mainWindow.ChangePlayPauseButton();
                 }
-
-                string title = file.Tag.Title;
-                string artist = file.Tag.FirstPerformer;
-
-                if (string.IsNullOrEmpty(title))
+                else
                 {
-                    title = System.IO.Path.GetFileNameWithoutExtension(cellValue);
+                    MessageBox.Show("Please select a row in the DataGrid.");
                 }
-
-                Global.waveOut = new WaveOutEvent();
-                var audioFile = new AudioFileReader(cellValue);
-                Global.waveOut.Init(audioFile);
-                Global.waveOut.Play();
-
-                mainWindow.UpdateTitleAndArtist(title, artist);
-                mainWindow.UpdateAudioFile(audioFile);
-                mainWindow.ChangePlayPauseButton();
             }
-            else
-            {
-                MessageBox.Show("Please select a row in the DataGrid.");
+            catch (FileNotFoundException) {
+                var settingsPage = new Settings();
+                settingsPage.UpdateMusicList();
+                MessageBox.Show("File không tồn tại");
+                DisplayPresetData();
             }
         }
         private void Add_DSP(object sender, RoutedEventArgs e)
@@ -155,7 +176,7 @@ namespace KMusic.Pages
         {
             if (e.PropertyName == "Title")
             {
-                e.Column.Width = new DataGridLength(750);
+                e.Column.Width = new DataGridLength(730);
             }
             if (e.PropertyName == "Path")
             {

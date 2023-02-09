@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KMusic.Pages"
+      xmlns:local="clr-namespace:KMusic.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Music">
@@ -34,8 +34,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged" Grid.Column="0" Width="200" Height="30"></TextBox>
-            <Button Grid.Column="1" Content="Tìm kiếm" Width="100"></Button>
+            <materialDesign:PackIcon Kind="Search" Margin="4,10,0,0"/>
+            <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged" materialDesign:HintAssist.Hint="Tìm kiếm" Grid.Column="0" Width="320" Height="30"></TextBox>
         </Grid>
         <Grid Grid.Row="2">
             <!-- RowStyle="{DynamicResource DataGridRowStyle1}"-->
@@ -43,7 +43,7 @@
             <DataGrid  x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick" AutoGeneratingColumn="MusicDataGrid_AutoGeneratingColumn" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Thêm vào Danh sách phát" Click="Add_DSP"/>
+                        <MenuItem Header="Thêm vào Danh sách chờ" Click="Add_DSP"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>

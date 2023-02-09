@@ -61,8 +61,6 @@ namespace KMusic
             public LiteDB.ObjectId _id { get; set; }
             public String Title { get; set; }
             public String Path { get; set; }
-            public bool IsShuffle { get; set; } = false;
-            public bool IsLoop { get; set; } = false;
         }
 
 
@@ -99,10 +97,17 @@ namespace KMusic
                     CurrentTimeTextBlock.Text = TimeSpan.FromSeconds(elapsed).ToString(@"hh\:mm\:ss");
                     TotalLengthTextBlock.Text = TimeSpan.FromSeconds(total).ToString(@"hh\:mm\:ss");
                     MusicSlider.Value = elapsed;
+                    if (elapsed >= total)
+                    {
+                        System.Windows.Controls.Button PlayButton = this.FindName("PlayButton") as System.Windows.Controls.Button;
+                        PlayButton.Content = new MaterialDesignThemes.Wpf.PackIcon()
+                        {
+                            Kind = MaterialDesignThemes.Wpf.PackIconKind.Play
+                        };
+                    }
                 });
             }
         }
-
 
 
         public void UpdateAudioFile(AudioFileReader audioFile)
@@ -110,6 +115,7 @@ namespace KMusic
             this.audioFile = audioFile;
             MusicSlider.Maximum = audioFile.TotalTime.TotalSeconds;
         }
+
 
 
         public void UpdateTitleAndArtist(string title, string artist)
@@ -193,6 +199,7 @@ namespace KMusic
                 {
                     Global.waveOut.Stop();
                     Global.waveOut.Dispose();
+
                 }
 
                 string cellValue = selectedRow.Path;
@@ -202,6 +209,8 @@ namespace KMusic
 
                 string title = file.Tag.Title;
                 string artist = file.Tag.FirstPerformer;
+                var albumArt = file.Tag.Pictures.FirstOrDefault();
+
 
                 if (string.IsNullOrEmpty(title))
                 {
@@ -210,11 +219,13 @@ namespace KMusic
 
                 Global.waveOut = new WaveOutEvent();
                 var audioFile = new AudioFileReader(cellValue);
+                Global.audioFile = audioFile;
                 Global.waveOut.Init(audioFile);
                 Global.waveOut.Play();
 
                 UpdateTitleAndArtist(title, artist);
                 UpdateAudioFile(audioFile);
+                UpdateAlbumArt(albumArt);
                 ChangePlayPauseButton();
             }
             else
@@ -238,6 +249,14 @@ namespace KMusic
             }
             else
             {
+                if (Global.waveOut.PlaybackState == PlaybackState.Stopped)
+                {
+                    // Reset the audio stream
+                    Global.audioFile.CurrentTime = TimeSpan.Zero;
+                    Global.waveOut = new WaveOutEvent();
+                    Global.waveOut.Init(Global.audioFile);
+                }
+
                 // Resume playback
                 Global.waveOut.Play();
                 button.Content = new MaterialDesignThemes.Wpf.PackIcon()
@@ -272,22 +291,9 @@ namespace KMusic
 
         private void PlaySong(string path)
         {
-            // Use Naudio to play the song
             Global.waveOut.Stop();
             audioFile = new AudioFileReader(path);
             Global.waveOut.Init(audioFile);
-
-            //if (_isShuffleEnabled)
-            //{
-            //    var rand = new Random();
-            //    // Play the next song randomly
-            //    _currentSongIndex = rand.Next(0, _songs.Count);
-            //}
-            //else
-            //{
-            //    // Play the next song in the list
-            //    _currentSongIndex = (_currentSongIndex + 1) % _songs.Count;
-            //}
             Global.waveOut.Play();
         }
 
@@ -311,7 +317,9 @@ namespace KMusic
                 title = System.IO.Path.GetFileNameWithoutExtension(_songs[_currentSongIndex].Path);
             }
             var audioFile = new AudioFileReader(_songs[_currentSongIndex].Path);
-
+            Global.audioFile = audioFile;
+            var albumArt = file.Tag.Pictures.FirstOrDefault();
+            UpdateAlbumArt(albumArt);
             UpdateTitleAndArtist(title, artist);
             UpdateAudioFile(audioFile);
         }
@@ -330,13 +338,14 @@ namespace KMusic
 
             string title = file.Tag.Title;
             string artist = file.Tag.FirstPerformer;
-
+            var albumArt = file.Tag.Pictures.FirstOrDefault();
+            UpdateAlbumArt(albumArt);
             if (string.IsNullOrEmpty(title))
             {
                 title = System.IO.Path.GetFileNameWithoutExtension(_songs[_currentSongIndex].Path);
             }
             var audioFile = new AudioFileReader(_songs[_currentSongIndex].Path);
-
+            Global.audioFile = audioFile;
             UpdateTitleAndArtist(title, artist);
             UpdateAudioFile(audioFile);
         }
@@ -346,6 +355,42 @@ namespace KMusic
             {
                 Global.waveOut.Volume = (float)(VolumeSlider.Value / 100.0f);
             }
+        }
+        public void UpdateAlbumArt(TagLib.IPicture albumArt)
+        {
+            if (albumArt != null)
+            {
+                using (var stream = new MemoryStream(albumArt.Data.Data))
+                {
+                    var bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = stream;
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.EndInit();
+                    albumArtImage.Source = bitmapImage;
+                }
+            }
+            else
+            {
+                albumArtImage.Source = new BitmapImage(new Uri("/resources/images/default.png", UriKind.Relative));
+            }
+        }
+        private void DSP_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Title")
+            {
+                e.Column.Width = new DataGridLength(750);
+            }
+            if (e.PropertyName == "Path")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
+            if (e.PropertyName == "_id")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
+            ((DataGridTextColumn)e.Column).ElementStyle = FindResource("DataGridRowWrapStyle") as Style;
+
         }
 
     }
