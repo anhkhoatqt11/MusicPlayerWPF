@@ -105,6 +105,7 @@ namespace KMusic.Pages
 
                 mainWindow.UpdateTitleAndArtist(title, artist);
                 mainWindow.UpdateAudioFile(audioFile);
+                mainWindow.ChangePlayPauseButton();
             }
             else
             {
@@ -135,5 +136,19 @@ namespace KMusic.Pages
             mainWindow.DisplayPresetData();
             mainWindow.GetSongAudio();
         }
+        private void MusicDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Title")
+            {
+                e.Column.Width = new DataGridLength(750);
+            }
+            if (e.PropertyName == "Path")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
+
+             ((DataGridTextColumn)e.Column).ElementStyle = FindResource("DataGridRowWrapStyle") as Style;
+        }
+
     }
 }

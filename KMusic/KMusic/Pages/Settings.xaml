@@ -20,9 +20,20 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Button Grid.Row="0" Click="StoreMusic" Width="500" Content="Thêm đường dẫn nhạc"/>
-            <Button Grid.Row="1" Click="StoreVideo" Width="500" Content="Thêm đường dẫn Video"/>
+            <Button Grid.Row="1" Click="StoreVideo" Width="500" Content="Thêm đường dẫn video"/>
+            <Button Grid.Row="2"  Width="500" Content="Xóa tất cả đường dẫn"/>
+            <DataGrid Grid.Row="3" x:Name="PathList" IsReadOnly="True">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Xóa đường dẫn" Click="DelPath"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+
         </Grid>
     </Grid>
 </Page>

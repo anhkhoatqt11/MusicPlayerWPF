@@ -27,13 +27,24 @@ namespace KMusic.Pages
         public Settings()
         {
             InitializeComponent();
+            DisplayPathData();
         }
+
 
         public class MusicFromFolder
         {
+            public LiteDB.ObjectId _id { get; set; }
             public String Title { get; set; }
             public String Path { get; set; }
-        }    
+            public bool IsShuffle { get; set; } = false;
+            public bool IsLoop { get; set; } = false;
+        }
+
+        public class PathFile
+        {
+            public LiteDB.ObjectId _id { get; set; }
+            public string Path { get; set; }
+        }
 
         private void StoreMusic(object sender, RoutedEventArgs e)
         {
@@ -41,26 +52,54 @@ namespace KMusic.Pages
             {
                 FolderBrowserDialog dlg = new FolderBrowserDialog();
                 dlg.ShowDialog();
-                string DirectoryPath = System.IO.Path.GetDirectoryName(dlg.SelectedPath);
-                string[] A = Directory.GetFiles(DirectoryPath, "*.mp3", SearchOption.AllDirectories);
-                string[] fName = new string[A.Count()];
-                var col = db.GetCollection<MusicFromFolder>("music");
-
-                for (int i = 0; i < A.Count(); i++)
+                string DirectoryPath = dlg.SelectedPath;
+                var colpath = db.GetCollection<PathFile>("path");
+                var PatchF = new PathFile
                 {
-                    fName[i] = System.IO.Path.GetFileName(A[i]);
+                    Path = dlg.SelectedPath,
+                };
+                colpath.Insert(PatchF);
+                var col = db.GetCollection<MusicFromFolder>("music");
+                GetFilesRecursiveMP3(DirectoryPath, col);
+            }
+            DisplayPathData();
+        }
 
+        private void GetFilesRecursiveMP3(string directory, ILiteCollection<MusicFromFolder> col)
+        {
+            try
+            {
+                string[] files = Directory.GetFiles(directory, "*.mp3");
+                foreach (string file in files)
+                {
+                    string fileName = System.IO.Path.GetFileName(file);
                     var audio = new MusicFromFolder
                     {
-                        Title = fName[i],
-                        Path = A[i]
+                        Title = fileName,
+                        Path = file
                     };
-
                     col.Insert(audio);
-                        
+                }
+                string[] directories = Directory.GetDirectories(directory, "*");
+                foreach (string subDirectory in directories)
+                {
+                    if (!IsSystemFolder(subDirectory))
+                    {
+                        GetFilesRecursiveMP3(subDirectory, col);
+                    }
                 }
             }
-            DisplayPresetData();
+            catch (UnauthorizedAccessException)
+            {
+                // Do nothing, just skip this directory
+            }
+        }
+
+        private bool IsSystemFolder(string directory)
+        {
+            string[] systemFolders = new string[] { "System Volume Information", "$Recycle.Bin", "Program Files" };
+            string directoryName = System.IO.Path.GetFileName(directory);
+            return systemFolders.Contains(directoryName);
         }
 
         private void StoreVideo(object sender, RoutedEventArgs e)
@@ -69,35 +108,44 @@ namespace KMusic.Pages
             {
                 FolderBrowserDialog dlg = new FolderBrowserDialog();
                 dlg.ShowDialog();
-                string DirectoryPath = System.IO.Path.GetDirectoryName(dlg.SelectedPath);
-                string[] A = Directory.GetFiles(DirectoryPath, "*.mp4", SearchOption.AllDirectories);
-                string[] fName = new string[A.Count()];
-                var col = db.GetCollection<MusicFromFolder>("video");
 
-                for (int i = 0; i < A.Count(); i++)
+                string DirectoryPath = dlg.SelectedPath;
+                var colpath = db.GetCollection<PathFile>("path");
+                var PatchF = new PathFile
                 {
-                    fName[i] = System.IO.Path.GetFileName(A[i]);
+                    Path = dlg.SelectedPath,
+                };
+                colpath.Insert(PatchF);
+                if (DirectoryPath != null)
+                {
+                    string[] A = Directory.GetFiles(DirectoryPath, "*.mp4", SearchOption.AllDirectories);
+                    string[] fName = new string[A.Count()];
+                    var col = db.GetCollection<MusicFromFolder>("video");
 
-                    var audio = new MusicFromFolder
+                    for (int i = 0; i < A.Count(); i++)
                     {
-                        Title = fName[i],
-                        Path = A[i]
-                    };
+                        fName[i] = System.IO.Path.GetFileName(A[i]);
 
-                    col.Insert(audio);
+                        var audio = new MusicFromFolder
+                        {
+                            Title = fName[i],
+                            Path = A[i]
+                        };
 
+                        col.Insert(audio);
+
+                    }
                 }
             }
-            DisplayPresetData();
         }
 
-        private List<MusicFromFolder> GetAll()
+        private List<PathFile> GetAllPathFolder()
         {
-            var list = new List<MusicFromFolder>();
+            var list = new List<PathFile>();
             using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
             {
-                var col = db.GetCollection<MusicFromFolder>("music");
-                foreach (MusicFromFolder _id in col.FindAll())
+                var col = db.GetCollection<PathFile>("path");
+                foreach (PathFile _id in col.FindAll())
                 {
                     list.Add(_id);
                 }
@@ -105,9 +153,34 @@ namespace KMusic.Pages
             return list;
         }
 
-        public void DisplayPresetData()
+        public void DisplayPathData()
         {
-            
+            PathList.ItemsSource = GetAllPathFolder();
+        }
+
+        private void DelPath(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var selectedRow = (PathFile)PathList.SelectedItem;
+                string DirectoryPath = selectedRow.Path;
+
+                var colMusic = db.GetCollection<MusicFromFolder>("music");
+                var colPath = db.GetCollection<PathFile>("path");
+                var queryMusic = colMusic.Find(x => x.Path.StartsWith(DirectoryPath));
+                var queryPath = colPath.Find(x => x.Path.StartsWith(DirectoryPath));
+
+                foreach (var audio in queryMusic)
+                {
+                    colMusic.Delete(audio._id);
+                }
+
+                foreach (var path in queryPath)
+                {
+                    colPath.Delete(path._id);
+                }
+            }
+            DisplayPathData();
         }
     }
 }

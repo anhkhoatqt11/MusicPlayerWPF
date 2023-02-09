@@ -7,7 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Music">
-
+    <Page.Resources>
+        <Style x:Key="DataGridRowWrapStyle" TargetType="{x:Type DataGridRow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -18,7 +30,8 @@
         </Grid>
         <Grid Grid.Row="1">
             <!-- RowStyle="{DynamicResource DataGridRowStyle1}"-->
-            <DataGrid  x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick" >
+
+            <DataGrid  x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick" AutoGeneratingColumn="MusicDataGrid_AutoGeneratingColumn" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Thêm vào Danh sách phát" Click="Add_DSP"/>

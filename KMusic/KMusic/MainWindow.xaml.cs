@@ -103,18 +103,6 @@ namespace KMusic
         }
 
 
-        private void Path_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (Global.waveOut.PlaybackState == PlaybackState.Playing)
-            {
-                Global.waveOut.Pause();
-            }
-            else
-            {
-                Global.waveOut.Play();
-            }
-        }
-
 
         public void UpdateAudioFile(AudioFileReader audioFile)
         {
@@ -224,6 +212,7 @@ namespace KMusic
 
                 UpdateTitleAndArtist(title, artist);
                 UpdateAudioFile(audioFile);
+                ChangePlayPauseButton();
             }
             else
             {
@@ -253,6 +242,28 @@ namespace KMusic
                     Kind = MaterialDesignThemes.Wpf.PackIconKind.Pause
                 };
             }
+        }
+
+        public void ChangePlayPauseButton()
+        {
+            System.Windows.Controls.Button button = this.FindName("PlayButton") as System.Windows.Controls.Button;
+            if (Global.waveOut.PlaybackState == PlaybackState.Playing)
+            {
+                // Pause playback
+                button.Content = new MaterialDesignThemes.Wpf.PackIcon()
+                {
+                    Kind = MaterialDesignThemes.Wpf.PackIconKind.Pause
+                };
+            }
+            else
+            {
+                // Resume playback
+                button.Content = new MaterialDesignThemes.Wpf.PackIcon()
+                {
+                    Kind = MaterialDesignThemes.Wpf.PackIconKind.Play
+                };
+            }
+
         }
 
 
