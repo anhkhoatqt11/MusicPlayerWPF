@@ -10,7 +10,7 @@
 -	Có tính năng tìm kiếm và phát nhạc theo danh sách
 -	Có tính năng điều chỉnh âm lượng, chế độ
 ### Công cụ
-- IDE: Visual Studio 2019
+- IDE: Visual Studio 2022
 - Ngôn ngữ lập trình: C# (Farmework .NET)
 - Flatform: 64bit (x64)
 - GUI: Windows Forms, MaterialDesignTheme
