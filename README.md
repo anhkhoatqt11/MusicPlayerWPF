@@ -1,6 +1,6 @@
 # Lập trình trực quan - IT008.N13
 ## Đề tài: KMusic
-> ỨNG DỤNG ĐA PHƯƠNG TIỆN/MEDIA PLAYER TRÊN WINDOWS
+> Ứng dụng đa phương tiện/Media Player trên Windows
 ## Mô tả:
 ### Tác giả
 1. [Trương Anh Khoa](https://github.com/anhkhoatqt11) - 21520052
