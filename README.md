@@ -23,5 +23,4 @@
 - Thêm, xóa nhạc hoặc video
 - Tạo playlist, sửa tên
 - Phát nhạc và video trong một thư mục chỉ định và liệt kê các bài hát, video có trong thư mục đó.
-- Sắp xếp các bài nhạc, video (Theo tên, ca sĩ, album, năm phát hành …).
 - Add nhạc vào playlist
