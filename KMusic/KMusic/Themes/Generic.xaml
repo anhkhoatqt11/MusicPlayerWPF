@@ -3,36 +3,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:KMusic">
 
-
-    <Style TargetType="{x:Type local:NavButton}">
-
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Style x:Key="MyNavButtonStyle" TargetType="{x:Type local:NavButton}">
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:NavButton}">
-                    <Border Name="back"
-                            CornerRadius="8" 
+                    <Border x:Name="Back"
+                            CornerRadius="0"
                             Padding="{TemplateBinding Padding}"
                             Background="Transparent"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-
-                        <Path x:Name="icon" Height="18" Width="18" Stretch="Uniform" Fill="#7b8792" Data="{TemplateBinding Icon}"/>
+                        <Grid>
+                            <Path x:Name="Icon"
+                              Stretch="Uniform" 
+                              Fill="Black" 
+                              Data="{TemplateBinding Icon}"
+                              Height="22"
+                              Width="22"
+                              Margin="0,0,100,0"
+                              />
+                            <TextBlock x:Name="ItemName" Text="{TemplateBinding ItemName}" FontFamily="Fonts/Inter-Bold.ttf #Inter" FontSize="14" FontWeight="Regular" Margin="60,3,0,0"></TextBlock>
+                        </Grid>
                     </Border>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="back" Value="#d0ebff"/>
-                            <Setter Property="Fill" TargetName="icon" Value="#2a84f1"/>
+                            <Setter Property="Background" TargetName="Back" Value="#FFFFFF"/>
+                            <Setter Property="Fill" TargetName="Icon" Value="#1F7FF8"/>
                         </Trigger>
 
+
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" TargetName="back" Value="#d0ebff"/>
-                            <Setter Property="Fill" TargetName="icon" Value="#2a84f1"/>
+                            <Setter Property="Background" TargetName="Back" Value="#FFFFFF"/>
+                            <Setter Property="Fill" TargetName="Icon" Value="#1F7FF8"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
-                    
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

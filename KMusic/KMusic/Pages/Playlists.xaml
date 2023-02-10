@@ -1,0 +1,56 @@
+﻿<Page x:Class="KMusic.Pages.Playlists"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KMusic.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Playlists">
+    <Page.Resources>
+        <Style TargetType="materialDesign:Card">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Playlist"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button x:Name="CreatePlaylist" Width="250" Content="Tạo một danh sách nhạc mới" HorizontalAlignment="Left" Margin="10"  VerticalAlignment="Top" Click="CreatePlaylistButton_Click"></Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <ItemsControl x:Name="PlaylistsItemsControl">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:Card Width="200" Height="120" Margin="14" MouseLeftButtonDown="Card_MouseDown">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}" FontFamily="/Fonts/Inter-Bold.ttf #Inter"  HorizontalAlignment="Left"  VerticalAlignment="Bottom" TextWrapping="Wrap" MaxWidth="200" Margin="10,10,0,10"/>
+                            </StackPanel>
+                            <materialDesign:Card.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Đổi tên danh sách phát" Click="MenuItem_Rename_Click"/>
+                                    <MenuItem Header="Xóa danh sách phát" Click="MenuItem_Delete_Click"/>
+                                </ContextMenu>
+                            </materialDesign:Card.ContextMenu>
+                        </materialDesign:Card>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Grid>
+</Page>

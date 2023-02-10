@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,15 +23,16 @@ namespace KMusic
         }
 
 
+
         public Uri Navlink
         {
             get { return (Uri)GetValue(NavlinkProperty); }
             set { SetValue(NavlinkProperty, value); }
         }
 
-        public static readonly DependencyProperty NavlinkProperty = DependencyProperty.Register("Navlink", typeof(Uri), typeof(NavButton), new PropertyMetadata(null));
-
-
+        // Using a DependencyProperty as the backing store for Navlink.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NavlinkProperty =
+            DependencyProperty.Register("Navlink", typeof(Uri), typeof(NavButton), new PropertyMetadata(null));
 
 
         public Geometry Icon
@@ -41,8 +41,20 @@ namespace KMusic
             set { SetValue(IconProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Icon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IconProperty =
             DependencyProperty.Register("Icon", typeof(Geometry), typeof(NavButton), new PropertyMetadata(null));
+
+
+        public String ItemName
+        {
+            get { return (String)GetValue(ItemNameProperty); }
+            set { SetValue(ItemNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ItemName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemNameProperty =
+            DependencyProperty.Register("ItemName", typeof(String), typeof(NavButton), new PropertyMetadata(null));
 
 
 

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.3.32901.215
+VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMusic", "KMusic\KMusic.csproj", "{4D610E55-7D4F-4470-9766-5B15297C8792}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMusic", "KMusic\KMusic.csproj", "{97091DFB-7B08-4C23-BC77-5039B5920DB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D610E55-7D4F-4470-9766-5B15297C8792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D610E55-7D4F-4470-9766-5B15297C8792}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D610E55-7D4F-4470-9766-5B15297C8792}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D610E55-7D4F-4470-9766-5B15297C8792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97091DFB-7B08-4C23-BC77-5039B5920DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97091DFB-7B08-4C23-BC77-5039B5920DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97091DFB-7B08-4C23-BC77-5039B5920DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97091DFB-7B08-4C23-BC77-5039B5920DB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {81D763A7-6038-49A1-9646-1BD7794C4EF9}
+		SolutionGuid = {AEE45344-DC0B-4C40-9BD1-36209BAC17B7}
 	EndGlobalSection
 EndGlobal
