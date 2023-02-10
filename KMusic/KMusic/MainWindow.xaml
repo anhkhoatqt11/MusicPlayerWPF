@@ -173,7 +173,7 @@
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                            <TextBlock x:Name="TitleTextBlock" Grid.Row="0" Text="{Binding Title}" FontSize="16" FontWeight="Bold" Width="450"></TextBlock>
+                            <TextBlock x:Name="TitleTextBlock" Grid.Row="0" Text="{Binding Title}" FontSize="16" FontWeight="Bold" TextWrapping="Wrap" Width="450"></TextBlock>
                             <TextBlock x:Name="ArtistTextBlock"  Grid.Row="1" Text="{Binding Artist}" FontSize="12" ></TextBlock>
                     </Grid>
 
@@ -204,7 +204,7 @@
                             </Grid.ColumnDefinitions>
 
                             <materialDesign:PackIcon  Grid.Column="0"  Width="30"  Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Kind="VolumeMedium"/>
-                            <Slider x:Name="VolumeSlider" Grid.Column="1" Minimum="0" Maximum="100" Value="100" Width="100" ValueChanged="VolumeSlider_ValueChanged">
+                            <Slider x:Name="VolumeSlider" Grid.Column="1" Minimum="0" Maximum="100" Value="50" Width="100" ValueChanged="VolumeSlider_ValueChanged">
 
                             </Slider>
                         </Grid>

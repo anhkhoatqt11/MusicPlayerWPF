@@ -23,7 +23,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Playlist // Danh sách phát"></TextBlock>
+            <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Playlist"></TextBlock>
         </Grid>
         <Grid Grid.Row="1">
             <Button x:Name="CreatePlaylist" Width="250" Content="Tạo một danh sách nhạc mới" HorizontalAlignment="Left" Margin="10"  VerticalAlignment="Top" Click="CreatePlaylistButton_Click"></Button>
@@ -37,10 +37,16 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <materialDesign:Card Width="200" Height="120" Margin="14" MouseDown="Card_MouseDown">
+                        <materialDesign:Card Width="200" Height="120" Margin="14" MouseLeftButtonDown="Card_MouseDown">
                             <StackPanel>
-                                <TextBlock Text="{Binding Name}" FontFamily="/Fonts/Inter-Bold.ttf #Inter"  HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10,0,0,10"/>
+                                <TextBlock Text="{Binding Name}" FontFamily="/Fonts/Inter-Bold.ttf #Inter"  HorizontalAlignment="Left"  VerticalAlignment="Bottom" TextWrapping="Wrap" MaxWidth="200" Margin="10,10,0,10"/>
                             </StackPanel>
+                            <materialDesign:Card.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Đổi tên danh sách phát" Click="MenuItem_Rename_Click"/>
+                                    <MenuItem Header="Xóa danh sách phát" Click="MenuItem_Delete_Click"/>
+                                </ContextMenu>
+                            </materialDesign:Card.ContextMenu>
                         </materialDesign:Card>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

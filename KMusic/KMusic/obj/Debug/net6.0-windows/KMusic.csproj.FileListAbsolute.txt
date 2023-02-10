@@ -100,3 +100,5 @@ D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\ProjectInfo.g.cs
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\CreatePlaylist.baml
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\PlaylistDetail.baml
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\ProjectInfo.baml
+D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\LibVLCSharp.dll
+D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\LibVLCSharp.WPF.dll

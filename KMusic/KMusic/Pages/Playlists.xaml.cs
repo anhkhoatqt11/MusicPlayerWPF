@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static KMusic.Pages.Playlists;
 
 namespace KMusic.Pages
 {
@@ -61,6 +62,38 @@ namespace KMusic.Pages
         private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/CreatePlaylist.xaml", UriKind.Relative));
+        }
+        private void MenuItem_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            var playlist = menuItem.DataContext as Playlist;
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var playlists = db.GetCollection<Playlist>("playlists");
+                playlists.Delete(playlist.Id);
+            }
+
+            // Refetch the updated list of playlists
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var playlists = db.GetCollection<Playlist>("playlists");
+                PlaylistsItemsControl.ItemsSource = playlists.FindAll();
+            }
+        }
+        private void MenuItem_Rename_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedPlaylist = (Playlist)((FrameworkElement)sender).DataContext;
+            string newName = Microsoft.VisualBasic.Interaction.InputBox("Nhập tên mới cho danh sách phát:", "Đổi tên danh sách phát", selectedPlaylist.Name);
+            if (!string.IsNullOrWhiteSpace(newName))
+            {
+                using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+                {
+                    var playlists = db.GetCollection<Playlist>("playlists");
+                    selectedPlaylist.Name = newName;
+                    playlists.Update(selectedPlaylist);
+                }
+                PlaylistsItemsControl.Items.Refresh();
+            }
         }
     }
 }

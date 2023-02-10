@@ -6,6 +6,25 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+      "LibVLCSharp/3.6.7": {
+        "runtime": {
+          "lib/net6.0-windows7.0/LibVLCSharp.dll": {
+            "assemblyVersion": "3.6.7.0",
+            "fileVersion": "3.6.7.0"
+          }
+        }
+      },
+      "LibVLCSharp.WPF/3.6.7": {
+        "dependencies": {
+          "LibVLCSharp": "3.6.7"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/LibVLCSharp.WPF.dll": {
+            "assemblyVersion": "3.6.7.0",
+            "fileVersion": "3.6.7.0"
+          }
+        }
+      },
       "LiteDB/5.0.15": {
         "runtime": {
           "lib/netstandard2.0/LiteDB.dll": {
@@ -211,6 +230,20 @@
     }
   },
   "libraries": {
+    "LibVLCSharp/3.6.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FYn2yxjdlxVN21Anv3xhPnJ3ARSwOCzpsrZMtJl8/hdlFbw1JXFcMUpbqhmlLnfYmAUUGOarYyF+OTdAnjsF3A==",
+      "path": "libvlcsharp/3.6.7",
+      "hashPath": "libvlcsharp.3.6.7.nupkg.sha512"
+    },
+    "LibVLCSharp.WPF/3.6.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fpEthQAWZFlNJgBi3D3mCczW/mmfyQidUs/APlX+UA4EhCMwKD0TNN+Vuia2teSHsYIpqrCpRnJyO+7h3CDMdQ==",
+      "path": "libvlcsharp.wpf/3.6.7",
+      "hashPath": "libvlcsharp.wpf.3.6.7.nupkg.sha512"
+    },
     "LiteDB/5.0.15": {
       "type": "package",
       "serviceable": true,

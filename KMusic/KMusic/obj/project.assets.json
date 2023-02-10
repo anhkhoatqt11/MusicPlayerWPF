@@ -2,6 +2,38 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "LibVLCSharp/3.6.7": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/LibVLCSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/LibVLCSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "LibVLCSharp.WPF/3.6.7": {
+        "type": "package",
+        "dependencies": {
+          "LibVLCSharp": "3.6.7"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/LibVLCSharp.WPF.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/LibVLCSharp.WPF.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "LiteDB/5.0.15": {
         "type": "package",
         "compile": {
@@ -273,6 +305,72 @@
     }
   },
   "libraries": {
+    "LibVLCSharp/3.6.7": {
+      "sha512": "FYn2yxjdlxVN21Anv3xhPnJ3ARSwOCzpsrZMtJl8/hdlFbw1JXFcMUpbqhmlLnfYmAUUGOarYyF+OTdAnjsF3A==",
+      "type": "package",
+      "path": "libvlcsharp/3.6.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/monoandroid81/LibVLCSharp.Android.AWindow.dll",
+        "lib/monoandroid81/LibVLCSharp.dll",
+        "lib/monoandroid81/LibVLCSharp.xml",
+        "lib/net40/LibVLCSharp.dll",
+        "lib/net40/LibVLCSharp.xml",
+        "lib/net471/LibVLCSharp.dll",
+        "lib/net471/LibVLCSharp.xml",
+        "lib/net6.0-android31.0/LibVLCSharp.Android.AWindow.dll",
+        "lib/net6.0-android31.0/LibVLCSharp.dll",
+        "lib/net6.0-android31.0/LibVLCSharp.xml",
+        "lib/net6.0-ios15.4/LibVLCSharp.dll",
+        "lib/net6.0-ios15.4/LibVLCSharp.xml",
+        "lib/net6.0-macos12.3/LibVLCSharp.dll",
+        "lib/net6.0-macos12.3/LibVLCSharp.xml",
+        "lib/net6.0-tvos15.4/LibVLCSharp.dll",
+        "lib/net6.0-tvos15.4/LibVLCSharp.xml",
+        "lib/net6.0-windows7.0/LibVLCSharp.dll",
+        "lib/net6.0-windows7.0/LibVLCSharp.xml",
+        "lib/net6.0/LibVLCSharp.dll",
+        "lib/net6.0/LibVLCSharp.xml",
+        "lib/netstandard1.1/LibVLCSharp.dll",
+        "lib/netstandard1.1/LibVLCSharp.xml",
+        "lib/netstandard2.0/LibVLCSharp.dll",
+        "lib/netstandard2.0/LibVLCSharp.xml",
+        "lib/netstandard2.1/LibVLCSharp.dll",
+        "lib/netstandard2.1/LibVLCSharp.xml",
+        "lib/uap10.0.18362/LibVLCSharp.dll",
+        "lib/uap10.0.18362/LibVLCSharp.pri",
+        "lib/uap10.0.18362/LibVLCSharp.xml",
+        "lib/uap10.0.18362/LibVLCSharp/LibVLCSharp.xr.xml",
+        "lib/xamarinios10/LibVLCSharp.dll",
+        "lib/xamarinios10/LibVLCSharp.xml",
+        "lib/xamarinmac20/LibVLCSharp.dll",
+        "lib/xamarinmac20/LibVLCSharp.xml",
+        "libvlcsharp.3.6.7.nupkg.sha512",
+        "libvlcsharp.nuspec"
+      ]
+    },
+    "LibVLCSharp.WPF/3.6.7": {
+      "sha512": "fpEthQAWZFlNJgBi3D3mCczW/mmfyQidUs/APlX+UA4EhCMwKD0TNN+Vuia2teSHsYIpqrCpRnJyO+7h3CDMdQ==",
+      "type": "package",
+      "path": "libvlcsharp.wpf/3.6.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net461/LibVLCSharp.WPF.dll",
+        "lib/net461/LibVLCSharp.WPF.xml",
+        "lib/net6.0-windows7.0/LibVLCSharp.WPF.dll",
+        "lib/net6.0-windows7.0/LibVLCSharp.WPF.xml",
+        "lib/netcoreapp3.1/LibVLCSharp.WPF.dll",
+        "lib/netcoreapp3.1/LibVLCSharp.WPF.xml",
+        "libvlcsharp.wpf.3.6.7.nupkg.sha512",
+        "libvlcsharp.wpf.nuspec"
+      ]
+    },
     "LiteDB/5.0.15": {
       "sha512": "nucyfCOGSATH553BxplxExP3BOqEwmHt0B57426EIaQjD3CC1Odb52VVCGgTxyYaD2oe3B/cJk8jDo6XiBJqPg==",
       "type": "package",
@@ -693,6 +791,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "LibVLCSharp.WPF >= 3.6.7",
       "LiteDB >= 5.0.15",
       "MaterialDesignThemes >= 4.7.1",
       "NAudio >= 2.1.0",
@@ -739,6 +838,10 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+          "LibVLCSharp.WPF": {
+            "target": "Package",
+            "version": "[3.6.7, )"
+          },
           "LiteDB": {
             "target": "Package",
             "version": "[5.0.15, )"

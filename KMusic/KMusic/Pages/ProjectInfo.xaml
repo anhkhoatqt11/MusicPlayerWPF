@@ -9,6 +9,20 @@
       Title="ProjectInfo">
 
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock FontSize="20" Margin="10" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Thông tin đồ án"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1" Margin="10">
+                <StackPanel>
+                    <TextBlock Text="Đồ án lập trình trực quan IT008"></TextBlock>
+                    <TextBlock Text="Sinh viên thực hiện: Trương Anh Khoa"></TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

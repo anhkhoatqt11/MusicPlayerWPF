@@ -52,10 +52,14 @@
             </materialDesign:Card>
         </Grid>
         <Grid Grid.Row="2">
-            <materialDesign:Card  Grid.Column="1" Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Width="670" Height="200" HorizontalAlignment="Left" Padding="8" UniformCornerRadius="6"  MouseDown="VideoCard_MouseDown" Margin="18,0,0,0">
+            <materialDesign:Card  Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" MouseDown="ProjectInfoCard_MouseDown" Width="670" Height="150" HorizontalAlignment="Left" Padding="8" UniformCornerRadius="6"   Margin="18,0,0,0">
                 <Grid>
-                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" Margin="10"  FontFamily="/Fonts/Inter-Bold.ttf #Inter" FontSize="24" Text="Thông tin về đồ án"  Panel.ZIndex="1" />
-                    <Image Stretch="UniformToFill" Source="/resources/icon/icon.png"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" Margin="10,0,10,10"  FontFamily="/Fonts/Inter-Bold.ttf #Inter" FontSize="24" Text="Thông tin về đồ án"  Panel.ZIndex="1" Grid.ColumnSpan="2" />
+                    <Image Stretch="UniformToFill" Source="/resources/icon/icon.png" Grid.ColumnSpan="2"/>
                 </Grid>
             </materialDesign:Card>
         </Grid>
