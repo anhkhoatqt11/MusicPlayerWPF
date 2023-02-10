@@ -33,6 +33,7 @@
     <None Remove="resources\images\audio_menu.jpg" />
     <None Remove="resources\images\ava.png" />
     <None Remove="resources\images\default.png" />
+    <None Remove="resources\images\playlist_menu.jpg" />
     <None Remove="resources\images\video_menu.jpg" />
   </ItemGroup>
 
@@ -86,6 +87,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="resources\images\default.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\images\playlist_menu.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="resources\images\video_menu.jpg">

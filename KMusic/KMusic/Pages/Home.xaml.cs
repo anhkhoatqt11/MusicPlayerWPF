@@ -39,5 +39,13 @@ namespace KMusic.Pages
             NavButton videoBtn = mainWindow.VideoBtn;
             videoBtn.IsSelected = true;
         }
+
+        private void PlaylistsCard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Playlists.xaml", UriKind.Relative));
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            NavButton playlistBtn = mainWindow.PlaylistBtn;
+            playlistBtn.IsSelected = true;
+        }
     }
 }

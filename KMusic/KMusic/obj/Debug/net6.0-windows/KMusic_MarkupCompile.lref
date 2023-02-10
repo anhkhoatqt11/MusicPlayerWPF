@@ -1,8 +1,12 @@
 ﻿
 FD:\KMusic\KMusic\KMusic\App.xaml;;
 FD:\KMusic\KMusic\KMusic\MainWindow.xaml;;
+FD:\KMusic\KMusic\KMusic\Pages\CreatePlaylist.xaml;;
 FD:\KMusic\KMusic\KMusic\Pages\Home.xaml;;
 FD:\KMusic\KMusic\KMusic\Pages\Music.xaml;;
+FD:\KMusic\KMusic\KMusic\Pages\PlaylistDetail.xaml;;
+FD:\KMusic\KMusic\KMusic\Pages\Playlists.xaml;;
+FD:\KMusic\KMusic\KMusic\Pages\ProjectInfo.xaml;;
 FD:\KMusic\KMusic\KMusic\Pages\Settings.xaml;;
 FD:\KMusic\KMusic\KMusic\Pages\Video.xaml;;
 FD:\KMusic\KMusic\KMusic\Themes\Generic.xaml;;

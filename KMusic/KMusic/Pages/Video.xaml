@@ -34,12 +34,12 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <materialDesign:PackIcon Kind="Search" Margin="4,10,0,0"/>
-            <TextBox x:Name="SearchTextBoxVideo" TextChanged="SearchTextBoxVideo_TextChanged" materialDesign:HintAssist.Hint="Tìm kiếm" Grid.Column="0" Width="320" Height="30"></TextBox>
+            <materialDesign:PackIcon Kind="Search" Margin="15,10,0,0"/>
+            <TextBox x:Name="SearchTextBoxVideo" TextChanged="SearchTextBoxVideo_TextChanged" materialDesign:HintAssist.Hint="Tìm kiếm" Grid.Column="0" Width="300" Height="30"></TextBox>
         </Grid>
         <Grid Grid.Row="2">
             <!-- RowStyle="{DynamicResource DataGridRowStyle1}"-->
-            <DataGrid  x:Name="VideoDataGrid" AutoGeneratingColumn="VideoDataGrid_AutoGeneratingColumn" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="VideoDataGrid_MouseDoubleClick" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+            <DataGrid Background="White"  x:Name="VideoDataGrid" AutoGeneratingColumn="VideoDataGrid_AutoGeneratingColumn" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="VideoDataGrid_MouseDoubleClick" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
             </DataGrid>
         </Grid>
     </Grid>

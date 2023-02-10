@@ -19,7 +19,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <TextBlock  FontSize="20" Margin="20" FontFamily="/Fonts/Inter-Bold.ttf #Inter" Text="Trang chủ"></TextBlock>
@@ -29,7 +30,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="235"></ColumnDefinition>
                 <ColumnDefinition Width="235"></ColumnDefinition>
-                <ColumnDefinition Width="270"></ColumnDefinition>
+                <ColumnDefinition Width="235"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <materialDesign:Card Grid.Column="0" Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Width="200" Padding="8" UniformCornerRadius="6" MouseDown="MusicCard_MouseDown">
                 <Grid>
@@ -41,6 +42,20 @@
                 <Grid>
                     <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" Margin="10"  FontFamily="/Fonts/Inter-Bold.ttf #Inter" FontSize="24" Text="Video"  Panel.ZIndex="1" />
                     <Image Stretch="UniformToFill" Source="/resources/images/video_menu.jpg"/>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card  Grid.Column="2" Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Width="200" Padding="8" UniformCornerRadius="6"  MouseDown="PlaylistsCard_MouseDown">
+                <Grid>
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" Margin="10"  FontFamily="/Fonts/Inter-Bold.ttf #Inter" FontSize="24" Text="Playlíst"  Panel.ZIndex="1" />
+                    <Image Stretch="UniformToFill" Source="/resources/images/playlist_menu.jpg"/>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Row="2">
+            <materialDesign:Card  Grid.Column="1" Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Width="670" Height="200" HorizontalAlignment="Left" Padding="8" UniformCornerRadius="6"  MouseDown="VideoCard_MouseDown" Margin="18,0,0,0">
+                <Grid>
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" Margin="10"  FontFamily="/Fonts/Inter-Bold.ttf #Inter" FontSize="24" Text="Thông tin về đồ án"  Panel.ZIndex="1" />
+                    <Image Stretch="UniformToFill" Source="/resources/icon/icon.png"/>
                 </Grid>
             </materialDesign:Card>
         </Grid>

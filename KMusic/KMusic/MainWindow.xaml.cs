@@ -44,13 +44,6 @@ namespace KMusic
         private int _currentSongIndex = 0;
         private List<MusicFromFolder> _songs;
 
-        private bool _isShuffleEnabled;
-        public bool IsShuffleEnabled
-        {
-            get { return _isShuffleEnabled; }
-            set { _isShuffleEnabled = value; OnPropertyChanged(); }
-        }
-
         private void OnPropertyChanged()
         {
             throw new NotImplementedException();

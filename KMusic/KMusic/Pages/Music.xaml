@@ -34,16 +34,17 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <materialDesign:PackIcon Kind="Search" Margin="4,10,0,0"/>
-            <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged" materialDesign:HintAssist.Hint="Tìm kiếm" Grid.Column="0" Width="320" Height="30"></TextBox>
+            <materialDesign:PackIcon Kind="Search" Margin="15,10,0,0"/>
+            <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged" materialDesign:HintAssist.Hint="Tìm kiếm" Grid.Column="0" Width="300" Height="30"></TextBox>
         </Grid>
         <Grid Grid.Row="2">
             <!-- RowStyle="{DynamicResource DataGridRowStyle1}"-->
 
-            <DataGrid  x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick" AutoGeneratingColumn="MusicDataGrid_AutoGeneratingColumn" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+            <DataGrid  Background="White" x:Name="MusicDataGrid" GridLinesVisibility="All" HeadersVisibility="None" IsReadOnly="True" MouseDoubleClick="MusicDataGrid_MouseDoubleClick"  AutoGeneratingColumn="MusicDataGrid_AutoGeneratingColumn" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
                 <DataGrid.ContextMenu>
-                    <ContextMenu>
+                    <ContextMenu x:Name="ContextMenu">
                         <MenuItem Header="Thêm vào Danh sách chờ" Click="Add_DSP"/>
+                        <MenuItem x:Name="AddToPlaylistMenuItem" Header="Thêm vào Danh sách nhạc" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>

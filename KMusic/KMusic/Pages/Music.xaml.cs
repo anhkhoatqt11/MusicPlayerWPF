@@ -25,6 +25,7 @@ using MessageBox = System.Windows.MessageBox;
 using Application = System.Windows.Application;
 using System.Reflection;
 using System.Collections.ObjectModel;
+using static KMusic.Pages.Playlists;
 
 namespace KMusic.Pages
 {
@@ -37,6 +38,7 @@ namespace KMusic.Pages
         {
             public String Title { get; set; }
             public String Path { get; set; }
+            public Song Song { get; set; }
         }
         public static class Global
         {
@@ -56,6 +58,7 @@ namespace KMusic.Pages
             InitializeComponent();
             DisplayPresetData();
             HideColumn();
+            UpdatePlaylistForContextMenu();
         }
 
         public void GetMusic()
@@ -105,7 +108,7 @@ namespace KMusic.Pages
 
 
                 var file = TagLib.File.Create(cellValue);
- 
+
 
                 if (selectedRow != null)
                 {
@@ -184,6 +187,45 @@ namespace KMusic.Pages
             }
 
              ((DataGridTextColumn)e.Column).ElementStyle = FindResource("DataGridRowWrapStyle") as Style;
+        }
+
+        public void UpdatePlaylistForContextMenu()
+        {
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var playlists = db.GetCollection<Playlist>("playlists").FindAll();
+                foreach (var playlist in playlists)
+                {
+                    MenuItem menuItem = new MenuItem
+                    {
+                        Header = playlist.Name,
+                    };
+                    menuItem.Click += AddToPlaylistMenuItem_Click;
+                    AddToPlaylistMenuItem.Items.Add(menuItem);
+                }
+            }
+        }
+        private void AddToPlaylistMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            string playlistName = menuItem.Header.ToString();
+            MusicFromFolder selectedSong = (MusicFromFolder)MusicDataGrid.SelectedItem;
+
+            using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
+            {
+                var playlists = db.GetCollection<Playlist>("playlists");
+                var playlist = playlists.FindOne(x => x.Name == playlistName);
+
+                if (playlist.Songs.Any(x => x.Title == selectedSong.Title && x.Path == selectedSong.Path))
+                {
+                    MessageBox.Show("The song is already in the playlist.");
+                }
+                else
+                {
+                    playlist.Songs.Add(new Song { Title = selectedSong.Title, Path = selectedSong.Path });
+                    playlists.Update(playlist);
+                }
+            }
         }
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

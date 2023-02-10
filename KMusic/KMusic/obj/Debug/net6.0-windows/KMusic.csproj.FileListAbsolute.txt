@@ -92,3 +92,11 @@ D:\KMusic\KMusic\KMusic\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\KMusic_Content.g.cs
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\VideoPlayerWindow.g.cs
 D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\VideoPlayerWindow.baml
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\Playlists.g.cs
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\Playlists.baml
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\CreatePlaylist.g.cs
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\PlaylistDetail.g.cs
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\ProjectInfo.g.cs
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\CreatePlaylist.baml
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\PlaylistDetail.baml
+D:\KMusic\KMusic\KMusic\obj\Debug\net6.0-windows\Pages\ProjectInfo.baml

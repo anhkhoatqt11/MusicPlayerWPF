@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\KMusic\KMusic\KMusic\App.xaml
-8-233227080
+12-1527892309
 1-913308027
-10-108643019
+14-413127160
 216-435789666
-MainWindow.xaml;Pages\Home.xaml;Pages\Music.xaml;Pages\Settings.xaml;Pages\Video.xaml;Style\DataGrid.xaml;Themes\Generic.xaml;VideoPlayerWindow.xaml;
+MainWindow.xaml;Pages\CreatePlaylist.xaml;Pages\Home.xaml;Pages\Music.xaml;Pages\PlaylistDetail.xaml;Pages\Playlists.xaml;Pages\ProjectInfo.xaml;Pages\Settings.xaml;Pages\Video.xaml;Style\DataGrid.xaml;Themes\Generic.xaml;VideoPlayerWindow.xaml;
 
 False
 

@@ -26,8 +26,6 @@ namespace KMusic.Pages
             public LiteDB.ObjectId _id { get; set; }
             public String Title { get; set; }
             public String Path { get; set; }
-            public bool IsShuffle { get; set; } = false;
-            public bool IsLoop { get; set; } = false;
         }
 
         public class PathFile
@@ -42,24 +40,26 @@ namespace KMusic.Pages
             using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
             {
                 FolderBrowserDialog dlg = new FolderBrowserDialog();
-                dlg.ShowDialog();
-                string DirectoryPath = dlg.SelectedPath;
-                var colpath = db.GetCollection<PathFile>("path");
-                var existingPath = colpath.FindOne(x => x.Path == DirectoryPath);
-                if (existingPath == null)
+                if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    var PatchF = new PathFile
+                    string DirectoryPath = dlg.SelectedPath;
+                    var colpath = db.GetCollection<PathFile>("path");
+                    var existingPath = colpath.FindOne(x => x.Path == DirectoryPath);
+                    if (existingPath == null)
                     {
-                        Path = dlg.SelectedPath,
-                        Type = "Audio",
-                    };
-                    colpath.Insert(PatchF);
-                    var col = db.GetCollection<MusicFromFolder>("music");
-                    GetFilesRecursiveMP3(DirectoryPath, col);
-                }
-                else
-                {
-                    System.Windows.MessageBox.Show("The selected path already exists in the database.");
+                        var PatchF = new PathFile
+                        {
+                            Path = dlg.SelectedPath,
+                            Type = "Audio",
+                        };
+                        colpath.Insert(PatchF);
+                        var col = db.GetCollection<MusicFromFolder>("music");
+                        GetFilesRecursiveMP3(DirectoryPath, col);
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("The selected path already exists in the database.");
+                    }
                 }
             }
             DisplayPathData();
@@ -111,8 +111,8 @@ namespace KMusic.Pages
             using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
             {
                 FolderBrowserDialog dlg = new FolderBrowserDialog();
-                dlg.ShowDialog();
-                string DirectoryPath = dlg.SelectedPath;
+                if (dlg.ShowDialog() == DialogResult.OK) { 
+                    string DirectoryPath = dlg.SelectedPath;
                 var colpath = db.GetCollection<PathFile>("path");
                 var PatchF = new PathFile
                 {
@@ -122,6 +122,7 @@ namespace KMusic.Pages
                 colpath.Insert(PatchF);
                 var col = db.GetCollection<MusicFromFolder>("video");
                 GetFilesRecursiveMP4(DirectoryPath, col);
+            }
             }
             DisplayPathData();
         }
