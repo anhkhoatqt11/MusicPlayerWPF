@@ -24,3 +24,6 @@
 - Tạo playlist, sửa tên
 - Phát nhạc và video trong một thư mục chỉ định và liệt kê các bài hát, video có trong thư mục đó.
 - Add nhạc vào playlist
+### Hình ảnh
+![image](https://user-images.githubusercontent.com/30335268/218247132-e9217446-664c-4f60-8506-39a310d56cff.png)
+
