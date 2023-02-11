@@ -19,7 +19,7 @@
 - IDE: Visual Studio 2022
 - Ngôn ngữ lập trình: C# (Farmework .NET)
 - Flatform: 64bit (x64)
-- GUI: Windows Forms, MaterialDesignTheme
+- GUI: WPF(Windows Presentation Foundation), MaterialDesignTheme
 - Library: NAudio, Ookki.Dialogs.Wpf, -	TagLibSharp
 ### Hình ảnh
 ![image](https://user-images.githubusercontent.com/30335268/218247132-e9217446-664c-4f60-8506-39a310d56cff.png)
